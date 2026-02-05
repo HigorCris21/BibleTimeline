@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB8EFB942F35627400CEE7B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB8EFB922F35627400CEE7B0 /* Assets.xcassets */; };
 		EBB5BAE12F3557CE006185FF /* BibleTimelineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5BADD2F3557CE006185FF /* BibleTimelineApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB8EFB922F35627400CEE7B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBB5BA4E2F35544A006185FF /* BibleTimeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BibleTimeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB5BA5E2F35544C006185FF /* BibleTimelineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleTimelineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB5BA682F35544C006185FF /* BibleTimelineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleTimelineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,27 +37,65 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		EBB5BAE42F3557CE006185FF /* Exceptions for "BibleTimeline" folder in "BibleTimeline" target */ = {
+		EB8EFB9E2F3563EB00CEE7B0 /* Exceptions for "Preview Content" folder in "BibleTimeline" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Assets/Assets.xcassets,
-				"Assets/Preview Content/Preview Assets.xcassets",
-				View/BibleTimeLineView.swift,
+				"Preview Assets.xcassets",
 			);
 			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
 		};
-		EBB5BAE52F3557CE006185FF /* Exceptions for "BibleTimeline" folder in "BibleTimelineTests" target */ = {
+		EB8EFB9F2F3563EB00CEE7B0 /* Exceptions for "Preview Content" folder in "BibleTimelineTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Assets/Assets.xcassets,
-				"Assets/Preview Content/Preview Assets.xcassets",
-				View/BibleTimeLineView.swift,
+				"Preview Assets.xcassets",
+			);
+			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
+		};
+		EB8EFBA62F35641400CEE7B0 /* Exceptions for " Presentation" folder in "BibleTimeline" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Home/HomeView.swift,
+			);
+			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
+		};
+		EB8EFBA72F35641400CEE7B0 /* Exceptions for " Presentation" folder in "BibleTimelineTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Home/HomeView.swift,
 			);
 			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		EB8EFB9C2F3563EB00CEE7B0 /* Preview Content */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EB8EFB9E2F3563EB00CEE7B0 /* Exceptions for "Preview Content" folder in "BibleTimeline" target */,
+				EB8EFB9F2F3563EB00CEE7B0 /* Exceptions for "Preview Content" folder in "BibleTimelineTests" target */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EB8EFBA42F35641400CEE7B0 /*  Presentation */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EB8EFBA62F35641400CEE7B0 /* Exceptions for " Presentation" folder in "BibleTimeline" target */,
+				EB8EFBA72F35641400CEE7B0 /* Exceptions for " Presentation" folder in "BibleTimelineTests" target */,
+			);
+			path = " Presentation";
+			sourceTree = "<group>";
+		};
+		EB8EFBA82F35641700CEE7B0 /* Data */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EB8EFBAE2F35645200CEE7B0 /* Domain */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		EBB5BA612F35544C006185FF /* BibleTimelineTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = BibleTimelineTests;
@@ -64,15 +104,6 @@
 		EBB5BA6B2F35544C006185FF /* BibleTimelineUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = BibleTimelineUITests;
-			sourceTree = "<group>";
-		};
-		EBB5BADF2F3557CE006185FF /* BibleTimeline */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				EBB5BAE42F3557CE006185FF /* Exceptions for "BibleTimeline" folder in "BibleTimeline" target */,
-				EBB5BAE52F3557CE006185FF /* Exceptions for "BibleTimeline" folder in "BibleTimelineTests" target */,
-			);
-			path = BibleTimeline;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -102,11 +133,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EBB5BA452F35544A006185FF = {
+		EB8EFB992F3563C200CEE7B0 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				EBB5BADD2F3557CE006185FF /* BibleTimelineApp.swift */,
-				EBB5BADF2F3557CE006185FF /* BibleTimeline */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		EB8EFB9A2F3563D800CEE7B0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EB8EFB922F35627400CEE7B0 /* Assets.xcassets */,
+				EB8EFB9C2F3563EB00CEE7B0 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EBB5BA452F35544A006185FF = {
+			isa = PBXGroup;
+			children = (
+				EB8EFB992F3563C200CEE7B0 /* App */,
+				EB8EFBAE2F35645200CEE7B0 /* Domain */,
+				EB8EFBA42F35641400CEE7B0 /*  Presentation */,
+				EB8EFB9A2F3563D800CEE7B0 /* Resources */,
+				EB8EFBA82F35641700CEE7B0 /* Data */,
 				EBB5BA612F35544C006185FF /* BibleTimelineTests */,
 				EBB5BA6B2F35544C006185FF /* BibleTimelineUITests */,
 				EBB5BA4F2F35544A006185FF /* Products */,
@@ -159,8 +210,10 @@
 				EBB5BA602F35544C006185FF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				EB8EFB9C2F3563EB00CEE7B0 /* Preview Content */,
+				EB8EFBA42F35641400CEE7B0 /*  Presentation */,
+				EB8EFBA82F35641700CEE7B0 /* Data */,
 				EBB5BA612F35544C006185FF /* BibleTimelineTests */,
-				EBB5BADF2F3557CE006185FF /* BibleTimeline */,
 			);
 			name = BibleTimelineTests;
 			packageProductDependencies = (
@@ -183,6 +236,7 @@
 				EBB5BA6A2F35544C006185FF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				EB8EFBAE2F35645200CEE7B0 /* Domain */,
 				EBB5BA6B2F35544C006185FF /* BibleTimelineUITests */,
 			);
 			name = BibleTimelineUITests;
@@ -241,6 +295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB8EFB942F35627400CEE7B0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

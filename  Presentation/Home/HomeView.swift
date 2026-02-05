@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BibleTimeLineView: View {
+struct HomeView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +20,5 @@ struct BibleTimeLineView: View {
 }
 
 #Preview {
-    BibleTimeLineView()
+    HomeView()
 }

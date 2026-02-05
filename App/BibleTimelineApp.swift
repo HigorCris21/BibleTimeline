@@ -11,7 +11,7 @@ import SwiftUI
 struct BibleTimelineApp: App {
     var body: some Scene {
         WindowGroup {
-            BibleTimeLineView()
+            HomeView()
         }
     }
 }
