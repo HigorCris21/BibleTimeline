@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EBB5BAE12F3557CE006185FF /* BibleTimelineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5BADD2F3557CE006185FF /* BibleTimelineApp.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		EBB5BA5F2F35544C006185FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,14 +31,31 @@
 		EBB5BA4E2F35544A006185FF /* BibleTimeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BibleTimeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB5BA5E2F35544C006185FF /* BibleTimelineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleTimelineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB5BA682F35544C006185FF /* BibleTimelineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleTimelineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBB5BADD2F3557CE006185FF /* BibleTimelineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleTimelineApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		EBB5BA502F35544A006185FF /* BibleTimeline */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BibleTimeline;
-			sourceTree = "<group>";
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EBB5BAE42F3557CE006185FF /* Exceptions for "BibleTimeline" folder in "BibleTimeline" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets/Assets.xcassets,
+				"Assets/Preview Content/Preview Assets.xcassets",
+				View/BibleTimeLineView.swift,
+			);
+			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
 		};
+		EBB5BAE52F3557CE006185FF /* Exceptions for "BibleTimeline" folder in "BibleTimelineTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets/Assets.xcassets,
+				"Assets/Preview Content/Preview Assets.xcassets",
+				View/BibleTimeLineView.swift,
+			);
+			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
 		EBB5BA612F35544C006185FF /* BibleTimelineTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = BibleTimelineTests;
@@ -43,6 +64,15 @@
 		EBB5BA6B2F35544C006185FF /* BibleTimelineUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = BibleTimelineUITests;
+			sourceTree = "<group>";
+		};
+		EBB5BADF2F3557CE006185FF /* BibleTimeline */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EBB5BAE42F3557CE006185FF /* Exceptions for "BibleTimeline" folder in "BibleTimeline" target */,
+				EBB5BAE52F3557CE006185FF /* Exceptions for "BibleTimeline" folder in "BibleTimelineTests" target */,
+			);
+			path = BibleTimeline;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,7 +105,8 @@
 		EBB5BA452F35544A006185FF = {
 			isa = PBXGroup;
 			children = (
-				EBB5BA502F35544A006185FF /* BibleTimeline */,
+				EBB5BADD2F3557CE006185FF /* BibleTimelineApp.swift */,
+				EBB5BADF2F3557CE006185FF /* BibleTimeline */,
 				EBB5BA612F35544C006185FF /* BibleTimelineTests */,
 				EBB5BA6B2F35544C006185FF /* BibleTimelineUITests */,
 				EBB5BA4F2F35544A006185FF /* Products */,
@@ -107,9 +138,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				EBB5BA502F35544A006185FF /* BibleTimeline */,
-			);
 			name = BibleTimeline;
 			packageProductDependencies = (
 			);
@@ -132,6 +160,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				EBB5BA612F35544C006185FF /* BibleTimelineTests */,
+				EBB5BADF2F3557CE006185FF /* BibleTimeline */,
 			);
 			name = BibleTimelineTests;
 			packageProductDependencies = (
@@ -236,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBB5BAE12F3557CE006185FF /* BibleTimelineApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
