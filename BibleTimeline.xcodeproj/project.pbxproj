@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EB8EFB942F35627400CEE7B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB8EFB922F35627400CEE7B0 /* Assets.xcassets */; };
+		EB8EFBBE2F3572F000CEE7B0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8EFBB02F356F8200CEE7B0 /* Theme.swift */; };
 		EBB5BAE12F3557CE006185FF /* BibleTimelineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5BADD2F3557CE006185FF /* BibleTimelineApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		EB8EFB922F35627400CEE7B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB8EFBB02F356F8200CEE7B0 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		EBB5BA4E2F35544A006185FF /* BibleTimeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BibleTimeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB5BA5E2F35544C006185FF /* BibleTimelineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleTimelineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB5BA682F35544C006185FF /* BibleTimelineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleTimelineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,19 +53,25 @@
 			);
 			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
 		};
-		EB8EFBA62F35641400CEE7B0 /* Exceptions for " Presentation" folder in "BibleTimeline" target */ = {
+		EB8EFBBF2F35738E00CEE7B0 /* Exceptions for " Presentation" folder in "BibleTimelineTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Home/Explore/ExploreView.swift,
+				Home/Explore/SeachView.swift,
 				Home/HomeView.swift,
-			);
-			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
-		};
-		EB8EFBA72F35641400CEE7B0 /* Exceptions for " Presentation" folder in "BibleTimelineTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Home/HomeView.swift,
+				Home/RootTabView.swift,
 			);
 			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
+		};
+		EB8EFBC12F35739300CEE7B0 /* Exceptions for " Presentation" folder in "BibleTimeline" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Home/Explore/ExploreView.swift,
+				Home/Explore/SeachView.swift,
+				Home/HomeView.swift,
+				Home/RootTabView.swift,
+			);
+			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -80,8 +88,8 @@
 		EB8EFBA42F35641400CEE7B0 /*  Presentation */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				EB8EFBA62F35641400CEE7B0 /* Exceptions for " Presentation" folder in "BibleTimeline" target */,
-				EB8EFBA72F35641400CEE7B0 /* Exceptions for " Presentation" folder in "BibleTimelineTests" target */,
+				EB8EFBC12F35739300CEE7B0 /* Exceptions for " Presentation" folder in "BibleTimeline" target */,
+				EB8EFBBF2F35738E00CEE7B0 /* Exceptions for " Presentation" folder in "BibleTimelineTests" target */,
 			);
 			path = " Presentation";
 			sourceTree = "<group>";
@@ -150,9 +158,18 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		EB8EFBAF2F356F2E00CEE7B0 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				EB8EFBB02F356F8200CEE7B0 /* Theme.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
 		EBB5BA452F35544A006185FF = {
 			isa = PBXGroup;
 			children = (
+				EB8EFBAF2F356F2E00CEE7B0 /* DesignSystem */,
 				EB8EFB992F3563C200CEE7B0 /* App */,
 				EB8EFBAE2F35645200CEE7B0 /* Domain */,
 				EB8EFBA42F35641400CEE7B0 /*  Presentation */,
@@ -321,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBB5BAE12F3557CE006185FF /* BibleTimelineApp.swift in Sources */,
+				EB8EFBBE2F3572F000CEE7B0 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
