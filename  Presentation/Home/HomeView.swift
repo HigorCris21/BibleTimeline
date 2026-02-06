@@ -28,6 +28,15 @@ struct HomeView: View {
     }
 }
 
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+    }
+}
+
+
+
 // MARK: - Sections
 private extension HomeView {
 
@@ -117,7 +126,7 @@ private extension HomeView {
                         .font(.headline)
                         .foregroundStyle(Theme.primaryText)
 
-                    Text("Comece pelo Evangelho de Marcos e avance cronologicamente.")
+                    Text("Comece a leitura cronológica")
                         .font(.subheadline)
                         .foregroundStyle(Theme.secondaryText)
                         .fixedSize(horizontal: false, vertical: true)
