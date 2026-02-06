@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		EB18C0822F363B6A003FAD52 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18C07B2F363B6A003FAD52 /* RootTabView.swift */; };
+		EB1F10E32F366CFF008B65E9 /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1F10E22F366CF3008B65E9 /* SectionTitle.swift */; };
+		EB1F10E62F366D88008B65E9 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1F10E52F366D82008B65E9 /* ViewModifiers.swift */; };
+		EB1F10EA2F366DB9008B65E9 /* ReferenceChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1F10E92F366DAD008B65E9 /* ReferenceChip.swift */; };
+		EB1F10F22F36703E008B65E9 /* PrimaryCTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1F10E72F366D9E008B65E9 /* PrimaryCTAButton.swift */; };
 		EB8EFB942F35627400CEE7B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB8EFB922F35627400CEE7B0 /* Assets.xcassets */; };
 		EB8EFBBE2F3572F000CEE7B0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8EFBB02F356F8200CEE7B0 /* Theme.swift */; };
 		EBB5BAE12F3557CE006185FF /* BibleTimelineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5BADD2F3557CE006185FF /* BibleTimelineApp.swift */; };
@@ -32,6 +36,10 @@
 
 /* Begin PBXFileReference section */
 		EB18C07B2F363B6A003FAD52 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		EB1F10E22F366CF3008B65E9 /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
+		EB1F10E52F366D82008B65E9 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		EB1F10E72F366D9E008B65E9 /* PrimaryCTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryCTAButton.swift; sourceTree = "<group>"; };
+		EB1F10E92F366DAD008B65E9 /* ReferenceChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceChip.swift; sourceTree = "<group>"; };
 		EB8EFB922F35627400CEE7B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB8EFBB02F356F8200CEE7B0 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		EBB5BA4E2F35544A006185FF /* BibleTimeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BibleTimeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +49,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EB1F10DF2F366B70008B65E9 /* Exceptions for " Presentation" folder in "BibleTimelineTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Home/HomeComponents/HeroHeader.swift,
+				Home/HomeComponents/StartReadingCard.swift,
+				Home/HomeComponents/VerseOfDayCard.swift,
+			);
+			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
+		};
 		EB8EFB9E2F3563EB00CEE7B0 /* Exceptions for "Preview Content" folder in "BibleTimeline" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -59,8 +76,11 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Explore/ExploreView.swift,
-				Home/HomeView.swift,
-				Home/HomeViewModel.swift,
+				Home/HomeComponents/HeroHeader.swift,
+				Home/HomeComponents/StartReadingCard.swift,
+				Home/HomeComponents/VerseOfDayCard.swift,
+				Home/HomeView/HomeView.swift,
+				Home/HomeViewModel/HomeViewModel.swift,
 				Search/SeachView.swift,
 			);
 			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
@@ -86,6 +106,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				EB8EFBC12F35739300CEE7B0 /* Exceptions for " Presentation" folder in "BibleTimeline" target */,
+				EB1F10DF2F366B70008B65E9 /* Exceptions for " Presentation" folder in "BibleTimelineTests" target */,
 			);
 			path = " Presentation";
 			sourceTree = "<group>";
@@ -140,6 +161,25 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		EB1F10E12F366B9B008B65E9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EB1F10E92F366DAD008B65E9 /* ReferenceChip.swift */,
+				EB1F10E72F366D9E008B65E9 /* PrimaryCTAButton.swift */,
+				EB1F10E22F366CF3008B65E9 /* SectionTitle.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EB1F10E42F366D71008B65E9 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				EB1F10E52F366D82008B65E9 /* ViewModifiers.swift */,
+				EB8EFBB02F356F8200CEE7B0 /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		EB8EFB992F3563C200CEE7B0 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,7 +201,8 @@
 		EB8EFBAF2F356F2E00CEE7B0 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
-				EB8EFBB02F356F8200CEE7B0 /* Theme.swift */,
+				EB1F10E42F366D71008B65E9 /* Theme */,
+				EB1F10E12F366B9B008B65E9 /* Components */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -337,9 +378,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB1F10EA2F366DB9008B65E9 /* ReferenceChip.swift in Sources */,
 				EBB5BAE12F3557CE006185FF /* BibleTimelineApp.swift in Sources */,
 				EB8EFBBE2F3572F000CEE7B0 /* Theme.swift in Sources */,
+				EB1F10E32F366CFF008B65E9 /* SectionTitle.swift in Sources */,
 				EB18C0822F363B6A003FAD52 /* RootTabView.swift in Sources */,
+				EB1F10E62F366D88008B65E9 /* ViewModifiers.swift in Sources */,
+				EB1F10F22F36703E008B65E9 /* PrimaryCTAButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
