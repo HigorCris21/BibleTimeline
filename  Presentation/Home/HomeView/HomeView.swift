@@ -5,16 +5,20 @@
 
 import SwiftUI
 
+
+
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
-    @State private var isReadingPresented = false
+
+    // Route tipada (substitui o Bool)
+    @State private var readingPosition: ReadingPosition?
 
     var body: some View {
         NavigationStack {
             content
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationDestination(isPresented: $isReadingPresented) {
-                    ReadingView(position: .mark1)
+                .navigationDestination(item: $readingPosition) { position in
+                    ReadingView(position: position)
                 }
         }
         .appScreenBackground()
@@ -106,10 +110,11 @@ private extension HomeView {
 
                 HeroHeader(
                     title: "Bom dia, Higor",
-                    subtitle: "Leia a Bíblia em ordem cronológica, sem perder o fio da narrativa.",
-                    ctaTitle: first?.title ?? "Continuar leitura",
+                    subtitle: "Você está no início da narrativa.",
+                    ctaTitle: first?.title ?? "Continuar",
                     onTapCTA: {
-                        isReadingPresented = true
+                        // Passo 3: abre leitura (mock). Depois você troca por “onde parei”.
+                        readingPosition = .mark1
                     }
                 )
 
@@ -119,6 +124,8 @@ private extension HomeView {
                     reference: "Marcos 1:15",
                     verse: "“O tempo está cumprido, e o reino de Deus está próximo; arrependei-vos e crede no evangelho.”",
                     onTap: {
+                        // Se quiser abrir no contexto do verso:
+                        // readingPosition = ReadingPosition(book: "Marcos", chapter: 1, verse: 15)
                         print("Open verse context")
                     }
                 )
@@ -127,7 +134,7 @@ private extension HomeView {
 
                 StartReadingCard(
                     onTap: {
-                        isReadingPresented = true
+                        readingPosition = .mark1
                     }
                 )
             }

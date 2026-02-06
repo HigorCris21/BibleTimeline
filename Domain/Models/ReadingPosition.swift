@@ -7,10 +7,12 @@
 
 import Foundation
 
-struct ReadingPosition: Hashable, Codable {
+struct ReadingPosition: Hashable, Codable, Identifiable {
     var book: String
     var chapter: Int
     var verse: Int?
+
+    var id: String { "\(book)-\(chapter)-\(verse ?? 0)" }
 
     static let mark1 = ReadingPosition(book: "Marcos", chapter: 1, verse: nil)
 
@@ -19,3 +21,4 @@ struct ReadingPosition: Hashable, Codable {
         return "\(book) \(chapter)"
     }
 }
+

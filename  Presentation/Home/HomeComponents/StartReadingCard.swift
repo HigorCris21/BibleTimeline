@@ -7,6 +7,13 @@
 
 
 
+//
+//  StartReadingCard.swift
+//  BibleTimelineApp
+//
+//  Created by Higor  Lo Castro on 06/02/26.
+//
+
 import SwiftUI
 
 struct StartReadingCard: View {
@@ -15,10 +22,10 @@ struct StartReadingCard: View {
     let icon: String
     let buttonTitle: String
     let onTap: () -> Void
-    
+
     init(
-        title: String = "Início da narrativa",
-        subtitle: String = "Comece a leitura cronológica",
+        title: String = "Começar leitura cronológica",
+        subtitle: String = "Leia do começo ao fim, sem perder o fio da narrativa.",
         icon: String = "book.fill",
         buttonTitle: String = "Começar agora",
         onTap: @escaping () -> Void
@@ -29,30 +36,30 @@ struct StartReadingCard: View {
         self.buttonTitle = buttonTitle
         self.onTap = onTap
     }
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            HStack {
+            HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(title)
                         .font(.headline)
                         .foregroundStyle(Theme.primaryText)
-                    
+
                     Text(subtitle)
                         .font(.subheadline)
                         .foregroundStyle(Theme.secondaryText)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                
+
                 Spacer()
-                
+
                 Image(systemName: icon)
                     .foregroundStyle(Theme.accent)
             }
-            
+
             Divider()
                 .opacity(0.25)
-            
+
             Button(action: onTap) {
                 HStack {
                     Text(buttonTitle)
