@@ -110,8 +110,8 @@ private extension HomeView {
 
                 HeroHeader(
                     title: "Bom dia, Higor",
-                    subtitle: "Você está no início da narrativa.",
-                    ctaTitle: first?.title ?? "Continuar",
+                    subtitle: "Você ainda não iniciou a leitura cronológica.",
+                    ctaTitle: "Continuar",
                     onTapCTA: {
                         // Passo 3: abre leitura (mock). Depois você troca por “onde parei”.
                         readingPosition = .mark1
