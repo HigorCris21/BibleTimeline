@@ -1,0 +1,61 @@
+
+[
+  {
+    "id": 1,
+    "title": "Início do Evangelho",
+    "references": [
+      {
+        "book": "mc",
+        "chapter": 1
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "O batismo de Jesus",
+    "references": [
+      {
+        "book": "mc",
+        "chapter": 1,
+        "startVerse": 9,
+        "endVerse": 11
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "A tentação no deserto",
+    "references": [
+      {
+        "book": "mc",
+        "chapter": 1,
+        "startVerse": 12,
+        "endVerse": 13
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "O início do ministério na Galileia",
+    "references": [
+      {
+        "book": "mc",
+        "chapter": 1,
+        "startVerse": 14,
+        "endVerse": 15
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "O chamado dos primeiros discípulos",
+    "references": [
+      {
+        "book": "mc",
+        "chapter": 1,
+        "startVerse": 16,
+        "endVerse": 20
+      }
+    ]
+  }
+]
