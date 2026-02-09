@@ -1,5 +1,5 @@
 //
-//  ReadingViewlModel.swift
+//  ReadingView.swift
 //  BibleTimeline
 //
 //  Created by Higor  Lo Castro on 06/02/26.
@@ -7,73 +7,49 @@
 
 import SwiftUI
 
-@MainActor
-final class ReadingViewModel: ObservableObject {
-
-    enum State: Equatable {
-        case loading
-        case loaded(reference: String, text: String)
-        case error(message: String)
-    }
-
-    @Published private(set) var state: State = .loading
-    @Published private(set) var position: ReadingPosition
-
-    private let service: BibleTextService
-
-    init(
-        position: ReadingPosition,
-        service: BibleTextService = MockBibleTextService()
-    ) {
-        self.position = position
-        self.service = service
-        Task { await load() }
-    }
-
-    func load() async {
-        state = .loading
-        do {
-            let response = try await service.fetchText(position: position)
-            state = .loaded(reference: response.reference, text: response.text)
-        } catch {
-            state = .error(message: "Não foi possível carregar o texto.")
-        }
-    }
-
-    func nextChapter() {
-        position.chapter += 1
-        Task { await load() }
-    }
-
-    func previousChapter() {
-        position.chapter = max(1, position.chapter - 1)
-        Task { await load() }
-    }
-}
-
 struct ReadingView: View {
+
+    // MARK: - State
     @StateObject private var vm: ReadingViewModel
 
+    // MARK: - Init
     init(position: ReadingPosition) {
-        _vm = StateObject(wrappedValue: ReadingViewModel(position: position))
+        _vm = StateObject(
+            wrappedValue: ReadingViewModel(position: position)
+        )
     }
 
+    // MARK: - Body
     var body: some View {
         content
-            .navigationTitle("Leitura")
+            .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
-                    Button("Anterior") { vm.previousChapter() }
+                    Button("Anterior") {
+                        vm.previousChapter()
+                    }
                     Spacer()
-                    Button("Próximo") { vm.nextChapter() }
+                    Button("Próximo") {
+                        vm.nextChapter()
+                    }
                 }
+            }
+            .task {
+                vm.load()
             }
     }
 
+    // MARK: - Title
+    private var title: String {
+        "\(vm.position.book) \(vm.position.chapter)"
+    }
+
+    // MARK: - Content
     @ViewBuilder
     private var content: some View {
         switch vm.state {
+
         case .loading:
             ProgressView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -98,10 +74,12 @@ struct ReadingView: View {
                 Text("Erro")
                     .font(.title3)
                     .fontWeight(.semibold)
+
                 Text(message)
                     .multilineTextAlignment(.center)
+
                 Button("Tentar novamente") {
-                    Task { await vm.load() }
+                    vm.load()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
