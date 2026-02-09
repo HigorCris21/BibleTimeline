@@ -2,14 +2,7 @@
 //  HomeView.swift
 //  BibleTimelineApp
 //
-//
-//  HomeView.swift
-//  BibleTimelineApp
-//
-//
-//  HomeView.swift
-//  BibleTimelineApp
-//
+
 
 import SwiftUI
 
@@ -143,7 +136,7 @@ private extension HomeView {
                 SectionTitle("Leitura")
 
                 StartReadingCard(
-                    onTap: openLastReadingOrFallback
+                    onTap: startNewReading
                 )
             }
             .padding(.horizontal, 16)
@@ -153,13 +146,25 @@ private extension HomeView {
     }
 }
 
-// MARK: - Actions
-private extension HomeView {
+    // MARK: - Actions
+    private extension HomeView {
 
-    var openLastReadingOrFallback: () -> Void {
-        {
-            let fallback = ReadingPosition(book: "Marcos", chapter: 1, verse: nil)
-            readingPosition = lastReadingPosition ?? fallback
+        var openLastReadingOrFallback: () -> Void {
+            {
+                let fallback = ReadingPosition(book: "Marcos", chapter: 1, verse: nil)
+                readingPosition = lastReadingPosition ?? fallback
+            }
+        }
+
+        var startNewReading: () -> Void {
+            {
+                // Sempre começa do zero (você pode escolher outro "início" depois)
+                readingPosition = ReadingPosition(book: "Marcos", chapter: 1, verse: nil)
+
+                // (Opcional) Se você quiser que "Começar agora" realmente zere o progresso salvo:
+                lastReadingPositionData = Data()
+            }
         }
     }
-}
+
+
