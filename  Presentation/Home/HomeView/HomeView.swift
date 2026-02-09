@@ -2,17 +2,21 @@
 //  HomeView.swift
 //  BibleTimelineApp
 //
+//
+//  HomeView.swift
+//  BibleTimelineApp
+//
 
 import SwiftUI
 
-
-
 struct HomeView: View {
+    // MARK: - State
     @StateObject private var viewModel = HomeViewModel()
 
     // Route tipada (substitui o Bool)
     @State private var readingPosition: ReadingPosition?
 
+    // MARK: - View
     var body: some View {
         NavigationStack {
             content
@@ -31,7 +35,7 @@ struct HomeView: View {
     }
 }
 
-// MARK: - State-driven UI
+// MARK: - State Routing (State-driven UI)
 private extension HomeView {
 
     @ViewBuilder
@@ -49,9 +53,10 @@ private extension HomeView {
     }
 }
 
-// MARK: - Subviews
+// MARK: - State Views (Renderers)
 private extension HomeView {
 
+    // MARK: Loading
     var loadingView: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 18) {
@@ -73,6 +78,7 @@ private extension HomeView {
         }
     }
 
+    // MARK: Error
     func errorView(message: String) -> some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 12) {
@@ -102,8 +108,9 @@ private extension HomeView {
         }
     }
 
+    // MARK: Loaded
     func loadedView(items: [ChronologyItem]) -> some View {
-        let first = items.first
+        let first = items.first // (se não for usar, pode remover)
 
         return ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 18) {
