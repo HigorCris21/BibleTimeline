@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ReadingPosition: Hashable, Codable, Identifiable {
+struct ReadingPosition: Codable, Hashable, Identifiable {
     var book: String
     var chapter: Int
     var verse: Int?

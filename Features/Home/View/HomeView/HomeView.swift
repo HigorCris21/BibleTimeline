@@ -6,17 +6,26 @@
 //  HomeView.swift
 //  BibleTimelineApp
 //
+//
+//  HomeView.swift
+//  BibleTimelineApp
+//
 
 import SwiftUI
 
 struct HomeView: View {
-    // MARK: - State
     @StateObject private var viewModel = HomeViewModel()
-
-    // Route tipada (substitui o Bool)
     @State private var readingPosition: ReadingPosition?
 
-    // MARK: - View
+    // MARK: - Persistence
+    @AppStorage(AppStorageKeys.lastReadingPosition)
+    private var lastReadingPositionData: Data = Data()
+
+    // MARK: - Derived
+    private var lastReadingPosition: ReadingPosition? {
+        try? JSONDecoder().decode(ReadingPosition.self, from: lastReadingPositionData)
+    }
+
     var body: some View {
         NavigationStack {
             content
@@ -27,7 +36,7 @@ struct HomeView: View {
         }
         .appScreenBackground()
         .task {
-            // Garante que não recarrega se a View for recriada em algum cenário.
+            // Evita recarregar se a View for recriada.
             if case .loading = viewModel.state {
                 viewModel.load()
             }
@@ -110,19 +119,14 @@ private extension HomeView {
 
     // MARK: Loaded
     func loadedView(items: [ChronologyItem]) -> some View {
-        let first = items.first // (se não for usar, pode remover)
-
-        return ScrollView(showsIndicators: false) {
+        ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 18) {
 
                 HeroHeader(
                     title: "Bom dia, Higor",
-                    subtitle: "Você ainda não iniciou a leitura cronológica.",
-                    ctaTitle: "Continuar",
-                    onTapCTA: {
-                        // Passo 3: abre leitura (mock). Depois você troca por “onde parei”.
-                        readingPosition = .mark1
-                    }
+                    subtitle: "Leia a Bíblia em ordem cronológica, sem perder o fio da narrativa.",
+                    ctaTitle: "Continuar leitura",
+                    onTapCTA: openLastReadingOrFallback
                 )
 
                 SectionTitle("Hoje")
@@ -133,21 +137,29 @@ private extension HomeView {
                     onTap: {
                         // Se quiser abrir no contexto do verso:
                         // readingPosition = ReadingPosition(book: "Marcos", chapter: 1, verse: 15)
-                        print("Open verse context")
                     }
                 )
 
                 SectionTitle("Leitura")
 
                 StartReadingCard(
-                    onTap: {
-                        readingPosition = .mark1
-                    }
+                    onTap: openLastReadingOrFallback
                 )
             }
             .padding(.horizontal, 16)
             .padding(.top, 12)
             .padding(.bottom, 32)
+        }
+    }
+}
+
+// MARK: - Actions
+private extension HomeView {
+
+    var openLastReadingOrFallback: () -> Void {
+        {
+            let fallback = ReadingPosition(book: "Marcos", chapter: 1, verse: nil)
+            readingPosition = lastReadingPosition ?? fallback
         }
     }
 }
