@@ -128,8 +128,7 @@ private extension HomeView {
                     reference: "Marcos 1:15",
                     verse: "“O tempo está cumprido, e o reino de Deus está próximo; arrependei-vos e crede no evangelho.”",
                     onTap: {
-                        // Se quiser abrir no contexto do verso:
-                        // readingPosition = ReadingPosition(book: "Marcos", chapter: 1, verse: 15)
+                       
                     }
                 )
 

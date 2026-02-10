@@ -52,6 +52,7 @@
 				Models/ChronologyItem.swift,
 				Models/ReadingPosition.swift,
 				Models/ReferenceRange.swift,
+				Navigation/ReadingRoute.swift,
 				Repositories/BibleTextService.swift,
 				Repositories/ChronologyLoading.swift,
 			);
@@ -90,16 +91,10 @@
 		EBAE54F72F3A84C500738FDD /* Exceptions for "Explore" folder in "BibleTimeline" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ViewModel/ExploreViewModel.swift,
 				Views/ExploreView.swift,
 			);
 			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
-		};
-		EBAE54F82F3A84C500738FDD /* Exceptions for "Explore" folder in "BibleTimelineTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Views/ExploreView.swift,
-			);
-			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
 		};
 		EBAE54FC2F3A84C500738FDD /* Exceptions for "Reading" folder in "BibleTimeline" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -112,7 +107,6 @@
 		EBAE54FD2F3A84C500738FDD /* Exceptions for "Reading" folder in "BibleTimelineTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				View/ReadingView.swift,
 				ViewModel/ReadingViewlModel.swift,
 			);
 			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
@@ -190,7 +184,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				EBAE54F72F3A84C500738FDD /* Exceptions for "Explore" folder in "BibleTimeline" target */,
-				EBAE54F82F3A84C500738FDD /* Exceptions for "Explore" folder in "BibleTimelineTests" target */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
