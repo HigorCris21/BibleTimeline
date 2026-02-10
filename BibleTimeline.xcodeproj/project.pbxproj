@@ -17,6 +17,10 @@
 		EBAE55582F3A927F00738FDD /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE55562F3A926400738FDD /* AppStorageKeys.swift */; };
 		EBD7798A2F3BE2D700FE72BD /* BookNameResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD779892F3BE2CE00FE72BD /* BookNameResolver.swift */; };
 		EBD7798B2F3BE2D700FE72BD /* BookNameResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD779892F3BE2CE00FE72BD /* BookNameResolver.swift */; };
+		EBD779982F3BF70200FE72BD /* APIBibleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD779972F3BF6F500FE72BD /* APIBibleConfig.swift */; };
+		EBD779992F3BF70200FE72BD /* APIBibleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD779972F3BF6F500FE72BD /* APIBibleConfig.swift */; };
+		EBD779C22F3BFBE000FE72BD /* PassageDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD779C12F3BFBD600FE72BD /* PassageDecoder.swift */; };
+		EBD779C32F3BFBE000FE72BD /* PassageDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD779C12F3BFBD600FE72BD /* PassageDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,8 @@
 		EBB5BA5E2F35544C006185FF /* BibleTimelineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleTimelineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB5BA682F35544C006185FF /* BibleTimelineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleTimelineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBD779892F3BE2CE00FE72BD /* BookNameResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNameResolver.swift; sourceTree = "<group>"; };
+		EBD779972F3BF6F500FE72BD /* APIBibleConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBibleConfig.swift; sourceTree = "<group>"; };
+		EBD779C12F3BFBD600FE72BD /* PassageDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -242,6 +248,16 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		EBD7799F2F3BFAB800FE72BD /* HTTP */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		EBD779AA2F3BFB2300FE72BD /* APIBible */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = APIBible;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +296,9 @@
 		EB1F110E2F368935008B65E9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EBD779C02F3BFBCB00FE72BD /* Decoders */,
+				EBD779AA2F3BFB2300FE72BD /* APIBible */,
+				EBD7799F2F3BFAB800FE72BD /* HTTP */,
 				EB1F110F2F368953008B65E9 /* Repositories */,
 			);
 			path = Data;
@@ -318,6 +337,7 @@
 		EBAE55542F3A921C00738FDD /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				EBD779972F3BF6F500FE72BD /* APIBibleConfig.swift */,
 				EBD779892F3BE2CE00FE72BD /* BookNameResolver.swift */,
 				EBAE55552F3A925000738FDD /* Storage */,
 			);
@@ -359,6 +379,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		EBD779C02F3BFBCB00FE72BD /* Decoders */ = {
+			isa = PBXGroup;
+			children = (
+				EBD779C12F3BFBD600FE72BD /* PassageDecoder.swift */,
+			);
+			path = Decoders;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -373,6 +401,10 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				EBD7799F2F3BFAB800FE72BD /* HTTP */,
+				EBD779AA2F3BFB2300FE72BD /* APIBible */,
 			);
 			name = BibleTimeline;
 			packageProductDependencies = (
@@ -398,6 +430,8 @@
 				EB18C09B2F36414C003FAD52 /* Domain */,
 				EB8EFB9C2F3563EB00CEE7B0 /* Preview Content */,
 				EBB5BA612F35544C006185FF /* BibleTimelineTests */,
+				EBD7799F2F3BFAB800FE72BD /* HTTP */,
+				EBD779AA2F3BFB2300FE72BD /* APIBible */,
 			);
 			name = BibleTimelineTests;
 			packageProductDependencies = (
@@ -504,7 +538,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD779982F3BF70200FE72BD /* APIBibleConfig.swift in Sources */,
 				EBD7798B2F3BE2D700FE72BD /* BookNameResolver.swift in Sources */,
+				EBD779C32F3BFBE000FE72BD /* PassageDecoder.swift in Sources */,
 				EB1F11142F368996008B65E9 /* MockBibleTextService.swift in Sources */,
 				EB1F11292F368BB5008B65E9 /* ChronologyLoader.swift in Sources */,
 				EBAE55572F3A927F00738FDD /* AppStorageKeys.swift in Sources */,
@@ -515,7 +551,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD779992F3BF70200FE72BD /* APIBibleConfig.swift in Sources */,
 				EB1F11152F368996008B65E9 /* MockBibleTextService.swift in Sources */,
+				EBD779C22F3BFBE000FE72BD /* PassageDecoder.swift in Sources */,
 				EBAE55582F3A927F00738FDD /* AppStorageKeys.swift in Sources */,
 				EB1F112A2F368BB5008B65E9 /* ChronologyLoader.swift in Sources */,
 				EBD7798A2F3BE2D700FE72BD /* BookNameResolver.swift in Sources */,
