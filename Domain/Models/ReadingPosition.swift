@@ -7,18 +7,26 @@
 
 import Foundation
 
+// MARK: - ReadingPosition
+/// Ponto exato de leitura.
 struct ReadingPosition: Codable, Hashable, Identifiable {
-    var book: String
+
+    // MARK: Domain IDs
+    var book: String      // USFM: MAT/MRK/LUK/JHN (por enquanto)
     var chapter: Int
     var verse: Int?
 
+    // MARK: Identifiable
     var id: String { "\(book)-\(chapter)-\(verse ?? 0)" }
 
-    static let mark1 = ReadingPosition(book: "Marcos", chapter: 1, verse: nil)
+    // MARK: Defaults
+    static let mark1 = ReadingPosition(book: "MRK", chapter: 1, verse: nil)
 
+    // MARK: UI
     var title: String {
-        if let verse { return "\(book) \(chapter):\(verse)" }
-        return "\(book) \(chapter)"
+        let bookName = BookNameResolver.displayName(for: book)
+        if let verse { return "\(bookName) \(chapter):\(verse)" }
+        return "\(bookName) \(chapter)"
     }
 }
 

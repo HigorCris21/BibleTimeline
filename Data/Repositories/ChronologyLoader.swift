@@ -4,9 +4,7 @@
 //
 //  Created by Higor  Lo Castro on 06/02/26.
 //
-
 import Foundation
-
 
 struct ChronologyLoader: ChronologyLoading {
 
@@ -18,21 +16,21 @@ struct ChronologyLoader: ChronologyLoading {
                 id: 1,
                 title: "Início do Evangelho",
                 references: [
-                    .init(book: "Marcos", chapter: 1, verseStart: nil, verseEnd: nil)
+                    .init(book: "MRK", chapter: 1, verseStart: nil, verseEnd: nil)
                 ]
             ),
             .init(
                 id: 2,
                 title: "Chamado dos discípulos",
                 references: [
-                    .init(book: "Marcos", chapter: 1, verseStart: 16, verseEnd: 20)
+                    .init(book: "MRK", chapter: 1, verseStart: 16, verseEnd: 20)
                 ]
             ),
             .init(
                 id: 3,
                 title: "Autoridade de Jesus",
                 references: [
-                    .init(book: "Marcos", chapter: 1, verseStart: 21, verseEnd: 28)
+                    .init(book: "MRK", chapter: 1, verseStart: 21, verseEnd: 28)
                 ]
             )
         ]
@@ -41,4 +39,3 @@ struct ChronologyLoader: ChronologyLoading {
         return items
     }
 }
-

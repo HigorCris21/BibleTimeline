@@ -22,7 +22,6 @@ struct ExploreView: View {
         }
         .appScreenBackground()
         .task {
-            // ✅ chama função normal (sem $)
             if case .loading = viewModel.state {
                 viewModel.load()
             }
@@ -35,7 +34,6 @@ private extension ExploreView {
 
     @ViewBuilder
     var content: some View {
-        // ✅ usa o valor, não binding
         switch viewModel.state {
         case .loading:
             loadingView
@@ -66,7 +64,6 @@ private extension ExploreView {
                 .foregroundStyle(Theme.primaryText)
 
             Button("Tentar novamente") {
-                // ✅ método real do seu ViewModel
                 viewModel.retry()
             }
             .buttonStyle(.borderedProminent)

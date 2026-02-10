@@ -15,6 +15,8 @@
 		EB8EFB942F35627400CEE7B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB8EFB922F35627400CEE7B0 /* Assets.xcassets */; };
 		EBAE55572F3A927F00738FDD /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE55562F3A926400738FDD /* AppStorageKeys.swift */; };
 		EBAE55582F3A927F00738FDD /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE55562F3A926400738FDD /* AppStorageKeys.swift */; };
+		EBD7798A2F3BE2D700FE72BD /* BookNameResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD779892F3BE2CE00FE72BD /* BookNameResolver.swift */; };
+		EBD7798B2F3BE2D700FE72BD /* BookNameResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD779892F3BE2CE00FE72BD /* BookNameResolver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,7 @@
 		EBB5BA4E2F35544A006185FF /* BibleTimeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BibleTimeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB5BA5E2F35544C006185FF /* BibleTimelineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleTimelineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB5BA682F35544C006185FF /* BibleTimelineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleTimelineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBD779892F3BE2CE00FE72BD /* BookNameResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNameResolver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -125,7 +128,6 @@
 		EBAE554A2F3A85C100738FDD /* Exceptions for "Home" folder in "BibleTimeline" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Search/SeachView.swift,
 				View/Components/HeroHeader.swift,
 				View/Components/StartReadingCard.swift,
 				View/Components/VerseOfDayCard.swift,
@@ -137,7 +139,6 @@
 		EBAE554B2F3A85C100738FDD /* Exceptions for "Home" folder in "BibleTimelineTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Search/SeachView.swift,
 				View/Components/HeroHeader.swift,
 				View/Components/StartReadingCard.swift,
 				View/Components/VerseOfDayCard.swift,
@@ -145,6 +146,15 @@
 				ViewModel/HomeViewModel.swift,
 			);
 			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
+		};
+		EBD779942F3BEE4A00FE72BD /* Exceptions for "Search" folder in "BibleTimeline" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/Gospelbook.swift,
+				View/SearchView.swift,
+				ViewModel/SearchViewModel.swift,
+			);
+			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -224,6 +234,14 @@
 			path = BibleTimelineUITests;
 			sourceTree = "<group>";
 		};
+		EBD779872F3BE10600FE72BD /* Search */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EBD779942F3BEE4A00FE72BD /* Exceptions for "Search" folder in "BibleTimeline" target */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +307,7 @@
 		EBAE55192F3A859300738FDD /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				EBD779872F3BE10600FE72BD /* Search */,
 				EBAE55542F3A921C00738FDD /* Shared */,
 				EBAE54E02F3A84C500738FDD /* Reading */,
 				EBAE553D2F3A85C100738FDD /* Home */,
@@ -299,6 +318,7 @@
 		EBAE55542F3A921C00738FDD /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				EBD779892F3BE2CE00FE72BD /* BookNameResolver.swift */,
 				EBAE55552F3A925000738FDD /* Storage */,
 			);
 			path = Shared;
@@ -484,6 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD7798B2F3BE2D700FE72BD /* BookNameResolver.swift in Sources */,
 				EB1F11142F368996008B65E9 /* MockBibleTextService.swift in Sources */,
 				EB1F11292F368BB5008B65E9 /* ChronologyLoader.swift in Sources */,
 				EBAE55572F3A927F00738FDD /* AppStorageKeys.swift in Sources */,
@@ -497,6 +518,7 @@
 				EB1F11152F368996008B65E9 /* MockBibleTextService.swift in Sources */,
 				EBAE55582F3A927F00738FDD /* AppStorageKeys.swift in Sources */,
 				EB1F112A2F368BB5008B65E9 /* ChronologyLoader.swift in Sources */,
+				EBD7798A2F3BE2D700FE72BD /* BookNameResolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
