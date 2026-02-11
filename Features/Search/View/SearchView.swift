@@ -12,14 +12,24 @@
 //  Created by Higor  Lo Castro on 10/02/26.
 //
 
+
+
 import SwiftUI
 
 // MARK: - SearchView
 struct SearchView: View {
 
+    // MARK: Dependencies (SOLID: vem de fora)
+    let bibleTextService: BibleTextService
+
     // MARK: State
     @StateObject private var viewModel = SearchViewModel()
     @State private var readingPosition: ReadingPosition?
+
+    // MARK: Init
+    init(bibleTextService: BibleTextService) {
+        self.bibleTextService = bibleTextService
+    }
 
     // MARK: Body
     var body: some View {
@@ -32,8 +42,12 @@ struct SearchView: View {
             }
             .padding(16)
             .navigationTitle("Buscar")
+            .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(item: $readingPosition) { position in
-                ReadingView(position: position)
+                ReadingView(
+                    position: position,
+                    bibleTextService: bibleTextService
+                )
             }
         }
         .appScreenBackground()
@@ -49,6 +63,7 @@ private extension SearchView {
             Image(systemName: "book.closed.fill")
                 .font(.title3)
                 .foregroundStyle(Theme.accent)
+                .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text("Livro")
@@ -62,7 +77,6 @@ private extension SearchView {
 
             Spacer()
 
-            // Picker com label semântico (acessibilidade)
             Picker(
                 "Livro",
                 selection: Binding(
@@ -78,6 +92,9 @@ private extension SearchView {
             .pickerStyle(.menu)
         }
         .appCard()
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel("Livro")
+        .accessibilityValue(viewModel.selectedBook.displayName)
     }
 
     // MARK: Capítulo
@@ -86,6 +103,7 @@ private extension SearchView {
             Image(systemName: "number.circle.fill")
                 .font(.title3)
                 .foregroundStyle(Theme.accent)
+                .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text("Capítulo")
@@ -99,7 +117,6 @@ private extension SearchView {
 
             Spacer()
 
-            // Picker com label semântico (acessibilidade)
             Picker("Capítulo", selection: $viewModel.selectedChapter) {
                 ForEach(viewModel.availableChapters, id: \.self) { chapter in
                     Text("\(chapter)").tag(chapter)
@@ -109,12 +126,14 @@ private extension SearchView {
             .pickerStyle(.menu)
         }
         .appCard()
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel("Capítulo")
+        .accessibilityValue("\(viewModel.selectedChapter)")
     }
 
     // MARK: Ação principal
     var readButton: some View {
         Button {
-            // Abre a leitura no ponto escolhido (IDs USFM: MAT/MRK/LUK/JHN)
             readingPosition = ReadingPosition(
                 book: viewModel.selectedBook.rawValue,
                 chapter: viewModel.selectedChapter,
@@ -131,7 +150,7 @@ private extension SearchView {
         }
         .buttonStyle(.borderedProminent)
         .tint(Theme.accent)
-        // Defesa extra: se por algum motivo não houver capítulos, não permite avançar
         .disabled(viewModel.availableChapters.isEmpty)
+        .accessibilityHint("Abrir a leitura no livro e capítulo selecionados")
     }
 }

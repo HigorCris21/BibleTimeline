@@ -4,6 +4,10 @@
 //
 //  Created by Higor  Lo Castro on 06/02/26.
 //
+//
+
+
+
 import SwiftUI
 
 struct ReadingView: View {
@@ -15,9 +19,14 @@ struct ReadingView: View {
     // MARK: - State
     @StateObject private var vm: ReadingViewModel
 
-    // MARK: - Init
-    init(position: ReadingPosition) {
-        _vm = StateObject(wrappedValue: ReadingViewModel(position: position))
+    // MARK: - Init (SOLID: service vem de fora)
+    init(position: ReadingPosition, bibleTextService: BibleTextService) {
+        _vm = StateObject(
+            wrappedValue: ReadingViewModel(
+                position: position,
+                bibleTextService: bibleTextService
+            )
+        )
     }
 
     // MARK: - Body
@@ -33,7 +42,10 @@ struct ReadingView: View {
                 }
             }
             .task {
-                vm.load()
+                // Evita recarregar se a View for recriada enquanto já está carregada
+                if case .loading = vm.state {
+                    vm.load()
+                }
                 persistPosition(vm.position) // salva ao entrar também
             }
             .onChange(of: vm.position) { newValue in
@@ -43,7 +55,8 @@ struct ReadingView: View {
 
     // MARK: - Title
     private var title: String {
-        "\(vm.position.book) \(vm.position.chapter)"
+        // ✅ Melhor: usa o resolver de nomes (Marcos 1) em vez de MRK 1
+        vm.position.title
     }
 
     // MARK: - Persist
@@ -52,7 +65,7 @@ struct ReadingView: View {
         lastReadingPositionData = data
     }
 
-    // MARK: - Content (seu switch vm.state, igual já está)
+    // MARK: - Content (state-driven UI)
     @ViewBuilder
     private var content: some View {
         switch vm.state {

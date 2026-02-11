@@ -24,18 +24,15 @@ final class ReadingViewModel: ObservableObject {
     @Published private(set) var position: ReadingPosition
 
     // MARK: - Dependencies
-    private let service: BibleTextService
+    private let bibleTextService: BibleTextService
 
     // MARK: - Task control
     private var loadTask: Task<Void, Never>?
 
-    // MARK: - Init
-    init(
-        position: ReadingPosition,
-        service: BibleTextService = MockBibleTextService()
-    ) {
+    // MARK: - Init (SOLID: service obrigatório)
+    init(position: ReadingPosition, bibleTextService: BibleTextService) {
         self.position = position
-        self.service = service
+        self.bibleTextService = bibleTextService
     }
 
     deinit {
@@ -45,15 +42,19 @@ final class ReadingViewModel: ObservableObject {
     // MARK: - Load
     func load() {
         loadTask?.cancel()
+        state = .loading
+
+        let positionSnapshot = position
 
         loadTask = Task { [weak self] in
             guard let self else { return }
 
-            self.state = .loading
-
             do {
-                let response = try await self.service.fetchText(position: self.position)
+                let response = try await bibleTextService.fetchText(position: positionSnapshot)
                 if Task.isCancelled { return }
+
+                // Se o usuário já mudou de capítulo enquanto carregava, ignora o retorno antigo
+                guard self.position == positionSnapshot else { return }
 
                 self.state = .loaded(
                     reference: response.reference,

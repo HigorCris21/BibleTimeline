@@ -27,6 +27,7 @@ struct APIBibleTextService: BibleTextService {
     }
 
     func fetchText(position: ReadingPosition) async throws -> BibleTextResponse {
+        
         let request = try endpoints.makePassageRequest(
             position: position,
             config: config
@@ -44,5 +45,7 @@ struct APIBibleTextService: BibleTextService {
             reference: position.title,
             text: content.isEmpty ? "[Sem conteúdo]" : content
         )
+        
+        print("API Bible → fetchText:", position.book, position.chapter, position.verse ?? 0)
     }
 }

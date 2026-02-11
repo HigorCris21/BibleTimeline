@@ -2,12 +2,12 @@
 //  HomeView.swift
 //  BibleTimelineApp
 //
-
-
 import SwiftUI
 
-
 struct HomeView: View {
+
+    // MARK: Dependencies (SOLID: vem de fora)
+    let bibleTextService: BibleTextService
 
     // MARK: - State
     @StateObject private var viewModel = HomeViewModel()
@@ -22,13 +22,21 @@ struct HomeView: View {
         try? JSONDecoder().decode(ReadingPosition.self, from: lastReadingPositionData)
     }
 
+    // MARK: - Init
+    init(bibleTextService: BibleTextService) {
+        self.bibleTextService = bibleTextService
+    }
+
     // MARK: - Body
     var body: some View {
         NavigationStack {
             content
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationDestination(item: $readingPosition) { position in
-                    ReadingView(position: position)
+                    ReadingView(
+                        position: position,
+                        bibleTextService: bibleTextService
+                    )
                 }
         }
         .appScreenBackground()

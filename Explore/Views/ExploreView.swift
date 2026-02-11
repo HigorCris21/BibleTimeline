@@ -1,14 +1,21 @@
-
-
-
 import SwiftUI
+
+
 
 // MARK: - ExploreView
 struct ExploreView: View {
 
+    // MARK: Dependencies (SOLID: vem de fora)
+    let bibleTextService: BibleTextService
+
     // MARK: State
     @StateObject private var viewModel = ExploreViewModel()
     @State private var readingPosition: ReadingPosition?
+
+    // MARK: Init
+    init(bibleTextService: BibleTextService) {
+        self.bibleTextService = bibleTextService
+    }
 
     // MARK: Body
     var body: some View {
@@ -17,11 +24,15 @@ struct ExploreView: View {
                 .navigationTitle("Explorar")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationDestination(item: $readingPosition) { position in
-                    ReadingView(position: position)
+                    ReadingView(
+                        position: position,
+                        bibleTextService: bibleTextService
+                    )
                 }
         }
         .appScreenBackground()
         .task {
+            // Evita reload desnecessário se a View recriar.
             if case .loading = viewModel.state {
                 viewModel.load()
             }
@@ -39,10 +50,10 @@ private extension ExploreView {
             loadingView
 
         case .error(let message):
-            errorView(message)
+            errorView(message: message)
 
         case .loaded(let items):
-            loadedView(items)
+            loadedView(items: items)
         }
     }
 
@@ -56,10 +67,12 @@ private extension ExploreView {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(16)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Carregando conteúdo")
     }
 
     // MARK: Error
-    func errorView(_ message: String) -> some View {
+    func errorView(message: String) -> some View {
         VStack(spacing: 12) {
             Text(message)
                 .multilineTextAlignment(.center)
@@ -73,14 +86,17 @@ private extension ExploreView {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(16)
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel("Erro ao carregar")
+        .accessibilityValue(message)
     }
 
     // MARK: Loaded
-    func loadedView(_ items: [ChronologyItem]) -> some View {
+    func loadedView(items: [ChronologyItem]) -> some View {
         ScrollView(showsIndicators: false) {
-            VStack(spacing: 12) {
+            LazyVStack(spacing: 12) {
                 ForEach(items) { item in
-                    chronologyCard(item)
+                    chronologyCard(item: item)
                 }
             }
             .padding(16)
@@ -88,16 +104,16 @@ private extension ExploreView {
     }
 
     // MARK: Card
-    func chronologyCard(_ item: ChronologyItem) -> some View {
+    func chronologyCard(item: ChronologyItem) -> some View {
         Button {
             guard let position = item.startPosition else { return }
             readingPosition = position
         } label: {
             HStack(spacing: 12) {
-
                 Image(systemName: "text.book.closed")
                     .font(.title3)
                     .foregroundStyle(Theme.accent)
+                    .accessibilityHidden(true)
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(item.title)
@@ -109,13 +125,20 @@ private extension ExploreView {
                         .foregroundStyle(Theme.secondaryText)
                 }
 
-                Spacer()
+                Spacer(minLength: 0)
 
                 Image(systemName: "chevron.right")
                     .foregroundStyle(Theme.secondaryText)
+                    .accessibilityHidden(true)
             }
+            .contentShape(Rectangle()) // melhora o hit area do botão
         }
         .buttonStyle(.plain)
         .appCard()
+        .accessibilityLabel(item.title)
+        .accessibilityValue(item.displayReference)
+        .accessibilityHint(item.startPosition == nil ? "Indisponível" : "Abrir leitura")
+        .disabled(item.startPosition == nil)
+        .opacity(item.startPosition == nil ? 0.55 : 1.0)
     }
 }
