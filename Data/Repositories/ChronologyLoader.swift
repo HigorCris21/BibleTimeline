@@ -10,32 +10,49 @@ struct ChronologyLoader: ChronologyLoading {
 
     enum LoaderError: Error { case empty }
 
-    func loadGospelsChronology() throws -> [ChronologyItem] {
-        let items: [ChronologyItem] = [
-            .init(
+    func loadChronology() async throws -> [ChronologyItem] {
+
+        let dtos: [ChronologyItemDTO] = [
+            ChronologyItemDTO(
                 id: 1,
                 title: "Início do Evangelho",
                 references: [
-                    .init(book: "MRK", chapter: 1, verseStart: nil, verseEnd: nil)
+                    ReferenceRangeDTO(
+                        book: "MRK",
+                        chapter: 1,
+                        verseStart: nil,
+                        verseEnd: nil
+                    )
                 ]
             ),
-            .init(
+            ChronologyItemDTO(
                 id: 2,
                 title: "Chamado dos discípulos",
                 references: [
-                    .init(book: "MRK", chapter: 1, verseStart: 16, verseEnd: 20)
+                    ReferenceRangeDTO(
+                        book: "MRK",
+                        chapter: 1,
+                        verseStart: 16,
+                        verseEnd: 20
+                    )
                 ]
             ),
-            .init(
+            ChronologyItemDTO(
                 id: 3,
                 title: "Autoridade de Jesus",
                 references: [
-                    .init(book: "MRK", chapter: 1, verseStart: 21, verseEnd: 28)
+                    ReferenceRangeDTO(
+                        book: "MRK",
+                        chapter: 1,
+                        verseStart: 21,
+                        verseEnd: 28
+                    )
                 ]
             )
         ]
 
-        guard !items.isEmpty else { throw LoaderError.empty }
-        return items
+        guard !dtos.isEmpty else { throw LoaderError.empty }
+
+        return dtos.map { $0.toDomain() }
     }
 }

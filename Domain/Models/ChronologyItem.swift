@@ -4,19 +4,23 @@
 //
 //  Created by Higor  Lo Castro on 06/02/26.
 //
-
 import Foundation
 
-struct ChronologyItem: Decodable, Identifiable, Hashable {
-    let id: Int
+struct ChronologyItem: Identifiable, Hashable {
+    let id: UUID
     let title: String
     let references: [ReferenceRange]
 }
 
 extension ChronologyItem {
+
     var startPosition: ReadingPosition? {
         guard let first = references.first else { return nil }
-        return ReadingPosition(book: first.book, chapter: first.chapter, verse: first.verseStart)
+        return ReadingPosition(
+            book: first.book,
+            chapter: first.chapter,
+            verse: first.verseStart
+        )
     }
 
     var displayReference: String {

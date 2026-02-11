@@ -162,6 +162,13 @@
 			);
 			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
 		};
+		EBD779C42F3C006100FE72BD /* Exceptions for "Domain" folder in "BibleTimelineTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/ChronologyItem.swift,
+			);
+			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -169,6 +176,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				EB1F11012F36803C008B65E9 /* Exceptions for "Domain" folder in "BibleTimeline" target */,
+				EBD779C42F3C006100FE72BD /* Exceptions for "Domain" folder in "BibleTimelineTests" target */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -258,6 +266,11 @@
 			path = APIBible;
 			sourceTree = "<group>";
 		};
+		EBD779C52F3C010B00FE72BD /* Chronology */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Chronology;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +309,7 @@
 		EB1F110E2F368935008B65E9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EBD779C52F3C010B00FE72BD /* Chronology */,
 				EBD779C02F3BFBCB00FE72BD /* Decoders */,
 				EBD779AA2F3BFB2300FE72BD /* APIBible */,
 				EBD7799F2F3BFAB800FE72BD /* HTTP */,
@@ -405,6 +419,7 @@
 			fileSystemSynchronizedGroups = (
 				EBD7799F2F3BFAB800FE72BD /* HTTP */,
 				EBD779AA2F3BFB2300FE72BD /* APIBible */,
+				EBD779C52F3C010B00FE72BD /* Chronology */,
 			);
 			name = BibleTimeline;
 			packageProductDependencies = (
@@ -432,6 +447,7 @@
 				EBB5BA612F35544C006185FF /* BibleTimelineTests */,
 				EBD7799F2F3BFAB800FE72BD /* HTTP */,
 				EBD779AA2F3BFB2300FE72BD /* APIBible */,
+				EBD779C52F3C010B00FE72BD /* Chronology */,
 			);
 			name = BibleTimelineTests;
 			packageProductDependencies = (

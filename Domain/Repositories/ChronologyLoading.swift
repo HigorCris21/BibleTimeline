@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ChronologyLoading {
-    func loadGospelsChronology() throws -> [ChronologyItem]
+    func loadChronology() async throws -> [ChronologyItem]
 }
