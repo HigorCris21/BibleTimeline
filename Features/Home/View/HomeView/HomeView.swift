@@ -6,7 +6,10 @@
 
 import SwiftUI
 
+
 struct HomeView: View {
+
+    // MARK: - State
     @StateObject private var viewModel = HomeViewModel()
     @State private var readingPosition: ReadingPosition?
 
@@ -19,6 +22,7 @@ struct HomeView: View {
         try? JSONDecoder().decode(ReadingPosition.self, from: lastReadingPositionData)
     }
 
+    // MARK: - Body
     var body: some View {
         NavigationStack {
             content
@@ -29,7 +33,7 @@ struct HomeView: View {
         }
         .appScreenBackground()
         .task {
-            // Evita recarregar se a View for recriada.
+            // Evita recarregar se a View for recriada
             if case .loading = viewModel.state {
                 viewModel.load()
             }
@@ -62,6 +66,7 @@ private extension HomeView {
     var loadingView: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 18) {
+
                 RoundedRectangle(cornerRadius: 22, style: .continuous)
                     .fill(Theme.surface.opacity(0.6))
                     .frame(height: 150)
@@ -84,6 +89,7 @@ private extension HomeView {
     func errorView(message: String) -> some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 12) {
+
                 Text("Não foi possível carregar a cronologia")
                     .font(.headline)
                     .foregroundStyle(Theme.primaryText)
@@ -115,6 +121,7 @@ private extension HomeView {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 18) {
 
+                // Hero
                 HeroHeader(
                     title: "Bom dia, Higor",
                     subtitle: "Leia a Bíblia em ordem cronológica, sem perder o fio da narrativa.",
@@ -122,48 +129,97 @@ private extension HomeView {
                     onTapCTA: openLastReadingOrFallback
                 )
 
+                // Hoje
                 SectionTitle("Hoje")
 
                 VerseOfDayCard(
                     reference: "Marcos 1:15",
                     verse: "“O tempo está cumprido, e o reino de Deus está próximo; arrependei-vos e crede no evangelho.”",
-                    onTap: {
-                       
-                    }
+                    onTap: { }
                 )
 
+                // Leitura
                 SectionTitle("Leitura")
 
                 StartReadingCard(
                     onTap: startNewReading
                 )
+
+                // Cronologia
+                if !items.isEmpty {
+                    SectionTitle("Cronologia")
+
+                    VStack(spacing: 12) {
+                        ForEach(items) { item in
+                            Button {
+                                openChronologyItem(item)
+                            } label: {
+                                chronologyRow(item: item)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                }
             }
             .padding(.horizontal, 16)
             .padding(.top, 12)
             .padding(.bottom, 32)
         }
     }
+
+    // MARK: - Components
+    func chronologyRow(item: ChronologyItem) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .fill(Theme.surface.opacity(0.9))
+                .frame(width: 44, height: 44)
+                .overlay(
+                    Image(systemName: "book")
+                        .foregroundStyle(Theme.primaryText)
+                )
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(item.title)
+                    .font(.headline)
+                    .foregroundStyle(Theme.primaryText)
+
+                Text(item.displayReference)
+                    .font(.subheadline)
+                    .foregroundStyle(Theme.secondaryText)
+            }
+
+            Spacer()
+
+            Image(systemName: "chevron.right")
+                .foregroundStyle(Theme.secondaryText)
+        }
+        .padding(14)
+        .background(
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .fill(Theme.surface)
+        )
+    }
 }
 
-    // MARK: - Actions
-    private extension HomeView {
+// MARK: - Actions
+private extension HomeView {
 
-        var openLastReadingOrFallback: () -> Void {
-            {
-                let fallback = ReadingPosition(book: "Marcos", chapter: 1, verse: nil)
-                readingPosition = lastReadingPosition ?? fallback
-            }
-        }
-
-        var startNewReading: () -> Void {
-            {
-                // Sempre começa do zero (você pode escolher outro "início" depois)
-                readingPosition = ReadingPosition(book: "Marcos", chapter: 1, verse: nil)
-
-                // (Opcional) Se você quiser que "Começar agora" realmente zere o progresso salvo:
-                lastReadingPositionData = Data()
-            }
+    var openLastReadingOrFallback: () -> Void {
+        {
+            readingPosition = lastReadingPosition ?? .mark1
         }
     }
 
+    var startNewReading: () -> Void {
+        {
+            readingPosition = .mark1
+            lastReadingPositionData = Data() // opcional: zera progresso salvo
+        }
+    }
 
+    func openChronologyItem(_ item: ChronologyItem) {
+        guard let position = item.startPosition else { return }
+        readingPosition = position
+    }
+}

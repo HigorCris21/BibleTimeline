@@ -1,7 +1,6 @@
 
 
 
-
 import SwiftUI
 
 // MARK: - ExploreView
@@ -16,6 +15,7 @@ struct ExploreView: View {
         NavigationStack {
             content
                 .navigationTitle("Explorar")
+                .navigationBarTitleDisplayMode(.inline)
                 .navigationDestination(item: $readingPosition) { position in
                     ReadingView(position: position)
                 }
@@ -46,6 +46,7 @@ private extension ExploreView {
         }
     }
 
+    // MARK: Loading
     var loadingView: some View {
         VStack(spacing: 10) {
             ProgressView()
@@ -57,6 +58,7 @@ private extension ExploreView {
         .padding(16)
     }
 
+    // MARK: Error
     func errorView(_ message: String) -> some View {
         VStack(spacing: 12) {
             Text(message)
@@ -73,6 +75,7 @@ private extension ExploreView {
         .padding(16)
     }
 
+    // MARK: Loaded
     func loadedView(_ items: [ChronologyItem]) -> some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 12) {
@@ -84,13 +87,14 @@ private extension ExploreView {
         }
     }
 
+    // MARK: Card
     func chronologyCard(_ item: ChronologyItem) -> some View {
         Button {
-            if let position = ReadingRoute.fromChronologyItem(item) {
-                readingPosition = position
-            }
+            guard let position = item.startPosition else { return }
+            readingPosition = position
         } label: {
             HStack(spacing: 12) {
+
                 Image(systemName: "text.book.closed")
                     .font(.title3)
                     .foregroundStyle(Theme.accent)

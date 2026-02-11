@@ -41,6 +41,11 @@ final class HomeViewModel: ObservableObject {
             }
         }
     }
+    
+    func startPosition(for item: ChronologyItem) -> ReadingPosition? {
+        item.startPosition
+    }
+
 
     deinit {
         task?.cancel()
