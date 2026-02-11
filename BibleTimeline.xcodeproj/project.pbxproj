@@ -138,7 +138,7 @@
 				View/Components/HeroHeader.swift,
 				View/Components/StartReadingCard.swift,
 				View/Components/VerseOfDayCard.swift,
-				View/HomeView/HomeView.swift,
+				View/View/HomeView.swift,
 				ViewModel/HomeViewModel.swift,
 			);
 			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
@@ -149,7 +149,7 @@
 				View/Components/HeroHeader.swift,
 				View/Components/StartReadingCard.swift,
 				View/Components/VerseOfDayCard.swift,
-				View/HomeView/HomeView.swift,
+				View/View/HomeView.swift,
 				ViewModel/HomeViewModel.swift,
 			);
 			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
@@ -198,11 +198,6 @@
 				EBAE54F62F3A84C500738FDD /* Exceptions for "App" folder in "BibleTimelineTests" target */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		EBAE54D12F3A84C500738FDD /* Bible */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Bible;
 			sourceTree = "<group>";
 		};
 		EBAE54D32F3A84C500738FDD /* Explore */ = {
@@ -380,7 +375,6 @@
 				EBAE54CF2F3A84C500738FDD /* App */,
 				EBAE55122F3A84FA00738FDD /* DesignSystem */,
 				EBAE55192F3A859300738FDD /* Features */,
-				EBAE54D12F3A84C500738FDD /* Bible */,
 				EBAE54D32F3A84C500738FDD /* Explore */,
 				EB18C09B2F36414C003FAD52 /* Domain */,
 				EB1F110E2F368935008B65E9 /* Data */,

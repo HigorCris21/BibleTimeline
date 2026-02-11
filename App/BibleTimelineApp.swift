@@ -11,12 +11,9 @@ import SwiftUI
 struct BibleTimelineApp: App {
 
     // MARK: - Composition Root (SOLID: dependências vivem no topo)
-//    private let bibleTextService: BibleTextService = MockBibleTextService()
     
+//    private let bibleTextService: BibleTextService = MockBibleTextService()
     private let bibleTextService: BibleTextService = APIBibleTextService()
-
-    // Se você tiver a implementação real pronta, troque aqui:
-    // private let bibleTextService: BibleTextService = APIBibleTextService()
 
     var body: some Scene {
         WindowGroup {

@@ -37,7 +37,7 @@ struct APIBibleTextService: BibleTextService {
             config: config
         )
 
-        // ✅ Log seguro (não imprime api-key)
+        // Log seguro (não imprime api-key)
         if let url = request.url?.absoluteString {
             debugPrint("➡️ GET:", url)
         }
@@ -69,10 +69,7 @@ struct APIBibleTextService: BibleTextService {
                 throw APIBibleError.decodingFailed(error.localizedDescription)
             }
 
-            // opcional: tratar vazio como erro real
-            // guard !content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
-            //     throw APIBibleError.emptyContent
-            // }
+        
 
             return BibleTextResponse(
                 reference: position.title,
