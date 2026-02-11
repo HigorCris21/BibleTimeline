@@ -1,10 +1,9 @@
-
+//
 //  ExploreViewModel.swift
-//  BibleTimeline
+//  BibleTimelineApp
 //
-//  Created by Higor  Lo Castro on 10/02/26.
-//
-import SwiftUI
+
+import Foundation
 
 @MainActor
 final class ExploreViewModel: ObservableObject {
@@ -25,9 +24,8 @@ final class ExploreViewModel: ObservableObject {
     }
 
     func load() {
-        guard case .loading = state else { return }
-
         task?.cancel()
+        state = .loading
 
         task = Task { [weak self] in
             guard let self else { return }
@@ -43,12 +41,8 @@ final class ExploreViewModel: ObservableObject {
         }
     }
 
-    func retry() {
-        state = .loading
-        load()
-    }
-
     deinit {
         task?.cancel()
     }
 }
+

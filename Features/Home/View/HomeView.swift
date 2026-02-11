@@ -1,7 +1,9 @@
-//
+
 //  HomeView.swift
 //  BibleTimelineApp
 //
+
+
 import SwiftUI
 
 struct HomeView: View {
@@ -41,7 +43,6 @@ struct HomeView: View {
         }
         .appScreenBackground()
         .task {
-            // Evita recarregar se a View for recriada
             if case .loading = viewModel.state {
                 viewModel.load()
             }
@@ -61,16 +62,15 @@ private extension HomeView {
         case .error(let message):
             errorView(message: message)
 
-        case .loaded(let items):
-            loadedView(items: items)
+        case .loaded:
+            loadedView
         }
     }
 }
 
-// MARK: - State Views (Renderers)
+// MARK: - State Views
 private extension HomeView {
 
-    // MARK: Loading
     var loadingView: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 18) {
@@ -93,12 +93,11 @@ private extension HomeView {
         }
     }
 
-    // MARK: Error
     func errorView(message: String) -> some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 12) {
 
-                Text("Não foi possível carregar a cronologia")
+                Text("Não foi possível carregar a tela inicial")
                     .font(.headline)
                     .foregroundStyle(Theme.primaryText)
 
@@ -124,8 +123,7 @@ private extension HomeView {
         }
     }
 
-    // MARK: Loaded
-    func loadedView(items: [ChronologyItem]) -> some View {
+    var loadedView: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 18) {
 
@@ -152,61 +150,11 @@ private extension HomeView {
                 StartReadingCard(
                     onTap: startNewReading
                 )
-
-                // Cronologia
-                if !items.isEmpty {
-                    SectionTitle("Cronologia")
-
-                    VStack(spacing: 12) {
-                        ForEach(items) { item in
-                            Button {
-                                openChronologyItem(item)
-                            } label: {
-                                chronologyRow(item: item)
-                            }
-                            .buttonStyle(.plain)
-                        }
-                    }
-                }
             }
             .padding(.horizontal, 16)
             .padding(.top, 12)
             .padding(.bottom, 32)
         }
-    }
-
-    // MARK: - Components
-    func chronologyRow(item: ChronologyItem) -> some View {
-        HStack(alignment: .top, spacing: 12) {
-
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(Theme.surface.opacity(0.9))
-                .frame(width: 44, height: 44)
-                .overlay(
-                    Image(systemName: "book")
-                        .foregroundStyle(Theme.primaryText)
-                )
-
-            VStack(alignment: .leading, spacing: 4) {
-                Text(item.title)
-                    .font(.headline)
-                    .foregroundStyle(Theme.primaryText)
-
-                Text(item.displayReference)
-                    .font(.subheadline)
-                    .foregroundStyle(Theme.secondaryText)
-            }
-
-            Spacer()
-
-            Image(systemName: "chevron.right")
-                .foregroundStyle(Theme.secondaryText)
-        }
-        .padding(14)
-        .background(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .fill(Theme.surface)
-        )
     }
 }
 
@@ -221,13 +169,12 @@ private extension HomeView {
 
     var startNewReading: () -> Void {
         {
+            // Começar agora = SEMPRE inicia do início (Marcos 1)
             readingPosition = .mark1
-            lastReadingPositionData = Data() // opcional: zera progresso salvo
-        }
-    }
 
-    func openChronologyItem(_ item: ChronologyItem) {
-        guard let position = item.startPosition else { return }
-        readingPosition = position
+            // Recomendação: não zerar automaticamente o progresso salvo aqui.
+            // Se quiser, crie um botão separado “Reiniciar progresso” com confirmação.
+            // lastReadingPositionData = Data()
+        }
     }
 }

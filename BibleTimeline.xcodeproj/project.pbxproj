@@ -138,7 +138,7 @@
 				View/Components/HeroHeader.swift,
 				View/Components/StartReadingCard.swift,
 				View/Components/VerseOfDayCard.swift,
-				View/View/HomeView.swift,
+				View/HomeView.swift,
 				ViewModel/HomeViewModel.swift,
 			);
 			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
@@ -149,7 +149,7 @@
 				View/Components/HeroHeader.swift,
 				View/Components/StartReadingCard.swift,
 				View/Components/VerseOfDayCard.swift,
-				View/View/HomeView.swift,
+				View/HomeView.swift,
 				ViewModel/HomeViewModel.swift,
 			);
 			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;

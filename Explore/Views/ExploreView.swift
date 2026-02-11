@@ -1,6 +1,9 @@
+//
+//  ExploreView.swift
+//  BibleTimelineApp
+//
+
 import SwiftUI
-
-
 
 // MARK: - ExploreView
 struct ExploreView: View {
@@ -79,7 +82,7 @@ private extension ExploreView {
                 .foregroundStyle(Theme.primaryText)
 
             Button("Tentar novamente") {
-                viewModel.retry()
+                viewModel.load()
             }
             .buttonStyle(.borderedProminent)
             .tint(Theme.accent)
@@ -131,7 +134,7 @@ private extension ExploreView {
                     .foregroundStyle(Theme.secondaryText)
                     .accessibilityHidden(true)
             }
-            .contentShape(Rectangle()) // melhora o hit area do botão
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
         .appCard()
