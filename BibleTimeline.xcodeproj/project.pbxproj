@@ -52,6 +52,7 @@
 		EBD779892F3BE2CE00FE72BD /* BookNameResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNameResolver.swift; sourceTree = "<group>"; };
 		EBD779972F3BF6F500FE72BD /* APIBibleConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBibleConfig.swift; sourceTree = "<group>"; };
 		EBD779C12F3BFBD600FE72BD /* PassageDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageDecoder.swift; sourceTree = "<group>"; };
+		EBD779DE2F3C1F4200FE72BD /* BibleTimeline-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BibleTimeline-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -271,6 +272,11 @@
 			path = Chronology;
 			sourceTree = "<group>";
 		};
+		EBD779D82F3C1C6300FE72BD /* API */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = API;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +315,7 @@
 		EB1F110E2F368935008B65E9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EBD779D82F3C1C6300FE72BD /* API */,
 				EBD779C52F3C010B00FE72BD /* Chronology */,
 				EBD779C02F3BFBCB00FE72BD /* Decoders */,
 				EBD779AA2F3BFB2300FE72BD /* APIBible */,
@@ -369,6 +376,7 @@
 		EBB5BA452F35544A006185FF = {
 			isa = PBXGroup;
 			children = (
+				EBD779DE2F3C1F4200FE72BD /* BibleTimeline-Info.plist */,
 				EBAE54CF2F3A84C500738FDD /* App */,
 				EBAE55122F3A84FA00738FDD /* DesignSystem */,
 				EBAE55192F3A859300738FDD /* Features */,
@@ -420,6 +428,7 @@
 				EBD7799F2F3BFAB800FE72BD /* HTTP */,
 				EBD779AA2F3BFB2300FE72BD /* APIBible */,
 				EBD779C52F3C010B00FE72BD /* Chronology */,
+				EBD779D82F3C1C6300FE72BD /* API */,
 			);
 			name = BibleTimeline;
 			packageProductDependencies = (
@@ -448,6 +457,7 @@
 				EBD7799F2F3BFAB800FE72BD /* HTTP */,
 				EBD779AA2F3BFB2300FE72BD /* APIBible */,
 				EBD779C52F3C010B00FE72BD /* Chronology */,
+				EBD779D82F3C1C6300FE72BD /* API */,
 			);
 			name = BibleTimelineTests;
 			packageProductDependencies = (
@@ -727,6 +737,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BibleTimeline-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -754,6 +765,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BibleTimeline-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

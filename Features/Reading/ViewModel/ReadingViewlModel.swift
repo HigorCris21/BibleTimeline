@@ -6,7 +6,6 @@
 //
 
 
-
 import Foundation
 
 @MainActor
@@ -50,19 +49,26 @@ final class ReadingViewModel: ObservableObject {
             guard let self else { return }
 
             do {
-                let response = try await bibleTextService.fetchText(position: positionSnapshot)
+                let response = try await bibleTextService.fetchText(
+                    position: positionSnapshot
+                )
+
                 if Task.isCancelled { return }
 
-                // Se o usuário já mudou de capítulo enquanto carregava, ignora o retorno antigo
+                // Se o usuário já mudou de capítulo enquanto carregava, ignora retorno antigo
                 guard self.position == positionSnapshot else { return }
 
                 self.state = .loaded(
                     reference: response.reference,
                     text: response.text
                 )
+
             } catch {
                 if Task.isCancelled { return }
-                self.state = .error(message: "Não foi possível carregar o texto.")
+
+                self.state = .error(
+                    message: error.localizedDescription
+                )
             }
         }
     }

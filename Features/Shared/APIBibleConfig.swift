@@ -4,7 +4,6 @@
 //
 //  Created by Higor  Lo Castro on 10/02/26.
 //
-
 import Foundation
 
 // MARK: - APIBibleConfig
@@ -25,21 +24,23 @@ private extension Bundle {
 
     /// Info.plist key: API_BIBLE_KEY
     var apiBibleKey: String {
-        guard let value = object(forInfoDictionaryKey: "API_BIBLE_KEY") as? String,
-              !value.isEmpty
-        else {
-            return "" // vazio => você ainda não configurou
-        }
-        return value
+        readInfoPlistString(key: "API_BIBLE_KEY")
     }
 
     /// Info.plist key: API_BIBLE_ID
     var apiBibleId: String {
-        guard let value = object(forInfoDictionaryKey: "API_BIBLE_ID") as? String,
-              !value.isEmpty
-        else {
-            return "" // vazio => você ainda não configurou
+        readInfoPlistString(key: "API_BIBLE_ID")
+    }
+
+    func readInfoPlistString(key: String) -> String {
+        guard let raw = object(forInfoDictionaryKey: key) as? String else {
+            return ""
         }
+
+        // ✅ remove espaços/linhas que quebram autenticação (muito comum)
+        let value = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        guard !value.isEmpty else { return "" }
         return value
     }
 }

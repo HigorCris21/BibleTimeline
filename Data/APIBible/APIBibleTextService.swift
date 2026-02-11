@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+
 
 struct APIBibleTextService: BibleTextService {
 
@@ -27,25 +29,61 @@ struct APIBibleTextService: BibleTextService {
     }
 
     func fetchText(position: ReadingPosition) async throws -> BibleTextResponse {
-        
+
+        debugPrint("📖 API Bible → fetchText:", position.book, position.chapter, position.verse as Any)
+
         let request = try endpoints.makePassageRequest(
             position: position,
             config: config
         )
 
-        let (data, httpResponse) = try await http.data(for: request)
-
-        guard (200...299).contains(httpResponse.statusCode) else {
-            throw APIBibleError.httpStatus(httpResponse.statusCode)
+        // ✅ Log seguro (não imprime api-key)
+        if let url = request.url?.absoluteString {
+            debugPrint("➡️ GET:", url)
+        }
+        if let headers = request.allHTTPHeaderFields {
+            let safeHeaders = headers
+                .mapValues { _ in "<redacted>" } // não vaza nada
+                .merging(headers.filter { $0.key.lowercased() != "api-key" }) { _, new in new }
+            debugPrint("➡️ Headers:", safeHeaders)
         }
 
-        let content = try decoder.decodeContent(from: data)
+        do {
+            let (data, httpResponse) = try await http.data(for: request)
 
-        return BibleTextResponse(
-            reference: position.title,
-            text: content.isEmpty ? "[Sem conteúdo]" : content
-        )
-        
-        print("API Bible → fetchText:", position.book, position.chapter, position.verse ?? 0)
+            let body = String(data: data, encoding: .utf8)
+
+            debugPrint("⬅️ Status:", httpResponse.statusCode)
+            if let body, !body.isEmpty {
+                debugPrint("⬅️ Body:", body.prefix(800))
+            }
+
+            guard (200...299).contains(httpResponse.statusCode) else {
+                throw APIBibleError.httpStatus(code: httpResponse.statusCode, body: body)
+            }
+
+            let content: String
+            do {
+                content = try decoder.decodeContent(from: data)
+            } catch {
+                throw APIBibleError.decodingFailed(error.localizedDescription)
+            }
+
+            // opcional: tratar vazio como erro real
+            // guard !content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            //     throw APIBibleError.emptyContent
+            // }
+
+            return BibleTextResponse(
+                reference: position.title,
+                text: content.isEmpty ? "[Sem conteúdo]" : content
+            )
+
+        } catch {
+            if let apiError = error as? APIBibleError {
+                throw apiError
+            }
+            throw APIBibleError.underlying(error)
+        }
     }
 }
