@@ -16,8 +16,6 @@
 		EBAE55582F3A927F00738FDD /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE55562F3A926400738FDD /* AppStorageKeys.swift */; };
 		EBD7798A2F3BE2D700FE72BD /* BookNameResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD779892F3BE2CE00FE72BD /* BookNameResolver.swift */; };
 		EBD7798B2F3BE2D700FE72BD /* BookNameResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD779892F3BE2CE00FE72BD /* BookNameResolver.swift */; };
-		EBD779982F3BF70200FE72BD /* APIBibleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD779972F3BF6F500FE72BD /* APIBibleConfig.swift */; };
-		EBD779992F3BF70200FE72BD /* APIBibleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD779972F3BF6F500FE72BD /* APIBibleConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +45,6 @@
 		EBB5BA5E2F35544C006185FF /* BibleTimelineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleTimelineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB5BA682F35544C006185FF /* BibleTimelineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleTimelineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBD779892F3BE2CE00FE72BD /* BookNameResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNameResolver.swift; sourceTree = "<group>"; };
-		EBD779972F3BF6F500FE72BD /* APIBibleConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBibleConfig.swift; sourceTree = "<group>"; };
 		EBD779DE2F3C1F4200FE72BD /* BibleTimeline-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BibleTimeline-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +182,16 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
+		EB6785442F3EC776005135B4 /* Networking */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		EB67854A2F3EC7E2005135B4 /* Debug */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Debug;
+			sourceTree = "<group>";
+		};
 		EB8EFB9C2F3563EB00CEE7B0 /* Preview Content */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -311,6 +318,7 @@
 		EB1F110E2F368935008B65E9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EB6785442F3EC776005135B4 /* Networking */,
 				EBD779C52F3C010B00FE72BD /* Chronology */,
 				EBD779AA2F3BFB2300FE72BD /* APIBible */,
 				EBD7799F2F3BFAB800FE72BD /* HTTP */,
@@ -342,7 +350,6 @@
 			isa = PBXGroup;
 			children = (
 				EBD779872F3BE10600FE72BD /* Search */,
-				EBAE55542F3A921C00738FDD /* Shared */,
 				EBAE54E02F3A84C500738FDD /* Reading */,
 				EBAE553D2F3A85C100738FDD /* Home */,
 			);
@@ -352,8 +359,8 @@
 		EBAE55542F3A921C00738FDD /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				EBD779972F3BF6F500FE72BD /* APIBibleConfig.swift */,
 				EBD779892F3BE2CE00FE72BD /* BookNameResolver.swift */,
+				EB67854A2F3EC7E2005135B4 /* Debug */,
 				EBAE55552F3A925000738FDD /* Storage */,
 			);
 			path = Shared;
@@ -371,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				EBD779DE2F3C1F4200FE72BD /* BibleTimeline-Info.plist */,
+				EBAE55542F3A921C00738FDD /* Shared */,
 				EBAE54CF2F3A84C500738FDD /* App */,
 				EBAE55122F3A84FA00738FDD /* DesignSystem */,
 				EBAE55192F3A859300738FDD /* Features */,
@@ -410,6 +418,8 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				EB6785442F3EC776005135B4 /* Networking */,
+				EB67854A2F3EC7E2005135B4 /* Debug */,
 				EBD7799F2F3BFAB800FE72BD /* HTTP */,
 				EBD779AA2F3BFB2300FE72BD /* APIBible */,
 				EBD779C52F3C010B00FE72BD /* Chronology */,
@@ -436,6 +446,8 @@
 			);
 			fileSystemSynchronizedGroups = (
 				EB18C09B2F36414C003FAD52 /* Domain */,
+				EB6785442F3EC776005135B4 /* Networking */,
+				EB67854A2F3EC7E2005135B4 /* Debug */,
 				EB8EFB9C2F3563EB00CEE7B0 /* Preview Content */,
 				EBB5BA612F35544C006185FF /* BibleTimelineTests */,
 				EBD7799F2F3BFAB800FE72BD /* HTTP */,
@@ -547,7 +559,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBD779982F3BF70200FE72BD /* APIBibleConfig.swift in Sources */,
 				EBD7798B2F3BE2D700FE72BD /* BookNameResolver.swift in Sources */,
 				EB1F11142F368996008B65E9 /* MockBibleTextService.swift in Sources */,
 				EB1F11292F368BB5008B65E9 /* ChronologyLoader.swift in Sources */,
@@ -559,7 +570,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBD779992F3BF70200FE72BD /* APIBibleConfig.swift in Sources */,
 				EB1F11152F368996008B65E9 /* MockBibleTextService.swift in Sources */,
 				EBAE55582F3A927F00738FDD /* AppStorageKeys.swift in Sources */,
 				EBD7798A2F3BE2D700FE72BD /* BookNameResolver.swift in Sources */,

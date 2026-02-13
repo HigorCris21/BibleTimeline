@@ -1,8 +1,7 @@
-
+//
 //  HomeView.swift
 //  BibleTimelineApp
 //
-
 
 import SwiftUI
 
@@ -14,6 +13,9 @@ struct HomeView: View {
     // MARK: - State
     @StateObject private var viewModel = HomeViewModel()
     @State private var readingPosition: ReadingPosition?
+
+    // MARK: - Debug routing
+    @State private var isShowingAPIDebug: Bool = false
 
     // MARK: - Persistence
     @AppStorage(AppStorageKeys.lastReadingPosition)
@@ -39,6 +41,12 @@ struct HomeView: View {
                         position: position,
                         bibleTextService: bibleTextService
                     )
+                }
+               //  ----------- Debug screen (presentação simples)     ---------
+                .sheet(isPresented: $isShowingAPIDebug) {
+                    NavigationStack {
+                        APIBibleDebugView()
+                    }
                 }
         }
         .appScreenBackground()
@@ -135,6 +143,27 @@ private extension HomeView {
                     onTapCTA: openLastReadingOrFallback
                 )
 
+                // ✅ Debug (temporário)
+                Button {
+                    isShowingAPIDebug = true
+                } label: {
+                    HStack(spacing: 10) {
+                        Image(systemName: "stethoscope")
+                        Text("Debug API")
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .font(.footnote)
+                            .opacity(0.7)
+                    }
+                    .foregroundStyle(Theme.primaryText)
+                    .padding(14)
+                    .background(
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .fill(Theme.surface)
+                    )
+                }
+                .buttonStyle(.plain)
+
                 // Hoje
                 SectionTitle("Hoje")
 
@@ -171,10 +200,7 @@ private extension HomeView {
         {
             // Começar agora = SEMPRE inicia do início (Marcos 1)
             readingPosition = .mark1
-
-            // Recomendação: não zerar automaticamente o progresso salvo aqui.
-            // Se quiser, crie um botão separado “Reiniciar progresso” com confirmação.
-            // lastReadingPositionData = Data()
         }
     }
 }
+
