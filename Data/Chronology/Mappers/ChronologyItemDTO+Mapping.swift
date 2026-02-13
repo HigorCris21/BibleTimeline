@@ -7,23 +7,30 @@
 
 import Foundation
 
+// MARK: - ChronologyItemDTO -> Domain
 extension ChronologyItemDTO {
-    func toDomain() -> ChronologyItem {
+
+    /// `order` é definido pelo Loader (ordem cronológica)
+    func toDomain(order: Int) -> ChronologyItem {
         ChronologyItem(
-            id: UUID(), // simples e suficiente para Identifiable no app
+            id: String(id), // 🔴 Int -> String (resolvido)
             title: title,
+            order: order,
             references: references.map { $0.toDomain() }
         )
     }
 }
 
+// MARK: - ReferenceRangeDTO -> Domain
 extension ReferenceRangeDTO {
+
     func toDomain() -> ReferenceRange {
         ReferenceRange(
             book: book,
-            chapter: chapter,
+            chapterNumber: chapter,
             verseStart: verseStart,
             verseEnd: verseEnd
         )
     }
 }
+

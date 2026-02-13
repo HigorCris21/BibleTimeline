@@ -2,7 +2,7 @@
 //  ExploreView.swift
 //  BibleTimelineApp
 //
-
+ 
 import SwiftUI
 
 // MARK: - ExploreView

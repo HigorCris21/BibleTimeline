@@ -4,11 +4,13 @@
 //
 //  Created by Higor  Lo Castro on 06/02/26.
 //
+
 import Foundation
 
-struct ChronologyItem: Identifiable, Hashable {
-    let id: UUID
+struct ChronologyItem: Identifiable, Hashable, Codable {
+    let id: String          // vem do JSON e não muda
     let title: String
+    let order: Int          // para ordenar cronologicamente
     let references: [ReferenceRange]
 }
 
@@ -18,15 +20,21 @@ extension ChronologyItem {
         guard let first = references.first else { return nil }
         return ReadingPosition(
             book: first.book,
-            chapter: first.chapter,
+            chapter: first.chapterNumber,
             verse: first.verseStart
         )
     }
 
     var displayReference: String {
         guard let first = references.first else { return "" }
-        if let v1 = first.verseStart, let v2 = first.verseEnd { return "\(first.book) \(first.chapter):\(v1)–\(v2)" }
-        if let v1 = first.verseStart { return "\(first.book) \(first.chapter):\(v1)" }
-        return "\(first.book) \(first.chapter)"
+
+        if let v1 = first.verseStart, let v2 = first.verseEnd {
+            return "\(first.book) \(first.chapterNumber):\(v1)–\(v2)"
+        }
+        if let v1 = first.verseStart {
+            return "\(first.book) \(first.chapterNumber):\(v1)"
+        }
+        return "\(first.book) \(first.chapterNumber)"
     }
 }
+

@@ -4,6 +4,7 @@
 //
 //  Created by Higor  Lo Castro on 06/02/26.
 //
+
 import Foundation
 
 struct ChronologyLoader: ChronologyLoading {
@@ -12,6 +13,8 @@ struct ChronologyLoader: ChronologyLoading {
 
     func loadChronology() async throws -> [ChronologyItem] {
 
+        // Mock: a ordem cronológica aqui é a ordem do array.
+        // Depois você substitui por JSON (Harmony of the Gospels) sem mexer no Domain.
         let dtos: [ChronologyItemDTO] = [
             ChronologyItemDTO(
                 id: 1,
@@ -53,6 +56,10 @@ struct ChronologyLoader: ChronologyLoading {
 
         guard !dtos.isEmpty else { throw LoaderError.empty }
 
-        return dtos.map { $0.toDomain() }
+    
+        return dtos.enumerated().map { index, dto in
+            dto.toDomain(order: index + 1) // começa em 1
+        }
     }
 }
+
