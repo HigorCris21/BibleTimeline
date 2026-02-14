@@ -34,7 +34,7 @@ enum ReadingRoute {
     /// Ponto de entrada padrão para iniciar uma nova leitura.
     static func startDefault() -> ReadingPosition {
         ReadingPosition(
-            book: "Mark",
+            book: "MRK",
             chapter: 1
         )
     }

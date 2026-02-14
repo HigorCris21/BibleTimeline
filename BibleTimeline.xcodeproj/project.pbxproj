@@ -61,27 +61,6 @@
 			);
 			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
 		};
-		EB6785412F3EBC67005135B4 /* Exceptions for "Chronology" folder in "BibleTimelineTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Mappers/ChronologyItemDTO+Mapping.swift",
-			);
-			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
-		};
-		EB8EFB9E2F3563EB00CEE7B0 /* Exceptions for "Preview Content" folder in "BibleTimeline" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Preview Assets.xcassets",
-			);
-			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
-		};
-		EB8EFB9F2F3563EB00CEE7B0 /* Exceptions for "Preview Content" folder in "BibleTimelineTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Preview Assets.xcassets",
-			);
-			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
-		};
 		EBAE54F52F3A84C500738FDD /* Exceptions for "App" folder in "BibleTimeline" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -128,7 +107,6 @@
 				Components/ReferenceChip.swift,
 				Components/SectionTitle.swift,
 				Theme/Theme.swift,
-				Theme/ViewModifiers.swift,
 			);
 			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
 		};
@@ -194,10 +172,6 @@
 		};
 		EB8EFB9C2F3563EB00CEE7B0 /* Preview Content */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				EB8EFB9E2F3563EB00CEE7B0 /* Exceptions for "Preview Content" folder in "BibleTimeline" target */,
-				EB8EFB9F2F3563EB00CEE7B0 /* Exceptions for "Preview Content" folder in "BibleTimelineTests" target */,
-			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
@@ -274,9 +248,6 @@
 		};
 		EBD779C52F3C010B00FE72BD /* Chronology */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				EB6785412F3EBC67005135B4 /* Exceptions for "Chronology" folder in "BibleTimelineTests" target */,
-			);
 			path = Chronology;
 			sourceTree = "<group>";
 		};

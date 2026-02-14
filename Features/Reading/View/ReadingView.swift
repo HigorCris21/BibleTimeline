@@ -7,7 +7,6 @@
 //
 
 
-
 import SwiftUI
 
 struct ReadingView: View {

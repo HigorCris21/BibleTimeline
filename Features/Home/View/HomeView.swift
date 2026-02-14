@@ -198,7 +198,6 @@ private extension HomeView {
 
     var startNewReading: () -> Void {
         {
-            // Começar agora = SEMPRE inicia do início (Marcos 1)
             readingPosition = .mark1
         }
     }
