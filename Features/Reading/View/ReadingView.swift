@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ReadingView: View {
 
-    // Salva o ID do evento, nao a posicao biblica
     @AppStorage(AppStorageKeys.lastReadingEventId)
     private var lastReadingEventId: String = ""
 
@@ -65,10 +64,8 @@ struct ReadingView: View {
         case .loaded(let reference, let text):
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text(vm.currentEvent.section.uppercased())
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(Theme.secondaryText)
 
+                    // Referência bíblica — sem seção nem título do evento
                     Text(reference)
                         .font(.title2.weight(.semibold))
                         .foregroundStyle(Theme.primaryText)
