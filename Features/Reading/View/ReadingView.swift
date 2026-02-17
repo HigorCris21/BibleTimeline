@@ -12,6 +12,8 @@ struct ReadingView: View {
     @AppStorage(AppStorageKeys.lastReadingEventId)
     private var lastReadingEventId: String = ""
 
+    @Environment(\.dismiss) private var dismiss
+
     @StateObject private var vm: ReadingViewModel
 
     init(startIndex: Int, harmony: [ChronologyItem], bibleTextService: BibleTextService) {
@@ -26,18 +28,21 @@ struct ReadingView: View {
 
     var body: some View {
         content
-            .navigationTitle(vm.eventTitle)
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .fontWeight(.semibold)
+                    }
+                }
+
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button("Anterior") { vm.previous() }
                         .disabled(!vm.hasPrevious)
-
-                    Spacer()
-
-                    Text(vm.eventProgress)
-                        .font(.footnote)
-                        .foregroundStyle(Theme.secondaryText)
 
                     Spacer()
 
@@ -49,7 +54,7 @@ struct ReadingView: View {
                 if case .loading = vm.state { vm.load() }
                 lastReadingEventId = vm.currentEvent.id
             }
-            .onChange(of: vm.currentIndex) { _ in
+            .onChange(of: vm.pageIndex) { _ in
                 lastReadingEventId = vm.currentEvent.id
             }
     }
@@ -61,22 +66,20 @@ struct ReadingView: View {
             ProgressView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
 
-        case .loaded(let reference, let text):
+        case .loaded(let texts):
             ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-
-                    // Referência bíblica — sem seção nem título do evento
-                    Text(reference)
-                        .font(.title2.weight(.semibold))
-                        .foregroundStyle(Theme.primaryText)
-
-                    Text(text)
-                        .font(.body)
-                        .foregroundStyle(Theme.primaryText)
-                        .fixedSize(horizontal: false, vertical: true)
+                VStack(alignment: .leading, spacing: 20) {
+                    ForEach(texts.indices, id: \.self) { index in
+                        Text(stripVerseNumbers(texts[index]))
+                            .font(.body)
+                            .foregroundStyle(Theme.primaryText)
+                            .lineSpacing(6)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
+                .padding(.horizontal, 22)
+                .padding(.vertical, 28)
             }
 
         case .error(let message):
@@ -96,5 +99,13 @@ struct ReadingView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
         }
+    }
+
+    private func stripVerseNumbers(_ text: String) -> String {
+        let pattern = #"\[\d+\]\s*"#
+        guard let regex = try? NSRegularExpression(pattern: pattern) else { return text }
+        let range = NSRange(text.startIndex..., in: text)
+        return regex.stringByReplacingMatches(in: text, range: range, withTemplate: "")
+            .trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }

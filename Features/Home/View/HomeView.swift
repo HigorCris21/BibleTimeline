@@ -14,7 +14,6 @@ struct HomeView: View {
 
     @AppStorage(AppStorageKeys.lastReadingEventId)
     private var lastReadingEventId: String = ""
-
     private var hasStarted: Bool { !lastReadingEventId.isEmpty }
 
     init(bibleTextService: BibleTextService) {
@@ -104,27 +103,23 @@ private extension HomeView {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 18) {
 
-                // CTA principal — muda conforme o estado do usuario
                 HeroHeader(
                     title: "Bom dia, Higor",
                     subtitle: "Leia a Biblia em ordem cronologica, sem perder o fio da narrativa.",
-                    ctaTitle: hasStarted ? "Continuar leitura" : "Iniciar leitura",
+                    ctaTitle: hasStarted ? "Continuar Leitura" : "Iniciar Leitura",
                     ctaIcon: hasStarted ? "play.circle.fill" : "book.circle.fill",
                     onTapCTA: {
                         selectedIndex = lastReadingIndex(in: harmony)
                     }
                 )
 
-                // Verso do dia — sempre no meio
                 SectionTitle("Hoje")
 
                 VerseOfDayCard(
                     reference: "Marcos 1:15",
-                    verse: "O tempo esta cumprido, e o reino de Deus esta proximo; arrependei-vos e crede no evangelho.",
-                    onTap: { }
+                    verse: "O tempo esta cumprido, e o reino de Deus esta proximo; arrependei-vos e crede no evangelho."
                 )
 
-                // Recomecar — so aparece se ja leu algo
                 if hasStarted {
                     SectionTitle("Leitura")
 
@@ -132,7 +127,7 @@ private extension HomeView {
                         title: "Recomeçar Leitura",
                         subtitle: "Volte ao primeiro evento.",
                         icon: "arrow.counterclockwise",
-                        buttonTitle: "Recomecar agora",
+                        buttonTitle: "Recomeçar Agora",
                         onTap: { selectedIndex = 0 }
                     )
                 }
@@ -159,3 +154,4 @@ private extension HomeView {
         return harmony.firstIndex { $0.id == lastReadingEventId } ?? 0
     }
 }
+

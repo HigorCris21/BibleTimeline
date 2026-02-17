@@ -94,7 +94,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				View/ReadingView.swift,
-				ViewModel/ReadingViewlModel.swift,
+				ViewModel/ReadingViewModel.swift,
 			);
 			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
 		};
