@@ -18,20 +18,20 @@ struct DefaultAPIBibleEndpointBuilder: APIBibleEndpointBuilding {
         config: APIBibleConfig
     ) throws -> URLRequest {
 
-        // 1️⃣ Cria o passageId e faz percent-encoding para evitar problemas com "." no path
+        //Cria o passageId e faz percent-encoding para evitar problemas com "." no path
         let rawPassageId = makePassageId(for: position)
         guard let passageId = rawPassageId.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
             throw APIBibleError.invalidURL
         }
 
-        // 2️⃣ Monta URL /v1/bibles/{bibleId}/passages/{passageId}
+//Monta URL /v1/bibles/{bibleId}/passages/{passageId}
         var url = config.baseURL
         url.append(path: "v1/bibles")
         url.append(path: config.bibleId)
         url.append(path: "passages")
         url.append(path: passageId)
 
-        // 3️⃣ Usa URLComponents para query parameters
+        // Usa URLComponents para query parameters
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             throw APIBibleError.invalidURL
         }
@@ -48,14 +48,14 @@ struct DefaultAPIBibleEndpointBuilder: APIBibleEndpointBuilding {
             throw APIBibleError.invalidURL
         }
 
-        // 4️⃣ Monta o request
+        // Monta o request
         var request = URLRequest(url: finalURL)
         request.httpMethod = "GET"
 
-        // 5️⃣ Header de autenticação
+        // Header de autenticação
         request.setValue(config.apiKey, forHTTPHeaderField: "api-key")
 
-        // 6️⃣ Header Accept
+        //  Header Accept
         request.setValue("application/json", forHTTPHeaderField: "accept")
 
         return request
