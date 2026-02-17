@@ -1,8 +1,8 @@
 //
 //  HomeViewModel.swift
-//  BibleTimelineApp
+//  BibleTimeline
 //
-//  Created by Higor  Lo Castro on 06/02/26.
+//  Created by Higor Lo Castro on 06/02/26.
 //
 
 import Foundation
@@ -12,16 +12,35 @@ final class HomeViewModel: ObservableObject {
 
     enum State: Equatable {
         case loading
-        case loaded
+        case loaded([ChronologyItem])
         case error(String)
     }
 
     @Published private(set) var state: State = .loading
 
-    func load() {
-        state = .loaded
+    private let loader: ChronologyLoading
+    private var task: Task<Void, Never>?
+
+    init(loader: ChronologyLoading = ChronologyLoader()) {
+        self.loader = loader
     }
+
+    func load() {
+        task?.cancel()
+        state = .loading
+
+        task = Task { [weak self] in
+            guard let self else { return }
+            do {
+                let items = try await loader.loadChronology()
+                if Task.isCancelled { return }
+                self.state = .loaded(items)
+            } catch {
+                if Task.isCancelled { return }
+                self.state = .error("Não foi possível carregar o conteúdo.")
+            }
+        }
+    }
+
+    deinit { task?.cancel() }
 }
-
-
-

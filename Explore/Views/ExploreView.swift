@@ -5,13 +5,11 @@
 
 import SwiftUI
 
-// MARK: - ExploreView
 struct ExploreView: View {
 
     let bibleTextService: BibleTextService
 
     @StateObject private var viewModel = ExploreViewModel()
-    @State private var readingPosition: ReadingPosition?
 
     init(bibleTextService: BibleTextService) {
         self.bibleTextService = bibleTextService
@@ -22,18 +20,10 @@ struct ExploreView: View {
             content
                 .navigationTitle("Explorar")
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationDestination(item: $readingPosition) { position in
-                    ReadingView(
-                        position: position,
-                        bibleTextService: bibleTextService
-                    )
-                }
         }
         .appScreenBackground()
         .task {
-            if case .loading = viewModel.state {
-                viewModel.load()
-            }
+            if case .loading = viewModel.state { viewModel.load() }
         }
     }
 }
@@ -58,13 +48,13 @@ private extension ExploreView {
     var loadingView: some View {
         VStack(spacing: 10) {
             ProgressView()
-            Text("Carregando…")
+            Text("Carregando...")
                 .font(.footnote)
                 .foregroundStyle(Theme.secondaryText)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("Carregando conteúdo")
+        .accessibilityLabel("Carregando conteudo")
     }
 
     func errorView(message: String) -> some View {
@@ -73,21 +63,15 @@ private extension ExploreView {
                 .multilineTextAlignment(.center)
                 .foregroundStyle(Theme.primaryText)
 
-            Button("Tentar novamente") {
-                viewModel.load()
-            }
-            .buttonStyle(.borderedProminent)
-            .tint(Theme.accent)
+            Button("Tentar novamente") { viewModel.load() }
+                .buttonStyle(.borderedProminent)
+                .tint(Theme.accent)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(16)
-        .accessibilityElement(children: .contain)
-        .accessibilityLabel("Erro ao carregar")
-        .accessibilityValue(message)
     }
 
     func loadedView(items: [ChronologyItem]) -> some View {
-        // Agrupa por seção mantendo a ordem cronológica
         let sections = groupedSections(from: items)
 
         return ScrollView(showsIndicators: false) {
@@ -95,9 +79,18 @@ private extension ExploreView {
                 ForEach(sections, id: \.title) { section in
                     Section {
                         ForEach(section.items) { item in
-                            chronologyCard(item: item)
-                                .padding(.horizontal, 16)
-                                .padding(.bottom, 10)
+                            let index = viewModel.index(of: item)
+                            NavigationLink(destination: ReadingView(
+                                startIndex: index,
+                                harmony: items,
+                                bibleTextService: bibleTextService
+                            )) {
+                                chronologyCard(item: item)
+                            }
+                            .buttonStyle(.plain)
+                            .disabled(item.startPosition == nil)
+                            .padding(.horizontal, 16)
+                            .padding(.bottom, 10)
                         }
                     } header: {
                         sectionHeader(title: section.title)
@@ -108,7 +101,6 @@ private extension ExploreView {
         }
     }
 
-    // MARK: - Section Header
     func sectionHeader(title: String) -> some View {
         Text(title.uppercased())
             .font(.footnote.weight(.semibold))
@@ -120,49 +112,40 @@ private extension ExploreView {
             .accessibilityAddTraits(.isHeader)
     }
 
-    // MARK: - Card
     func chronologyCard(item: ChronologyItem) -> some View {
-        Button {
-            guard let position = item.startPosition else { return }
-            readingPosition = position
-        } label: {
-            HStack(spacing: 12) {
-                // Número de ordem cronológica
-                Text("\(item.order)")
-                    .font(.caption.weight(.semibold))
+        HStack(spacing: 12) {
+            Text("\(item.order)")
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(Theme.secondaryText)
+                .frame(minWidth: 28, alignment: .trailing)
+                .accessibilityHidden(true)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(item.title)
+                    .font(.headline)
+                    .foregroundStyle(Theme.primaryText)
+
+                Text(item.displayReference)
+                    .font(.footnote)
                     .foregroundStyle(Theme.secondaryText)
-                    .frame(minWidth: 28, alignment: .trailing)
-                    .accessibilityHidden(true)
-
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(item.title)
-                        .font(.headline)
-                        .foregroundStyle(Theme.primaryText)
-
-                    Text(item.displayReference)
-                        .font(.footnote)
-                        .foregroundStyle(Theme.secondaryText)
-                }
-
-                Spacer(minLength: 0)
-
-                Image(systemName: "chevron.right")
-                    .foregroundStyle(Theme.secondaryText)
-                    .accessibilityHidden(true)
             }
-            .contentShape(Rectangle())
+
+            Spacer(minLength: 0)
+
+            Image(systemName: "chevron.right")
+                .foregroundStyle(Theme.secondaryText)
+                .accessibilityHidden(true)
         }
-        .buttonStyle(.plain)
+        .contentShape(Rectangle())
         .appCard()
+        .opacity(item.startPosition == nil ? 0.55 : 1.0)
         .accessibilityLabel(item.title)
         .accessibilityValue(item.displayReference)
-        .accessibilityHint(item.startPosition == nil ? "Indisponível" : "Abrir leitura")
-        .disabled(item.startPosition == nil)
-        .opacity(item.startPosition == nil ? 0.55 : 1.0)
+        .accessibilityHint(item.startPosition == nil ? "Indisponivel" : "Abrir leitura")
     }
 }
 
-// MARK: - Grouping Helper
+// MARK: - Grouping
 private extension ExploreView {
 
     struct SectionGroup {
@@ -170,9 +153,8 @@ private extension ExploreView {
         let items: [ChronologyItem]
     }
 
-    /// Agrupa os itens por `section` mantendo a ordem cronológica do primeiro item de cada seção.
     func groupedSections(from items: [ChronologyItem]) -> [SectionGroup] {
-        var seen = [String: Int]()       // section title → index em `result`
+        var seen = [String: Int]()
         var result = [SectionGroup]()
 
         for item in items {

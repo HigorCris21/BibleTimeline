@@ -1,64 +1,45 @@
 //
 //  HomeView.swift
-//  BibleTimelineApp
+//  BibleTimeline
 //
 
 import SwiftUI
 
 struct HomeView: View {
 
-    // MARK: Dependencies (SOLID: vem de fora)
     let bibleTextService: BibleTextService
 
-    // MARK: - State
     @StateObject private var viewModel = HomeViewModel()
-    @State private var readingPosition: ReadingPosition?
+    @State private var isShowingAPIDebug = false
+    @State private var selectedIndex: Int?
 
-    // MARK: - Debug routing
-    @State private var isShowingAPIDebug: Bool = false
-
-    // MARK: - Persistence
     @AppStorage(AppStorageKeys.lastReadingPosition)
     private var lastReadingPositionData: Data = Data()
 
-    // MARK: - Derived
     private var lastReadingPosition: ReadingPosition? {
         try? JSONDecoder().decode(ReadingPosition.self, from: lastReadingPositionData)
     }
 
-    // MARK: - Init
     init(bibleTextService: BibleTextService) {
         self.bibleTextService = bibleTextService
     }
 
-    // MARK: - Body
     var body: some View {
         NavigationStack {
             content
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationDestination(item: $readingPosition) { position in
-                    ReadingView(
-                        position: position,
-                        bibleTextService: bibleTextService
-                    )
-                }
-               //  ----------- Debug screen (presentação simples)     ---------
                 .sheet(isPresented: $isShowingAPIDebug) {
-                    NavigationStack {
-                        APIBibleDebugView()
-                    }
+                    NavigationStack { APIBibleDebugView() }
                 }
         }
         .appScreenBackground()
         .task {
-            if case .loading = viewModel.state {
-                viewModel.load()
-            }
+            if case .loading = viewModel.state { viewModel.load() }
         }
     }
 }
 
-// MARK: - State Routing (State-driven UI)
+// MARK: - State Routing
 private extension HomeView {
 
     @ViewBuilder
@@ -70,8 +51,8 @@ private extension HomeView {
         case .error(let message):
             errorView(message: message)
 
-        case .loaded:
-            loadedView
+        case .loaded(let harmony):
+            loadedView(harmony: harmony)
         }
     }
 }
@@ -82,15 +63,12 @@ private extension HomeView {
     var loadingView: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 18) {
-
                 RoundedRectangle(cornerRadius: 22, style: .continuous)
                     .fill(Theme.surface.opacity(0.6))
                     .frame(height: 150)
-
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(Theme.surface.opacity(0.6))
                     .frame(height: 140)
-
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(Theme.surface.opacity(0.6))
                     .frame(height: 170)
@@ -104,8 +82,7 @@ private extension HomeView {
     func errorView(message: String) -> some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 12) {
-
-                Text("Não foi possível carregar a tela inicial")
+                Text("Nao foi possivel carregar a tela inicial")
                     .font(.headline)
                     .foregroundStyle(Theme.primaryText)
 
@@ -114,11 +91,9 @@ private extension HomeView {
                     .foregroundStyle(Theme.secondaryText)
                     .fixedSize(horizontal: false, vertical: true)
 
-                Button("Tentar novamente") {
-                    viewModel.load()
-                }
-                .buttonStyle(.plain)
-                .padding(.top, 8)
+                Button("Tentar novamente") { viewModel.load() }
+                    .buttonStyle(.plain)
+                    .padding(.top, 8)
             }
             .padding(16)
             .background(
@@ -131,75 +106,58 @@ private extension HomeView {
         }
     }
 
-    var loadedView: some View {
-        ScrollView(showsIndicators: false) {
+    func loadedView(harmony: [ChronologyItem]) -> some View {
+        let continueIndex = lastReadingIndex(in: harmony)
+
+        return ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 18) {
 
-                // Hero
+                // Continuar leitura — aciona pelo onTapCTA do componente
                 HeroHeader(
                     title: "Bom dia, Higor",
-                    subtitle: "Leia a Bíblia em ordem cronológica, sem perder o fio da narrativa.",
+                    subtitle: "Leia a Biblia em ordem cronologica, sem perder o fio da narrativa.",
                     ctaTitle: "Continuar leitura",
-                    onTapCTA: openLastReadingOrFallback
+                    onTapCTA: { selectedIndex = continueIndex }
                 )
 
-                // ✅ Debug (temporário)
-                Button {
-                    isShowingAPIDebug = true
-                } label: {
-                    HStack(spacing: 10) {
-                        Image(systemName: "stethoscope")
-                        Text("Debug API")
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .font(.footnote)
-                            .opacity(0.7)
-                    }
-                    .foregroundStyle(Theme.primaryText)
-                    .padding(14)
-                    .background(
-                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .fill(Theme.surface)
-                    )
-                }
-                .buttonStyle(.plain)
-
-                // Hoje
                 SectionTitle("Hoje")
 
                 VerseOfDayCard(
                     reference: "Marcos 1:15",
-                    verse: "“O tempo está cumprido, e o reino de Deus está próximo; arrependei-vos e crede no evangelho.”",
+                    verse: "O tempo esta cumprido, e o reino de Deus esta proximo; arrependei-vos e crede no evangelho.",
                     onTap: { }
                 )
 
-                // Leitura
                 SectionTitle("Leitura")
 
+                // Comecar do inicio — aciona pelo onTap do componente
                 StartReadingCard(
-                    onTap: startNewReading
+                    onTap: { selectedIndex = 0 }
                 )
             }
             .padding(.horizontal, 16)
             .padding(.top, 12)
             .padding(.bottom, 32)
         }
+        // NavigationLink programatico acionado pelo selectedIndex
+        .navigationDestination(item: $selectedIndex) { index in
+            ReadingView(
+                startIndex: index,
+                harmony: harmony,
+                bibleTextService: bibleTextService
+            )
+        }
     }
 }
 
-// MARK: - Actions
+// MARK: - Helpers
 private extension HomeView {
 
-    var openLastReadingOrFallback: () -> Void {
-        {
-            readingPosition = lastReadingPosition ?? .mark1
-        }
-    }
-
-    var startNewReading: () -> Void {
-        {
-            readingPosition = .mark1
-        }
+    func lastReadingIndex(in harmony: [ChronologyItem]) -> Int {
+        guard let lastPosition = lastReadingPosition else { return 0 }
+        return harmony.firstIndex {
+            $0.startPosition?.book == lastPosition.book &&
+            $0.startPosition?.chapter == lastPosition.chapter
+        } ?? 0
     }
 }
-

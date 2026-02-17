@@ -2,36 +2,23 @@
 //  SearchView.swift
 //  BibleTimeline
 //
-//  Created by Higor  Lo Castro on 10/02/26.
+//  Created by Higor Lo Castro on 10/02/26.
 //
-
-//
-//  SearchView.swift
-//  BibleTimeline
-//
-//  Created by Higor  Lo Castro on 10/02/26.
-//
-
-
 
 import SwiftUI
 
 // MARK: - SearchView
 struct SearchView: View {
 
-    // MARK: Dependencies (SOLID: vem de fora)
     let bibleTextService: BibleTextService
 
-    // MARK: State
     @StateObject private var viewModel = SearchViewModel()
-    @State private var readingPosition: ReadingPosition?
+    @State private var selectedIndex: Int?
 
-    // MARK: Init
     init(bibleTextService: BibleTextService) {
         self.bibleTextService = bibleTextService
     }
 
-    // MARK: Body
     var body: some View {
         NavigationStack {
             VStack(spacing: 12) {
@@ -43,21 +30,24 @@ struct SearchView: View {
             .padding(16)
             .navigationTitle("Buscar")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(item: $readingPosition) { position in
+            .navigationDestination(item: $selectedIndex) { index in
                 ReadingView(
-                    position: position,
+                    startIndex: index,
+                    harmony: viewModel.harmony,
                     bibleTextService: bibleTextService
                 )
             }
         }
         .appScreenBackground()
+        .task {
+            await viewModel.loadHarmony()
+        }
     }
 }
 
 // MARK: - UI
 private extension SearchView {
 
-    // MARK: Livro
     var bookCard: some View {
         HStack(spacing: 12) {
             Image(systemName: "book.closed.fill")
@@ -97,7 +87,6 @@ private extension SearchView {
         .accessibilityValue(viewModel.selectedBook.displayName)
     }
 
-    // MARK: Capítulo
     var chapterCard: some View {
         HStack(spacing: 12) {
             Image(systemName: "number.circle.fill")
@@ -131,14 +120,9 @@ private extension SearchView {
         .accessibilityValue("\(viewModel.selectedChapter)")
     }
 
-    // MARK: Ação principal
     var readButton: some View {
         Button {
-            readingPosition = ReadingPosition(
-                book: viewModel.selectedBook.rawValue,
-                chapter: viewModel.selectedChapter,
-                verse: nil
-            )
+            selectedIndex = viewModel.indexForSelection()
         } label: {
             HStack {
                 Spacer()
@@ -150,7 +134,7 @@ private extension SearchView {
         }
         .buttonStyle(.borderedProminent)
         .tint(Theme.accent)
-        .disabled(viewModel.availableChapters.isEmpty)
+        .disabled(viewModel.availableChapters.isEmpty || viewModel.harmony.isEmpty)
         .accessibilityHint("Abrir a leitura no livro e capítulo selecionados")
     }
 }

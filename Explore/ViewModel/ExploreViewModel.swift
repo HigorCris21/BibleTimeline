@@ -1,6 +1,6 @@
 //
 //  ExploreViewModel.swift
-//  BibleTimelineApp
+//  BibleTimeline
 //
 
 import Foundation
@@ -29,7 +29,6 @@ final class ExploreViewModel: ObservableObject {
 
         task = Task { [weak self] in
             guard let self else { return }
-
             do {
                 let items = try await loader.loadChronology()
                 if Task.isCancelled { return }
@@ -41,8 +40,11 @@ final class ExploreViewModel: ObservableObject {
         }
     }
 
-    deinit {
-        task?.cancel()
+    // Retorna o índice de um item na lista carregada
+    func index(of item: ChronologyItem) -> Int {
+        guard case .loaded(let items) = state else { return 0 }
+        return items.firstIndex(of: item) ?? 0
     }
-}
 
+    deinit { task?.cancel() }
+}

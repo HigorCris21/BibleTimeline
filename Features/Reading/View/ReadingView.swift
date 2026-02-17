@@ -2,10 +2,8 @@
 //  ReadingView.swift
 //  BibleTimeline
 //
-//  Created by Higor  Lo Castro on 06/02/26.
+//  Created by Higor Lo Castro on 06/02/26.
 //
-//
-
 
 import SwiftUI
 
@@ -18,11 +16,12 @@ struct ReadingView: View {
     // MARK: - State
     @StateObject private var vm: ReadingViewModel
 
-    // MARK: - Init (SOLID: service vem de fora)
-    init(position: ReadingPosition, bibleTextService: BibleTextService) {
+    // MARK: - Init
+    init(startIndex: Int, harmony: [ChronologyItem], bibleTextService: BibleTextService) {
         _vm = StateObject(
             wrappedValue: ReadingViewModel(
-                position: position,
+                startIndex: startIndex,
+                harmony: harmony,
                 bibleTextService: bibleTextService
             )
         )
@@ -31,31 +30,32 @@ struct ReadingView: View {
     // MARK: - Body
     var body: some View {
         content
-            .navigationTitle(title)
+            .navigationTitle(vm.eventTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
-                    Button("Anterior") { vm.previousChapter() }
+                    Button("Anterior") { vm.previous() }
+                        .disabled(!vm.hasPrevious)
+
                     Spacer()
-                    Button("Próximo") { vm.nextChapter() }
+
+                    Text(vm.eventProgress)
+                        .font(.footnote)
+                        .foregroundStyle(Theme.secondaryText)
+
+                    Spacer()
+
+                    Button("Próximo") { vm.next() }
+                        .disabled(!vm.hasNext)
                 }
             }
             .task {
-                // Evita recarregar se a View for recriada enquanto já está carregada
-                if case .loading = vm.state {
-                    vm.load()
-                }
-                persistPosition(vm.position) // salva ao entrar também
+                if case .loading = vm.state { vm.load() }
+                persistPosition(vm.position)
             }
-            .onChange(of: vm.position) { newValue in
-                persistPosition(newValue)   // salva sempre que mudar capítulo
+            .onChange(of: vm.currentIndex) { _ in
+                persistPosition(vm.position)
             }
-    }
-
-    // MARK: - Title
-    private var title: String {
-        // ✅ Melhor: usa o resolver de nomes (Marcos 1) em vez de MRK 1
-        vm.position.title
     }
 
     // MARK: - Persist
@@ -64,7 +64,7 @@ struct ReadingView: View {
         lastReadingPositionData = data
     }
 
-    // MARK: - Content (state-driven UI)
+    // MARK: - Content
     @ViewBuilder
     private var content: some View {
         switch vm.state {
@@ -75,12 +75,20 @@ struct ReadingView: View {
         case .loaded(let reference, let text):
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text(reference)
-                        .font(.title2)
-                        .fontWeight(.semibold)
+                    // Seção do evento
+                    Text(vm.currentEvent.section.uppercased())
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(Theme.secondaryText)
 
+                    // Referência bíblica
+                    Text(reference)
+                        .font(.title2.weight(.semibold))
+                        .foregroundStyle(Theme.primaryText)
+
+                    // Texto bíblico
                     Text(text)
                         .font(.body)
+                        .foregroundStyle(Theme.primaryText)
                         .fixedSize(horizontal: false, vertical: true)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -89,16 +97,17 @@ struct ReadingView: View {
 
         case .error(let message):
             VStack(spacing: 12) {
-                Text("Erro")
-                    .font(.title3)
-                    .fontWeight(.semibold)
+                Text("Erro ao carregar")
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(Theme.primaryText)
 
                 Text(message)
                     .multilineTextAlignment(.center)
+                    .foregroundStyle(Theme.secondaryText)
 
-                Button("Tentar novamente") {
-                    vm.load()
-                }
+                Button("Tentar novamente") { vm.load() }
+                    .buttonStyle(.borderedProminent)
+                    .tint(Theme.accent)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
