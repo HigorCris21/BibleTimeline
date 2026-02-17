@@ -46,7 +46,13 @@ struct ReadingView: View {
 
                     Spacer()
 
-                    Button("Proximo") { vm.next() }
+                    Text("\(vm.pageIndex + 1) de \(vm.totalPages)")
+                        .font(.footnote)
+                        .foregroundStyle(Theme.secondaryText)
+
+                    Spacer()
+
+                    Button("Próximo") { vm.next() }
                         .disabled(!vm.hasNext)
                 }
             }
@@ -71,9 +77,10 @@ struct ReadingView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     ForEach(texts.indices, id: \.self) { index in
                         Text(stripVerseNumbers(texts[index]))
-                            .font(.body)
+                            .font(.system(size: 18))
                             .foregroundStyle(Theme.primaryText)
                             .lineSpacing(6)
+                            .multilineTextAlignment(.leading)
                             .fixedSize(horizontal: false, vertical: true)
                     }
                 }

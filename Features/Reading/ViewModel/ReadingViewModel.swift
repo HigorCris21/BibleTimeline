@@ -45,7 +45,7 @@ final class ReadingViewModel: ObservableObject {
     deinit { loadTask?.cancel() }
 
     // MARK: - Computed
-    private var totalPages: Int {
+    var totalPages: Int {
         Int(ceil(Double(harmony.count) / Double(pageSize)))
     }
 
