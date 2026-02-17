@@ -13,12 +13,9 @@ struct HomeView: View {
     @State private var isShowingAPIDebug = false
     @State private var selectedIndex: Int?
 
-    @AppStorage(AppStorageKeys.lastReadingPosition)
-    private var lastReadingPositionData: Data = Data()
-
-    private var lastReadingPosition: ReadingPosition? {
-        try? JSONDecoder().decode(ReadingPosition.self, from: lastReadingPositionData)
-    }
+    // Agora lemos o ID do evento, nao a posicao biblica
+    @AppStorage(AppStorageKeys.lastReadingEventId)
+    private var lastReadingEventId: String = ""
 
     init(bibleTextService: BibleTextService) {
         self.bibleTextService = bibleTextService
@@ -107,18 +104,38 @@ private extension HomeView {
     }
 
     func loadedView(harmony: [ChronologyItem]) -> some View {
-        let continueIndex = lastReadingIndex(in: harmony)
-
-        return ScrollView(showsIndicators: false) {
+        ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 18) {
 
-                // Continuar leitura — aciona pelo onTapCTA do componente
                 HeroHeader(
                     title: "Bom dia, Higor",
                     subtitle: "Leia a Biblia em ordem cronologica, sem perder o fio da narrativa.",
                     ctaTitle: "Continuar leitura",
-                    onTapCTA: { selectedIndex = continueIndex }
+                    onTapCTA: {
+                        // Busca pelo ID exato do evento — sempre preciso
+                        selectedIndex = lastReadingIndex(in: harmony)
+                    }
                 )
+
+                Button {
+                    isShowingAPIDebug = true
+                } label: {
+                    HStack(spacing: 10) {
+                        Image(systemName: "stethoscope")
+                        Text("Debug API")
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .font(.footnote)
+                            .opacity(0.7)
+                    }
+                    .foregroundStyle(Theme.primaryText)
+                    .padding(14)
+                    .background(
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .fill(Theme.surface)
+                    )
+                }
+                .buttonStyle(.plain)
 
                 SectionTitle("Hoje")
 
@@ -130,7 +147,6 @@ private extension HomeView {
 
                 SectionTitle("Leitura")
 
-                // Comecar do inicio — aciona pelo onTap do componente
                 StartReadingCard(
                     onTap: { selectedIndex = 0 }
                 )
@@ -139,7 +155,6 @@ private extension HomeView {
             .padding(.top, 12)
             .padding(.bottom, 32)
         }
-        // NavigationLink programatico acionado pelo selectedIndex
         .navigationDestination(item: $selectedIndex) { index in
             ReadingView(
                 startIndex: index,
@@ -153,11 +168,10 @@ private extension HomeView {
 // MARK: - Helpers
 private extension HomeView {
 
+    /// Busca o indice pelo ID do evento — exato e sem ambiguidade.
+    /// Se o usuario nunca leu nada, retorna 0 (primeiro evento).
     func lastReadingIndex(in harmony: [ChronologyItem]) -> Int {
-        guard let lastPosition = lastReadingPosition else { return 0 }
-        return harmony.firstIndex {
-            $0.startPosition?.book == lastPosition.book &&
-            $0.startPosition?.chapter == lastPosition.chapter
-        } ?? 0
+        guard !lastReadingEventId.isEmpty else { return 0 }
+        return harmony.firstIndex { $0.id == lastReadingEventId } ?? 0
     }
 }

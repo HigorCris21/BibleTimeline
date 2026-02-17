@@ -9,14 +9,12 @@ import SwiftUI
 
 struct ReadingView: View {
 
-    // MARK: - Persistence
-    @AppStorage(AppStorageKeys.lastReadingPosition)
-    private var lastReadingPositionData: Data = Data()
+    // Salva o ID do evento, nao a posicao biblica
+    @AppStorage(AppStorageKeys.lastReadingEventId)
+    private var lastReadingEventId: String = ""
 
-    // MARK: - State
     @StateObject private var vm: ReadingViewModel
 
-    // MARK: - Init
     init(startIndex: Int, harmony: [ChronologyItem], bibleTextService: BibleTextService) {
         _vm = StateObject(
             wrappedValue: ReadingViewModel(
@@ -27,7 +25,6 @@ struct ReadingView: View {
         )
     }
 
-    // MARK: - Body
     var body: some View {
         content
             .navigationTitle(vm.eventTitle)
@@ -45,26 +42,19 @@ struct ReadingView: View {
 
                     Spacer()
 
-                    Button("Próximo") { vm.next() }
+                    Button("Proximo") { vm.next() }
                         .disabled(!vm.hasNext)
                 }
             }
             .task {
                 if case .loading = vm.state { vm.load() }
-                persistPosition(vm.position)
+                lastReadingEventId = vm.currentEvent.id
             }
             .onChange(of: vm.currentIndex) { _ in
-                persistPosition(vm.position)
+                lastReadingEventId = vm.currentEvent.id
             }
     }
 
-    // MARK: - Persist
-    private func persistPosition(_ position: ReadingPosition) {
-        guard let data = try? JSONEncoder().encode(position) else { return }
-        lastReadingPositionData = data
-    }
-
-    // MARK: - Content
     @ViewBuilder
     private var content: some View {
         switch vm.state {
@@ -75,17 +65,14 @@ struct ReadingView: View {
         case .loaded(let reference, let text):
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    // Seção do evento
                     Text(vm.currentEvent.section.uppercased())
                         .font(.caption.weight(.semibold))
                         .foregroundStyle(Theme.secondaryText)
 
-                    // Referência bíblica
                     Text(reference)
                         .font(.title2.weight(.semibold))
                         .foregroundStyle(Theme.primaryText)
 
-                    // Texto bíblico
                     Text(text)
                         .font(.body)
                         .foregroundStyle(Theme.primaryText)
