@@ -1,26 +1,22 @@
 //
 //  ExploreView.swift
-//  BibleTimelineApp
+//  BibleTimeline
 //
- 
+
 import SwiftUI
 
 // MARK: - ExploreView
 struct ExploreView: View {
 
-    // MARK: Dependencies (SOLID: vem de fora)
     let bibleTextService: BibleTextService
 
-    // MARK: State
     @StateObject private var viewModel = ExploreViewModel()
     @State private var readingPosition: ReadingPosition?
 
-    // MARK: Init
     init(bibleTextService: BibleTextService) {
         self.bibleTextService = bibleTextService
     }
 
-    // MARK: Body
     var body: some View {
         NavigationStack {
             content
@@ -35,7 +31,6 @@ struct ExploreView: View {
         }
         .appScreenBackground()
         .task {
-            // Evita reload desnecessário se a View recriar.
             if case .loading = viewModel.state {
                 viewModel.load()
             }
@@ -60,7 +55,6 @@ private extension ExploreView {
         }
     }
 
-    // MARK: Loading
     var loadingView: some View {
         VStack(spacing: 10) {
             ProgressView()
@@ -69,12 +63,10 @@ private extension ExploreView {
                 .foregroundStyle(Theme.secondaryText)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(16)
         .accessibilityElement(children: .combine)
         .accessibilityLabel("Carregando conteúdo")
     }
 
-    // MARK: Error
     func errorView(message: String) -> some View {
         VStack(spacing: 12) {
             Text(message)
@@ -94,28 +86,52 @@ private extension ExploreView {
         .accessibilityValue(message)
     }
 
-    // MARK: Loaded
     func loadedView(items: [ChronologyItem]) -> some View {
-        ScrollView(showsIndicators: false) {
-            LazyVStack(spacing: 12) {
-                ForEach(items) { item in
-                    chronologyCard(item: item)
+        // Agrupa por seção mantendo a ordem cronológica
+        let sections = groupedSections(from: items)
+
+        return ScrollView(showsIndicators: false) {
+            LazyVStack(alignment: .leading, spacing: 0, pinnedViews: .sectionHeaders) {
+                ForEach(sections, id: \.title) { section in
+                    Section {
+                        ForEach(section.items) { item in
+                            chronologyCard(item: item)
+                                .padding(.horizontal, 16)
+                                .padding(.bottom, 10)
+                        }
+                    } header: {
+                        sectionHeader(title: section.title)
+                    }
                 }
             }
-            .padding(16)
+            .padding(.bottom, 32)
         }
     }
 
-    // MARK: Card
+    // MARK: - Section Header
+    func sectionHeader(title: String) -> some View {
+        Text(title.uppercased())
+            .font(.footnote.weight(.semibold))
+            .foregroundStyle(Theme.secondaryText)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 8)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Theme.background)
+            .accessibilityAddTraits(.isHeader)
+    }
+
+    // MARK: - Card
     func chronologyCard(item: ChronologyItem) -> some View {
         Button {
             guard let position = item.startPosition else { return }
             readingPosition = position
         } label: {
             HStack(spacing: 12) {
-                Image(systemName: "text.book.closed")
-                    .font(.title3)
-                    .foregroundStyle(Theme.accent)
+                // Número de ordem cronológica
+                Text("\(item.order)")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(Theme.secondaryText)
+                    .frame(minWidth: 28, alignment: .trailing)
                     .accessibilityHidden(true)
 
                 VStack(alignment: .leading, spacing: 2) {
@@ -143,5 +159,32 @@ private extension ExploreView {
         .accessibilityHint(item.startPosition == nil ? "Indisponível" : "Abrir leitura")
         .disabled(item.startPosition == nil)
         .opacity(item.startPosition == nil ? 0.55 : 1.0)
+    }
+}
+
+// MARK: - Grouping Helper
+private extension ExploreView {
+
+    struct SectionGroup {
+        let title: String
+        let items: [ChronologyItem]
+    }
+
+    /// Agrupa os itens por `section` mantendo a ordem cronológica do primeiro item de cada seção.
+    func groupedSections(from items: [ChronologyItem]) -> [SectionGroup] {
+        var seen = [String: Int]()       // section title → index em `result`
+        var result = [SectionGroup]()
+
+        for item in items {
+            if let index = seen[item.section] {
+                let existing = result[index]
+                result[index] = SectionGroup(title: existing.title, items: existing.items + [item])
+            } else {
+                seen[item.section] = result.count
+                result.append(SectionGroup(title: item.section, items: [item]))
+            }
+        }
+
+        return result
     }
 }

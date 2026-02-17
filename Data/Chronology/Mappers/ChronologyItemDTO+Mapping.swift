@@ -2,7 +2,7 @@
 //  ChronologyItemDTO+Mapping.swift
 //  BibleTimeline
 //
-//  Created by Higor  Lo Castro on 10/02/26.
+//  Created by Higor Lo Castro on 10/02/26.
 //
 
 import Foundation
@@ -10,12 +10,12 @@ import Foundation
 // MARK: - ChronologyItemDTO -> Domain
 extension ChronologyItemDTO {
 
-    /// `order` é definido pelo Loader (ordem cronológica)
-    func toDomain(order: Int) -> ChronologyItem {
+    func toDomain() -> ChronologyItem {
         ChronologyItem(
-            id: String(id), // 🔴 Int -> String (resolvido)
-            title: title,
+            id: id,
+            section: section,
             order: order,
+            title: title,
             references: references.map { $0.toDomain() }
         )
     }
@@ -27,10 +27,9 @@ extension ReferenceRangeDTO {
     func toDomain() -> ReferenceRange {
         ReferenceRange(
             book: book,
-            chapterNumber: chapter,
+            chapterNumber: chapterStart,
             verseStart: verseStart,
             verseEnd: verseEnd
         )
     }
 }
-

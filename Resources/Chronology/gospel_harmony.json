@@ -1,0 +1,1706 @@
+
+[
+  {
+    "id": "intro-1",
+    "section": "Introduções",
+    "order": 1,
+    "title": "Introdução de Lucas",
+    "references": [
+      { "book": "LUK", "chapterStart": 1, "verseStart": 1, "verseEnd": 4 }
+    ]
+  },
+  {
+    "id": "intro-2",
+    "section": "Introduções",
+    "order": 2,
+    "title": "A Palavra preexistente — Prólogo de João",
+    "references": [
+      { "book": "JHN", "chapterStart": 1, "verseStart": 1, "verseEnd": 18 }
+    ]
+  },
+  {
+    "id": "intro-3",
+    "section": "Introduções",
+    "order": 3,
+    "title": "Genealogia de Jesus Cristo",
+    "references": [
+      { "book": "MAT", "chapterStart": 1, "verseStart": 1, "verseEnd": 17 },
+      { "book": "LUK", "chapterStart": 3, "verseStart": 23, "verseEnd": 38 }
+    ]
+  },
+  {
+    "id": "birth-1",
+    "section": "Nascimento e Infância",
+    "order": 4,
+    "title": "Anúncio do nascimento de João Batista",
+    "references": [
+      { "book": "LUK", "chapterStart": 1, "verseStart": 5, "verseEnd": 25 }
+    ]
+  },
+  {
+    "id": "birth-2",
+    "section": "Nascimento e Infância",
+    "order": 5,
+    "title": "Anúncio do nascimento de Jesus a Maria",
+    "references": [
+      { "book": "LUK", "chapterStart": 1, "verseStart": 26, "verseEnd": 38 }
+    ]
+  },
+  {
+    "id": "birth-3",
+    "section": "Nascimento e Infância",
+    "order": 6,
+    "title": "Maria visita Isabel — Cântico de Maria",
+    "references": [
+      { "book": "LUK", "chapterStart": 1, "verseStart": 39, "verseEnd": 56 }
+    ]
+  },
+  {
+    "id": "birth-4",
+    "section": "Nascimento e Infância",
+    "order": 7,
+    "title": "Nascimento de João Batista e Cântico de Zacarias",
+    "references": [
+      { "book": "LUK", "chapterStart": 1, "verseStart": 57, "verseEnd": 80 }
+    ]
+  },
+  {
+    "id": "birth-5",
+    "section": "Nascimento e Infância",
+    "order": 8,
+    "title": "Anúncio do nascimento de Jesus a José",
+    "references": [
+      { "book": "MAT", "chapterStart": 1, "verseStart": 18, "verseEnd": 25 }
+    ]
+  },
+  {
+    "id": "birth-6",
+    "section": "Nascimento e Infância",
+    "order": 9,
+    "title": "Nascimento de Jesus em Belém",
+    "references": [
+      { "book": "MAT", "chapterStart": 1, "verseStart": 24, "verseEnd": 25 },
+      { "book": "LUK", "chapterStart": 2, "verseStart": 1, "verseEnd": 7 }
+    ]
+  },
+  {
+    "id": "birth-7",
+    "section": "Nascimento e Infância",
+    "order": 10,
+    "title": "Proclamação dos anjos e visita dos pastores",
+    "references": [
+      { "book": "LUK", "chapterStart": 2, "verseStart": 8, "verseEnd": 20 }
+    ]
+  },
+  {
+    "id": "birth-8",
+    "section": "Nascimento e Infância",
+    "order": 11,
+    "title": "Circuncisão de Jesus",
+    "references": [
+      { "book": "LUK", "chapterStart": 2, "verseStart": 21, "verseEnd": 21 }
+    ]
+  },
+  {
+    "id": "birth-9",
+    "section": "Nascimento e Infância",
+    "order": 12,
+    "title": "Testemunho de Simeão e Ana no Templo",
+    "references": [
+      { "book": "LUK", "chapterStart": 2, "verseStart": 22, "verseEnd": 38 }
+    ]
+  },
+  {
+    "id": "birth-10",
+    "section": "Nascimento e Infância",
+    "order": 13,
+    "title": "Visita dos Magos",
+    "references": [
+      { "book": "MAT", "chapterStart": 2, "verseStart": 1, "verseEnd": 12 }
+    ]
+  },
+  {
+    "id": "birth-11",
+    "section": "Nascimento e Infância",
+    "order": 14,
+    "title": "Fuga para o Egito e massacre dos inocentes",
+    "references": [
+      { "book": "MAT", "chapterStart": 2, "verseStart": 13, "verseEnd": 18 }
+    ]
+  },
+  {
+    "id": "birth-12",
+    "section": "Nascimento e Infância",
+    "order": 15,
+    "title": "Regresso do Egito para Nazaré",
+    "references": [
+      { "book": "MAT", "chapterStart": 2, "verseStart": 19, "verseEnd": 23 },
+      { "book": "LUK", "chapterStart": 2, "verseStart": 39, "verseEnd": 39 }
+    ]
+  },
+  {
+    "id": "birth-13",
+    "section": "Nascimento e Infância",
+    "order": 16,
+    "title": "Infância de Jesus em Nazaré",
+    "references": [
+      { "book": "LUK", "chapterStart": 2, "verseStart": 40, "verseEnd": 40 }
+    ]
+  },
+  {
+    "id": "birth-14",
+    "section": "Nascimento e Infância",
+    "order": 17,
+    "title": "Jesus aos 12 anos no Templo",
+    "references": [
+      { "book": "LUK", "chapterStart": 2, "verseStart": 41, "verseEnd": 50 }
+    ]
+  },
+  {
+    "id": "birth-15",
+    "section": "Nascimento e Infância",
+    "order": 18,
+    "title": "Crescimento de Jesus até a vida adulta",
+    "references": [
+      { "book": "LUK", "chapterStart": 2, "verseStart": 51, "verseEnd": 52 }
+    ]
+  },
+  {
+    "id": "john-1",
+    "section": "João Batista",
+    "order": 19,
+    "title": "Início do ministério de João Batista",
+    "references": [
+      { "book": "MAT", "chapterStart": 3, "verseStart": 1, "verseEnd": 1 },
+      { "book": "MRK", "chapterStart": 1, "verseStart": 1, "verseEnd": 4 },
+      { "book": "LUK", "chapterStart": 3, "verseStart": 1, "verseEnd": 2 },
+      { "book": "JHN", "chapterStart": 1, "verseStart": 19, "verseEnd": 28 }
+    ]
+  },
+  {
+    "id": "john-2",
+    "section": "João Batista",
+    "order": 20,
+    "title": "O homem e a mensagem de João",
+    "references": [
+      { "book": "MAT", "chapterStart": 3, "verseStart": 2, "verseEnd": 12 },
+      { "book": "MRK", "chapterStart": 1, "verseStart": 2, "verseEnd": 8 },
+      { "book": "LUK", "chapterStart": 3, "verseStart": 3, "verseEnd": 14 }
+    ]
+  },
+  {
+    "id": "john-3",
+    "section": "João Batista",
+    "order": 21,
+    "title": "João fala sobre Jesus que viria",
+    "references": [
+      { "book": "MAT", "chapterStart": 3, "verseStart": 11, "verseEnd": 12 },
+      { "book": "MRK", "chapterStart": 1, "verseStart": 7, "verseEnd": 8 },
+      { "book": "LUK", "chapterStart": 3, "verseStart": 15, "verseEnd": 18 },
+      { "book": "JHN", "chapterStart": 1, "verseStart": 26, "verseEnd": 27 }
+    ]
+  },
+  {
+    "id": "begin-1",
+    "section": "Início do Ministério de Jesus",
+    "order": 22,
+    "title": "Batismo de Jesus",
+    "references": [
+      { "book": "MAT", "chapterStart": 3, "verseStart": 13, "verseEnd": 17 },
+      { "book": "MRK", "chapterStart": 1, "verseStart": 9, "verseEnd": 11 },
+      { "book": "LUK", "chapterStart": 3, "verseStart": 21, "verseEnd": 23 },
+      { "book": "JHN", "chapterStart": 1, "verseStart": 29, "verseEnd": 34 }
+    ]
+  },
+  {
+    "id": "begin-2",
+    "section": "Início do Ministério de Jesus",
+    "order": 23,
+    "title": "Tentação de Jesus no deserto",
+    "references": [
+      { "book": "MAT", "chapterStart": 4, "verseStart": 1, "verseEnd": 11 },
+      { "book": "MRK", "chapterStart": 1, "verseStart": 12, "verseEnd": 13 },
+      { "book": "LUK", "chapterStart": 4, "verseStart": 1, "verseEnd": 13 }
+    ]
+  },
+  {
+    "id": "begin-3",
+    "section": "Início do Ministério de Jesus",
+    "order": 24,
+    "title": "Os primeiros discípulos são chamados",
+    "references": [
+      { "book": "JHN", "chapterStart": 1, "verseStart": 35, "verseEnd": 51 }
+    ]
+  },
+  {
+    "id": "begin-4",
+    "section": "Início do Ministério de Jesus",
+    "order": 25,
+    "title": "Primeiro milagre: água transformada em vinho em Caná",
+    "references": [
+      { "book": "JHN", "chapterStart": 2, "verseStart": 1, "verseEnd": 11 }
+    ]
+  },
+  {
+    "id": "begin-5",
+    "section": "Início do Ministério de Jesus",
+    "order": 26,
+    "title": "Primeira permanência em Cafarnaum",
+    "references": [
+      { "book": "JHN", "chapterStart": 2, "verseStart": 12, "verseEnd": 12 }
+    ]
+  },
+  {
+    "id": "begin-6",
+    "section": "Início do Ministério de Jesus",
+    "order": 27,
+    "title": "Primeira purificação do Templo",
+    "references": [
+      { "book": "JHN", "chapterStart": 2, "verseStart": 13, "verseEnd": 22 }
+    ]
+  },
+  {
+    "id": "begin-7",
+    "section": "Início do Ministério de Jesus",
+    "order": 28,
+    "title": "Jesus recebido em Jerusalém",
+    "references": [
+      { "book": "JHN", "chapterStart": 2, "verseStart": 23, "verseEnd": 25 }
+    ]
+  },
+  {
+    "id": "begin-8",
+    "section": "Início do Ministério de Jesus",
+    "order": 29,
+    "title": "Jesus ensina Nicodemos sobre o novo nascimento",
+    "references": [
+      { "book": "JHN", "chapterStart": 3, "verseStart": 1, "verseEnd": 21 }
+    ]
+  },
+  {
+    "id": "begin-9",
+    "section": "Início do Ministério de Jesus",
+    "order": 30,
+    "title": "Coministerio com João Batista na Judeia",
+    "references": [
+      { "book": "JHN", "chapterStart": 3, "verseStart": 22, "verseEnd": 30 }
+    ]
+  },
+  {
+    "id": "begin-10",
+    "section": "Início do Ministério de Jesus",
+    "order": 31,
+    "title": "Jesus parte para a Galileia",
+    "references": [
+      { "book": "MAT", "chapterStart": 4, "verseStart": 12, "verseEnd": 12 },
+      { "book": "MRK", "chapterStart": 1, "verseStart": 14, "verseEnd": 14 },
+      { "book": "LUK", "chapterStart": 4, "verseStart": 14, "verseEnd": 14 },
+      { "book": "JHN", "chapterStart": 4, "verseStart": 1, "verseEnd": 4 }
+    ]
+  },
+  {
+    "id": "begin-11",
+    "section": "Início do Ministério de Jesus",
+    "order": 32,
+    "title": "A mulher samaritana no poço de Jacó",
+    "references": [
+      { "book": "JHN", "chapterStart": 4, "verseStart": 5, "verseEnd": 42 }
+    ]
+  },
+  {
+    "id": "begin-12",
+    "section": "Início do Ministério de Jesus",
+    "order": 33,
+    "title": "Retorno à Galileia",
+    "references": [
+      { "book": "MRK", "chapterStart": 1, "verseStart": 15, "verseEnd": 15 },
+      { "book": "LUK", "chapterStart": 4, "verseStart": 15, "verseEnd": 15 },
+      { "book": "JHN", "chapterStart": 4, "verseStart": 43, "verseEnd": 45 }
+    ]
+  },
+  {
+    "id": "galilee-1",
+    "section": "Ministério na Galileia",
+    "order": 34,
+    "title": "Cura do filho do nobre em Caná",
+    "references": [
+      { "book": "JHN", "chapterStart": 4, "verseStart": 46, "verseEnd": 54 }
+    ]
+  },
+  {
+    "id": "galilee-2",
+    "section": "Ministério na Galileia",
+    "order": 35,
+    "title": "Jesus rejeitado em Nazaré",
+    "references": [
+      { "book": "LUK", "chapterStart": 4, "verseStart": 16, "verseEnd": 30 }
+    ]
+  },
+  {
+    "id": "galilee-3",
+    "section": "Ministério na Galileia",
+    "order": 36,
+    "title": "Jesus se muda para Cafarnaum",
+    "references": [
+      { "book": "MAT", "chapterStart": 4, "verseStart": 13, "verseEnd": 17 }
+    ]
+  },
+  {
+    "id": "galilee-4",
+    "section": "Ministério na Galileia",
+    "order": 37,
+    "title": "Quatro pescadores se tornam pescadores de homens",
+    "references": [
+      { "book": "MAT", "chapterStart": 4, "verseStart": 18, "verseEnd": 22 },
+      { "book": "MRK", "chapterStart": 1, "verseStart": 16, "verseEnd": 20 },
+      { "book": "LUK", "chapterStart": 5, "verseStart": 1, "verseEnd": 11 }
+    ]
+  },
+  {
+    "id": "galilee-5",
+    "section": "Ministério na Galileia",
+    "order": 38,
+    "title": "Endemoniado curado na sinagoga no sábado",
+    "references": [
+      { "book": "MRK", "chapterStart": 1, "verseStart": 21, "verseEnd": 28 },
+      { "book": "LUK", "chapterStart": 4, "verseStart": 31, "verseEnd": 37 }
+    ]
+  },
+  {
+    "id": "galilee-6",
+    "section": "Ministério na Galileia",
+    "order": 39,
+    "title": "Sogra de Pedro curada",
+    "references": [
+      { "book": "MAT", "chapterStart": 8, "verseStart": 14, "verseEnd": 17 },
+      { "book": "MRK", "chapterStart": 1, "verseStart": 29, "verseEnd": 34 },
+      { "book": "LUK", "chapterStart": 4, "verseStart": 38, "verseEnd": 41 }
+    ]
+  },
+  {
+    "id": "galilee-7",
+    "section": "Ministério na Galileia",
+    "order": 40,
+    "title": "Primeira tournê de pregação pela Galileia",
+    "references": [
+      { "book": "MAT", "chapterStart": 4, "verseStart": 23, "verseEnd": 25 },
+      { "book": "MRK", "chapterStart": 1, "verseStart": 35, "verseEnd": 39 },
+      { "book": "LUK", "chapterStart": 4, "verseStart": 42, "verseEnd": 44 }
+    ]
+  },
+  {
+    "id": "galilee-8",
+    "section": "Ministério na Galileia",
+    "order": 41,
+    "title": "Leproso curado",
+    "references": [
+      { "book": "MAT", "chapterStart": 8, "verseStart": 1, "verseEnd": 4 },
+      { "book": "MRK", "chapterStart": 1, "verseStart": 40, "verseEnd": 45 },
+      { "book": "LUK", "chapterStart": 5, "verseStart": 12, "verseEnd": 16 }
+    ]
+  },
+  {
+    "id": "galilee-9",
+    "section": "Ministério na Galileia",
+    "order": 42,
+    "title": "Paralítico curado e perdoado em Cafarnaum",
+    "references": [
+      { "book": "MAT", "chapterStart": 9, "verseStart": 1, "verseEnd": 8 },
+      { "book": "MRK", "chapterStart": 2, "verseStart": 1, "verseEnd": 12 },
+      { "book": "LUK", "chapterStart": 5, "verseStart": 17, "verseEnd": 26 }
+    ]
+  },
+  {
+    "id": "galilee-10",
+    "section": "Ministério na Galileia",
+    "order": 43,
+    "title": "Chamado de Mateus e o banquete com pecadores",
+    "references": [
+      { "book": "MAT", "chapterStart": 9, "verseStart": 9, "verseEnd": 13 },
+      { "book": "MRK", "chapterStart": 2, "verseStart": 13, "verseEnd": 17 },
+      { "book": "LUK", "chapterStart": 5, "verseStart": 27, "verseEnd": 32 }
+    ]
+  },
+  {
+    "id": "galilee-11",
+    "section": "Ministério na Galileia",
+    "order": 44,
+    "title": "Discípulos defendidos com uma parábola sobre o jejum",
+    "references": [
+      { "book": "MAT", "chapterStart": 9, "verseStart": 14, "verseEnd": 17 },
+      { "book": "MRK", "chapterStart": 2, "verseStart": 18, "verseEnd": 22 },
+      { "book": "LUK", "chapterStart": 5, "verseStart": 33, "verseEnd": 39 }
+    ]
+  },
+  {
+    "id": "galilee-12",
+    "section": "Ministério na Galileia",
+    "order": 45,
+    "title": "Cura do paralítico no tanque de Betesda — Segunda Páscoa",
+    "references": [
+      { "book": "JHN", "chapterStart": 5, "verseStart": 1, "verseEnd": 47 }
+    ]
+  },
+  {
+    "id": "galilee-13",
+    "section": "Ministério na Galileia",
+    "order": 46,
+    "title": "Controvérsia do grão colhido no sábado",
+    "references": [
+      { "book": "MAT", "chapterStart": 12, "verseStart": 1, "verseEnd": 8 },
+      { "book": "MRK", "chapterStart": 2, "verseStart": 23, "verseEnd": 28 },
+      { "book": "LUK", "chapterStart": 6, "verseStart": 1, "verseEnd": 5 }
+    ]
+  },
+  {
+    "id": "galilee-14",
+    "section": "Ministério na Galileia",
+    "order": 47,
+    "title": "Homem da mão ressequida curado no sábado",
+    "references": [
+      { "book": "MAT", "chapterStart": 12, "verseStart": 9, "verseEnd": 14 },
+      { "book": "MRK", "chapterStart": 3, "verseStart": 1, "verseEnd": 6 },
+      { "book": "LUK", "chapterStart": 6, "verseStart": 6, "verseEnd": 11 }
+    ]
+  },
+  {
+    "id": "galilee-15",
+    "section": "Ministério na Galileia",
+    "order": 48,
+    "title": "Multidões curadas junto ao mar",
+    "references": [
+      { "book": "MAT", "chapterStart": 12, "verseStart": 15, "verseEnd": 21 },
+      { "book": "MRK", "chapterStart": 3, "verseStart": 7, "verseEnd": 12 },
+      { "book": "LUK", "chapterStart": 6, "verseStart": 17, "verseEnd": 19 }
+    ]
+  },
+  {
+    "id": "galilee-16",
+    "section": "Ministério na Galileia",
+    "order": 49,
+    "title": "Os Doze Apóstolos são escolhidos",
+    "references": [
+      { "book": "MRK", "chapterStart": 3, "verseStart": 13, "verseEnd": 19 },
+      { "book": "LUK", "chapterStart": 6, "verseStart": 12, "verseEnd": 16 }
+    ]
+  },
+  {
+    "id": "galilee-17",
+    "section": "Ministério na Galileia",
+    "order": 50,
+    "title": "Sermão da Montanha",
+    "references": [
+      { "book": "MAT", "chapterStart": 5, "verseStart": 1, "verseEnd": null },
+      { "book": "LUK", "chapterStart": 6, "verseStart": 20, "verseEnd": 49 }
+    ]
+  },
+  {
+    "id": "galilee-18",
+    "section": "Ministério na Galileia",
+    "order": 51,
+    "title": "Servo do centurião curado em Cafarnaum",
+    "references": [
+      { "book": "MAT", "chapterStart": 8, "verseStart": 5, "verseEnd": 13 },
+      { "book": "LUK", "chapterStart": 7, "verseStart": 1, "verseEnd": 10 }
+    ]
+  },
+  {
+    "id": "galilee-19",
+    "section": "Ministério na Galileia",
+    "order": 52,
+    "title": "Filho da viúva de Naim ressuscitado",
+    "references": [
+      { "book": "LUK", "chapterStart": 7, "verseStart": 11, "verseEnd": 17 }
+    ]
+  },
+  {
+    "id": "galilee-20",
+    "section": "Ministério na Galileia",
+    "order": 53,
+    "title": "Jesus encoraja João Batista na prisão",
+    "references": [
+      { "book": "MAT", "chapterStart": 11, "verseStart": 2, "verseEnd": 19 },
+      { "book": "LUK", "chapterStart": 7, "verseStart": 18, "verseEnd": 35 }
+    ]
+  },
+  {
+    "id": "galilee-21",
+    "section": "Ministério na Galileia",
+    "order": 54,
+    "title": "Ais sobre as cidades privilegiadas",
+    "references": [
+      { "book": "MAT", "chapterStart": 11, "verseStart": 20, "verseEnd": 30 }
+    ]
+  },
+  {
+    "id": "galilee-22",
+    "section": "Ministério na Galileia",
+    "order": 55,
+    "title": "Mulher pecadora unge Jesus na casa de Simão",
+    "references": [
+      { "book": "LUK", "chapterStart": 7, "verseStart": 36, "verseEnd": 50 }
+    ]
+  },
+  {
+    "id": "galilee-23",
+    "section": "Ministério na Galileia",
+    "order": 56,
+    "title": "Nova tournê pela Galileia com mulheres discípulas",
+    "references": [
+      { "book": "LUK", "chapterStart": 8, "verseStart": 1, "verseEnd": 3 }
+    ]
+  },
+  {
+    "id": "galilee-24",
+    "section": "Ministério na Galileia",
+    "order": 57,
+    "title": "Jesus acusado de ter poder de Belzebu",
+    "references": [
+      { "book": "MAT", "chapterStart": 12, "verseStart": 22, "verseEnd": 37 },
+      { "book": "MRK", "chapterStart": 3, "verseStart": 20, "verseEnd": 30 },
+      { "book": "LUK", "chapterStart": 11, "verseStart": 14, "verseEnd": 23 }
+    ]
+  },
+  {
+    "id": "galilee-25",
+    "section": "Ministério na Galileia",
+    "order": 58,
+    "title": "Jesus responde ao pedido de um sinal",
+    "references": [
+      { "book": "MAT", "chapterStart": 12, "verseStart": 38, "verseEnd": 45 },
+      { "book": "LUK", "chapterStart": 11, "verseStart": 24, "verseEnd": 36 }
+    ]
+  },
+  {
+    "id": "galilee-26",
+    "section": "Ministério na Galileia",
+    "order": 59,
+    "title": "Mãe e irmãos de Jesus procuram audiência",
+    "references": [
+      { "book": "MAT", "chapterStart": 12, "verseStart": 46, "verseEnd": 50 },
+      { "book": "MRK", "chapterStart": 3, "verseStart": 31, "verseEnd": 35 },
+      { "book": "LUK", "chapterStart": 8, "verseStart": 19, "verseEnd": 21 }
+    ]
+  },
+  {
+    "id": "galilee-27",
+    "section": "Ministério na Galileia",
+    "order": 60,
+    "title": "Parábolas do Reino — O semeador e outras",
+    "references": [
+      { "book": "MAT", "chapterStart": 13, "verseStart": 1, "verseEnd": 52 },
+      { "book": "MRK", "chapterStart": 4, "verseStart": 1, "verseEnd": 34 },
+      { "book": "LUK", "chapterStart": 8, "verseStart": 4, "verseEnd": 18 }
+    ]
+  },
+  {
+    "id": "galilee-28",
+    "section": "Ministério na Galileia",
+    "order": 61,
+    "title": "Tempestade acalmada no Mar da Galileia",
+    "references": [
+      { "book": "MAT", "chapterStart": 8, "verseStart": 23, "verseEnd": 27 },
+      { "book": "MRK", "chapterStart": 4, "verseStart": 35, "verseEnd": 41 },
+      { "book": "LUK", "chapterStart": 8, "verseStart": 22, "verseEnd": 25 }
+    ]
+  },
+  {
+    "id": "galilee-29",
+    "section": "Ministério na Galileia",
+    "order": 62,
+    "title": "Endemoniado gadareno curado",
+    "references": [
+      { "book": "MAT", "chapterStart": 8, "verseStart": 28, "verseEnd": 34 },
+      { "book": "MRK", "chapterStart": 5, "verseStart": 1, "verseEnd": 20 },
+      { "book": "LUK", "chapterStart": 8, "verseStart": 26, "verseEnd": 39 }
+    ]
+  },
+  {
+    "id": "galilee-30",
+    "section": "Ministério na Galileia",
+    "order": 63,
+    "title": "Filha de Jairo ressuscitada e mulher com hemorragia curada",
+    "references": [
+      { "book": "MAT", "chapterStart": 9, "verseStart": 18, "verseEnd": 26 },
+      { "book": "MRK", "chapterStart": 5, "verseStart": 21, "verseEnd": 43 },
+      { "book": "LUK", "chapterStart": 8, "verseStart": 40, "verseEnd": 56 }
+    ]
+  },
+  {
+    "id": "galilee-31",
+    "section": "Ministério na Galileia",
+    "order": 64,
+    "title": "Dois cegos e um mudo curados",
+    "references": [
+      { "book": "MAT", "chapterStart": 9, "verseStart": 27, "verseEnd": 34 }
+    ]
+  },
+  {
+    "id": "galilee-32",
+    "section": "Ministério na Galileia",
+    "order": 65,
+    "title": "Segunda rejeição de Jesus em Nazaré",
+    "references": [
+      { "book": "MAT", "chapterStart": 13, "verseStart": 53, "verseEnd": 58 },
+      { "book": "MRK", "chapterStart": 6, "verseStart": 1, "verseEnd": 6 }
+    ]
+  },
+  {
+    "id": "galilee-33",
+    "section": "Ministério na Galileia",
+    "order": 66,
+    "title": "Os Doze enviados em missão",
+    "references": [
+      { "book": "MAT", "chapterStart": 9, "verseStart": 35, "verseEnd": null },
+      { "book": "MRK", "chapterStart": 6, "verseStart": 6, "verseEnd": 13 },
+      { "book": "LUK", "chapterStart": 9, "verseStart": 1, "verseEnd": 6 }
+    ]
+  },
+  {
+    "id": "galilee-34",
+    "section": "Ministério na Galileia",
+    "order": 67,
+    "title": "Herodes decapita João Batista",
+    "references": [
+      { "book": "MAT", "chapterStart": 14, "verseStart": 1, "verseEnd": 12 },
+      { "book": "MRK", "chapterStart": 6, "verseStart": 14, "verseEnd": 29 },
+      { "book": "LUK", "chapterStart": 9, "verseStart": 7, "verseEnd": 9 }
+    ]
+  },
+  {
+    "id": "galilee-35",
+    "section": "Ministério na Galileia",
+    "order": 68,
+    "title": "Retorno dos Doze — Alimentação dos 5000",
+    "references": [
+      { "book": "MAT", "chapterStart": 14, "verseStart": 13, "verseEnd": 21 },
+      { "book": "MRK", "chapterStart": 6, "verseStart": 30, "verseEnd": 44 },
+      { "book": "LUK", "chapterStart": 9, "verseStart": 10, "verseEnd": 17 },
+      { "book": "JHN", "chapterStart": 6, "verseStart": 1, "verseEnd": 14 }
+    ]
+  },
+  {
+    "id": "galilee-36",
+    "section": "Ministério na Galileia",
+    "order": 69,
+    "title": "Jesus caminha sobre as águas",
+    "references": [
+      { "book": "MAT", "chapterStart": 14, "verseStart": 22, "verseEnd": 33 },
+      { "book": "MRK", "chapterStart": 6, "verseStart": 45, "verseEnd": 52 },
+      { "book": "JHN", "chapterStart": 6, "verseStart": 15, "verseEnd": 21 }
+    ]
+  },
+  {
+    "id": "galilee-37",
+    "section": "Ministério na Galileia",
+    "order": 70,
+    "title": "Curas em Genesaré",
+    "references": [
+      { "book": "MAT", "chapterStart": 14, "verseStart": 34, "verseEnd": 36 },
+      { "book": "MRK", "chapterStart": 6, "verseStart": 53, "verseEnd": 56 }
+    ]
+  },
+  {
+    "id": "galilee-38",
+    "section": "Ministério na Galileia",
+    "order": 71,
+    "title": "Discurso do Pão da Vida em Cafarnaum",
+    "references": [
+      { "book": "JHN", "chapterStart": 6, "verseStart": 22, "verseEnd": 71 }
+    ]
+  },
+  {
+    "id": "galilee-39",
+    "section": "Ministério na Galileia",
+    "order": 72,
+    "title": "Tradições dos fariseus contestadas",
+    "references": [
+      { "book": "MAT", "chapterStart": 15, "verseStart": 1, "verseEnd": 20 },
+      { "book": "MRK", "chapterStart": 7, "verseStart": 1, "verseEnd": 23 }
+    ]
+  },
+  {
+    "id": "galilee-40",
+    "section": "Ministério na Galileia",
+    "order": 73,
+    "title": "Filha da mulher siro-fenícia curada — Viagem à Fenícia",
+    "references": [
+      { "book": "MAT", "chapterStart": 15, "verseStart": 21, "verseEnd": 28 },
+      { "book": "MRK", "chapterStart": 7, "verseStart": 24, "verseEnd": 30 }
+    ]
+  },
+  {
+    "id": "galilee-41",
+    "section": "Ministério na Galileia",
+    "order": 74,
+    "title": "Curas na Decápolis — Alimentação dos 4000",
+    "references": [
+      { "book": "MAT", "chapterStart": 15, "verseStart": 29, "verseEnd": 39 },
+      { "book": "MRK", "chapterStart": 7, "verseStart": 31, "verseEnd": null }
+    ]
+  },
+  {
+    "id": "galilee-42",
+    "section": "Ministério na Galileia",
+    "order": 75,
+    "title": "Fariseus aumentam os ataques — O fermento dos fariseus",
+    "references": [
+      { "book": "MAT", "chapterStart": 16, "verseStart": 1, "verseEnd": 12 },
+      { "book": "MRK", "chapterStart": 8, "verseStart": 10, "verseEnd": 26 }
+    ]
+  },
+  {
+    "id": "galilee-43",
+    "section": "Ministério na Galileia",
+    "order": 76,
+    "title": "A grande confissão de Pedro em Cesareia de Filipe",
+    "references": [
+      { "book": "MAT", "chapterStart": 16, "verseStart": 13, "verseEnd": 20 },
+      { "book": "MRK", "chapterStart": 8, "verseStart": 27, "verseEnd": 30 },
+      { "book": "LUK", "chapterStart": 9, "verseStart": 18, "verseEnd": 21 }
+    ]
+  },
+  {
+    "id": "galilee-44",
+    "section": "Ministério na Galileia",
+    "order": 77,
+    "title": "Jesus prediz pela primeira vez sua morte e ressurreição",
+    "references": [
+      { "book": "MAT", "chapterStart": 16, "verseStart": 21, "verseEnd": 26 },
+      { "book": "MRK", "chapterStart": 8, "verseStart": 31, "verseEnd": 37 },
+      { "book": "LUK", "chapterStart": 9, "verseStart": 22, "verseEnd": 25 }
+    ]
+  },
+  {
+    "id": "galilee-45",
+    "section": "Ministério na Galileia",
+    "order": 78,
+    "title": "A Transfiguração",
+    "references": [
+      { "book": "MAT", "chapterStart": 17, "verseStart": 1, "verseEnd": 13 },
+      { "book": "MRK", "chapterStart": 9, "verseStart": 2, "verseEnd": 13 },
+      { "book": "LUK", "chapterStart": 9, "verseStart": 28, "verseEnd": 36 }
+    ]
+  },
+  {
+    "id": "galilee-46",
+    "section": "Ministério na Galileia",
+    "order": 79,
+    "title": "Menino epilético curado",
+    "references": [
+      { "book": "MAT", "chapterStart": 17, "verseStart": 14, "verseEnd": 21 },
+      { "book": "MRK", "chapterStart": 9, "verseStart": 14, "verseEnd": 29 },
+      { "book": "LUK", "chapterStart": 9, "verseStart": 37, "verseEnd": 42 }
+    ]
+  },
+  {
+    "id": "galilee-47",
+    "section": "Ministério na Galileia",
+    "order": 80,
+    "title": "Jesus prediz novamente sua morte na Galileia",
+    "references": [
+      { "book": "MAT", "chapterStart": 17, "verseStart": 22, "verseEnd": 23 },
+      { "book": "MRK", "chapterStart": 9, "verseStart": 30, "verseEnd": 32 },
+      { "book": "LUK", "chapterStart": 9, "verseStart": 43, "verseEnd": 45 }
+    ]
+  },
+  {
+    "id": "galilee-48",
+    "section": "Ministério na Galileia",
+    "order": 81,
+    "title": "Imposto do Templo pago milagrosamente",
+    "references": [
+      { "book": "MAT", "chapterStart": 17, "verseStart": 24, "verseEnd": 27 }
+    ]
+  },
+  {
+    "id": "galilee-49",
+    "section": "Ministério na Galileia",
+    "order": 82,
+    "title": "Disputas sobre grandeza — Ensinos sobre humildade e perdão",
+    "references": [
+      { "book": "MAT", "chapterStart": 18, "verseStart": 1, "verseEnd": 35 },
+      { "book": "MRK", "chapterStart": 9, "verseStart": 33, "verseEnd": 50 },
+      { "book": "LUK", "chapterStart": 9, "verseStart": 46, "verseEnd": 50 }
+    ]
+  },
+  {
+    "id": "galilee-50",
+    "section": "Ministério na Galileia",
+    "order": 83,
+    "title": "Jesus rejeita o conselho dos irmãos e parte da Galileia",
+    "references": [
+      { "book": "JHN", "chapterStart": 7, "verseStart": 2, "verseEnd": 9 }
+    ]
+  },
+  {
+    "id": "judea-1",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 84,
+    "title": "Partida da Galileia — Rejeição dos samaritanos",
+    "references": [
+      { "book": "MAT", "chapterStart": 19, "verseStart": 1, "verseEnd": 1 },
+      { "book": "LUK", "chapterStart": 9, "verseStart": 51, "verseEnd": 56 },
+      { "book": "JHN", "chapterStart": 7, "verseStart": 10, "verseEnd": 10 }
+    ]
+  },
+  {
+    "id": "judea-2",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 85,
+    "title": "O custo do discipulado",
+    "references": [
+      { "book": "MAT", "chapterStart": 8, "verseStart": 18, "verseEnd": 22 },
+      { "book": "LUK", "chapterStart": 9, "verseStart": 57, "verseEnd": 62 }
+    ]
+  },
+  {
+    "id": "judea-3",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 86,
+    "title": "Festa dos Tabernáculos em Jerusalém",
+    "references": [
+      { "book": "JHN", "chapterStart": 7, "verseStart": 2, "verseEnd": 52 }
+    ]
+  },
+  {
+    "id": "judea-4",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 87,
+    "title": "Mulher apanhada em adultério — Perdão de Jesus",
+    "references": [
+      { "book": "JHN", "chapterStart": 7, "verseStart": 53, "verseEnd": null }
+    ]
+  },
+  {
+    "id": "judea-5",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 88,
+    "title": "Jesus: a Luz do Mundo — Conflito crescente com os líderes",
+    "references": [
+      { "book": "JHN", "chapterStart": 8, "verseStart": 12, "verseEnd": 59 }
+    ]
+  },
+  {
+    "id": "judea-6",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 89,
+    "title": "Cura do cego de nascença",
+    "references": [
+      { "book": "JHN", "chapterStart": 9, "verseStart": 1, "verseEnd": 41 }
+    ]
+  },
+  {
+    "id": "judea-7",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 90,
+    "title": "O Bom Pastor",
+    "references": [
+      { "book": "JHN", "chapterStart": 10, "verseStart": 1, "verseEnd": 21 }
+    ]
+  },
+  {
+    "id": "judea-8",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 91,
+    "title": "Missão dos Setenta discípulos",
+    "references": [
+      { "book": "LUK", "chapterStart": 10, "verseStart": 1, "verseEnd": 24 }
+    ]
+  },
+  {
+    "id": "judea-9",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 92,
+    "title": "O Bom Samaritano",
+    "references": [
+      { "book": "LUK", "chapterStart": 10, "verseStart": 25, "verseEnd": 37 }
+    ]
+  },
+  {
+    "id": "judea-10",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 93,
+    "title": "Maria e Marta recebem Jesus em Betânia",
+    "references": [
+      { "book": "LUK", "chapterStart": 10, "verseStart": 38, "verseEnd": 42 }
+    ]
+  },
+  {
+    "id": "judea-11",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 94,
+    "title": "Ensino sobre oração — O Pai Nosso revisitado",
+    "references": [
+      { "book": "LUK", "chapterStart": 11, "verseStart": 1, "verseEnd": 13 }
+    ]
+  },
+  {
+    "id": "judea-12",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 95,
+    "title": "Jesus lida com hipocrisia, cobiça e ansiedade",
+    "references": [
+      { "book": "LUK", "chapterStart": 12, "verseStart": 1, "verseEnd": 59 }
+    ]
+  },
+  {
+    "id": "judea-13",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 96,
+    "title": "Parábola da figueira estéril — Mulher curada no sábado",
+    "references": [
+      { "book": "LUK", "chapterStart": 13, "verseStart": 1, "verseEnd": 17 }
+    ]
+  },
+  {
+    "id": "judea-14",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 97,
+    "title": "Parábolas do grão de mostarda e do fermento",
+    "references": [
+      { "book": "LUK", "chapterStart": 13, "verseStart": 18, "verseEnd": 21 }
+    ]
+  },
+  {
+    "id": "judea-15",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 98,
+    "title": "Festa da Dedicação — Jesus afirma ser o Filho de Deus",
+    "references": [
+      { "book": "JHN", "chapterStart": 10, "verseStart": 22, "verseEnd": 39 }
+    ]
+  },
+  {
+    "id": "judea-16",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 99,
+    "title": "Jesus se retira além do Jordão",
+    "references": [
+      { "book": "JHN", "chapterStart": 10, "verseStart": 40, "verseEnd": 42 }
+    ]
+  },
+  {
+    "id": "judea-17",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 100,
+    "title": "Ensinamentos no caminho de volta a Jerusalém",
+    "references": [
+      { "book": "LUK", "chapterStart": 13, "verseStart": 22, "verseEnd": 35 }
+    ]
+  },
+  {
+    "id": "judea-18",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 101,
+    "title": "Refeição com um fariseu — Parábola do grande banquete",
+    "references": [
+      { "book": "LUK", "chapterStart": 14, "verseStart": 1, "verseEnd": 24 }
+    ]
+  },
+  {
+    "id": "judea-19",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 102,
+    "title": "O custo do discipulado na Pereia",
+    "references": [
+      { "book": "LUK", "chapterStart": 14, "verseStart": 25, "verseEnd": 35 }
+    ]
+  },
+  {
+    "id": "judea-20",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 103,
+    "title": "Parábolas da ovelha perdida, moeda perdida e filho pródigo",
+    "references": [
+      { "book": "LUK", "chapterStart": 15, "verseStart": 1, "verseEnd": 32 }
+    ]
+  },
+  {
+    "id": "judea-21",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 104,
+    "title": "Parábolas do mordomo injusto e do rico e Lázaro",
+    "references": [
+      { "book": "LUK", "chapterStart": 16, "verseStart": 1, "verseEnd": 31 }
+    ]
+  },
+  {
+    "id": "judea-22",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 105,
+    "title": "Lições sobre serviço, fé e influência",
+    "references": [
+      { "book": "LUK", "chapterStart": 17, "verseStart": 1, "verseEnd": 10 }
+    ]
+  },
+  {
+    "id": "judea-23",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 106,
+    "title": "Ressurreição de Lázaro",
+    "references": [
+      { "book": "JHN", "chapterStart": 11, "verseStart": 1, "verseEnd": 44 }
+    ]
+  },
+  {
+    "id": "judea-24",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 107,
+    "title": "Reação dos líderes à ressurreição de Lázaro",
+    "references": [
+      { "book": "JHN", "chapterStart": 11, "verseStart": 45, "verseEnd": 54 }
+    ]
+  },
+  {
+    "id": "judea-25",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 108,
+    "title": "Cura dos dez leprosos na Samaria",
+    "references": [
+      { "book": "LUK", "chapterStart": 17, "verseStart": 11, "verseEnd": 19 }
+    ]
+  },
+  {
+    "id": "judea-26",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 109,
+    "title": "Lições sobre o Reino que vem",
+    "references": [
+      { "book": "LUK", "chapterStart": 17, "verseStart": 20, "verseEnd": 37 }
+    ]
+  },
+  {
+    "id": "judea-27",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 110,
+    "title": "Parábolas da viúva persistente e do fariseu e cobrador de impostos",
+    "references": [
+      { "book": "LUK", "chapterStart": 18, "verseStart": 1, "verseEnd": 14 }
+    ]
+  },
+  {
+    "id": "judea-28",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 111,
+    "title": "Ensino sobre o divórcio",
+    "references": [
+      { "book": "MAT", "chapterStart": 19, "verseStart": 1, "verseEnd": 12 },
+      { "book": "MRK", "chapterStart": 10, "verseStart": 1, "verseEnd": 12 }
+    ]
+  },
+  {
+    "id": "judea-29",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 112,
+    "title": "Jesus abençoa as crianças",
+    "references": [
+      { "book": "MAT", "chapterStart": 19, "verseStart": 13, "verseEnd": 15 },
+      { "book": "MRK", "chapterStart": 10, "verseStart": 13, "verseEnd": 16 },
+      { "book": "LUK", "chapterStart": 18, "verseStart": 15, "verseEnd": 17 }
+    ]
+  },
+  {
+    "id": "judea-30",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 113,
+    "title": "O jovem rico",
+    "references": [
+      { "book": "MAT", "chapterStart": 19, "verseStart": 16, "verseEnd": 30 },
+      { "book": "MRK", "chapterStart": 10, "verseStart": 17, "verseEnd": 31 },
+      { "book": "LUK", "chapterStart": 18, "verseStart": 18, "verseEnd": 30 }
+    ]
+  },
+  {
+    "id": "judea-31",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 114,
+    "title": "Parábola dos trabalhadores da última hora",
+    "references": [
+      { "book": "MAT", "chapterStart": 20, "verseStart": 1, "verseEnd": 16 }
+    ]
+  },
+  {
+    "id": "judea-32",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 115,
+    "title": "Jesus prediz pela terceira vez sua morte e ressurreição",
+    "references": [
+      { "book": "MAT", "chapterStart": 20, "verseStart": 17, "verseEnd": 19 },
+      { "book": "MRK", "chapterStart": 10, "verseStart": 32, "verseEnd": 34 },
+      { "book": "LUK", "chapterStart": 18, "verseStart": 31, "verseEnd": 34 }
+    ]
+  },
+  {
+    "id": "judea-33",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 116,
+    "title": "Ambição de Tiago e João — Servir é ser grande",
+    "references": [
+      { "book": "MAT", "chapterStart": 20, "verseStart": 20, "verseEnd": 28 },
+      { "book": "MRK", "chapterStart": 10, "verseStart": 35, "verseEnd": 45 }
+    ]
+  },
+  {
+    "id": "judea-34",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 117,
+    "title": "Bartimeu curado em Jericó",
+    "references": [
+      { "book": "MAT", "chapterStart": 20, "verseStart": 29, "verseEnd": 34 },
+      { "book": "MRK", "chapterStart": 10, "verseStart": 46, "verseEnd": 52 },
+      { "book": "LUK", "chapterStart": 18, "verseStart": 35, "verseEnd": 43 }
+    ]
+  },
+  {
+    "id": "judea-35",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 118,
+    "title": "Conversão de Zaqueu em Jericó",
+    "references": [
+      { "book": "LUK", "chapterStart": 19, "verseStart": 1, "verseEnd": 10 }
+    ]
+  },
+  {
+    "id": "judea-36",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 119,
+    "title": "Parábola das minas",
+    "references": [
+      { "book": "LUK", "chapterStart": 19, "verseStart": 11, "verseEnd": 27 }
+    ]
+  },
+  {
+    "id": "judea-37",
+    "section": "Ministério na Judeia e Pereia",
+    "order": 120,
+    "title": "Jesus retorna à casa de Maria e Marta em Betânia",
+    "references": [
+      { "book": "JHN", "chapterStart": 11, "verseStart": 55, "verseEnd": null }
+    ]
+  },
+  {
+    "id": "finalweek-1",
+    "section": "Semana Final em Jerusalém",
+    "order": 121,
+    "title": "Entrada Triunfal em Jerusalém",
+    "references": [
+      { "book": "MAT", "chapterStart": 21, "verseStart": 1, "verseEnd": 9 },
+      { "book": "MRK", "chapterStart": 11, "verseStart": 1, "verseEnd": 11 },
+      { "book": "LUK", "chapterStart": 19, "verseStart": 28, "verseEnd": 44 },
+      { "book": "JHN", "chapterStart": 12, "verseStart": 12, "verseEnd": 19 }
+    ]
+  },
+  {
+    "id": "finalweek-2",
+    "section": "Semana Final em Jerusalém",
+    "order": 122,
+    "title": "Maldição da figueira e purificação do Templo",
+    "references": [
+      { "book": "MAT", "chapterStart": 21, "verseStart": 10, "verseEnd": 19 },
+      { "book": "MRK", "chapterStart": 11, "verseStart": 12, "verseEnd": 18 },
+      { "book": "LUK", "chapterStart": 19, "verseStart": 45, "verseEnd": 48 }
+    ]
+  },
+  {
+    "id": "finalweek-3",
+    "section": "Semana Final em Jerusalém",
+    "order": 123,
+    "title": "Gregos visitam Jesus — Voz do céu",
+    "references": [
+      { "book": "JHN", "chapterStart": 12, "verseStart": 20, "verseEnd": 50 }
+    ]
+  },
+  {
+    "id": "finalweek-4",
+    "section": "Semana Final em Jerusalém",
+    "order": 124,
+    "title": "A figueira murchada — Lição sobre fé",
+    "references": [
+      { "book": "MAT", "chapterStart": 21, "verseStart": 20, "verseEnd": 22 },
+      { "book": "MRK", "chapterStart": 11, "verseStart": 19, "verseEnd": 26 }
+    ]
+  },
+  {
+    "id": "finalweek-5",
+    "section": "Semana Final em Jerusalém",
+    "order": 125,
+    "title": "A autoridade de Jesus questionada pelo Sinédrio — Parábolas de resposta",
+    "references": [
+      { "book": "MAT", "chapterStart": 21, "verseStart": 23, "verseEnd": null },
+      { "book": "MRK", "chapterStart": 11, "verseStart": 27, "verseEnd": null },
+      { "book": "LUK", "chapterStart": 20, "verseStart": 1, "verseEnd": 19 }
+    ]
+  },
+  {
+    "id": "finalweek-6",
+    "section": "Semana Final em Jerusalém",
+    "order": 126,
+    "title": "O imposto a César",
+    "references": [
+      { "book": "MAT", "chapterStart": 22, "verseStart": 15, "verseEnd": 22 },
+      { "book": "MRK", "chapterStart": 12, "verseStart": 13, "verseEnd": 17 },
+      { "book": "LUK", "chapterStart": 20, "verseStart": 20, "verseEnd": 26 }
+    ]
+  },
+  {
+    "id": "finalweek-7",
+    "section": "Semana Final em Jerusalém",
+    "order": 127,
+    "title": "Saduceus questionam a ressurreição",
+    "references": [
+      { "book": "MAT", "chapterStart": 22, "verseStart": 23, "verseEnd": 33 },
+      { "book": "MRK", "chapterStart": 12, "verseStart": 18, "verseEnd": 27 },
+      { "book": "LUK", "chapterStart": 20, "verseStart": 27, "verseEnd": 40 }
+    ]
+  },
+  {
+    "id": "finalweek-8",
+    "section": "Semana Final em Jerusalém",
+    "order": 128,
+    "title": "O maior mandamento",
+    "references": [
+      { "book": "MAT", "chapterStart": 22, "verseStart": 34, "verseEnd": 40 },
+      { "book": "MRK", "chapterStart": 12, "verseStart": 28, "verseEnd": 34 }
+    ]
+  },
+  {
+    "id": "finalweek-9",
+    "section": "Semana Final em Jerusalém",
+    "order": 129,
+    "title": "Jesus questiona sobre o Filho de Davi",
+    "references": [
+      { "book": "MAT", "chapterStart": 22, "verseStart": 41, "verseEnd": 46 },
+      { "book": "MRK", "chapterStart": 12, "verseStart": 35, "verseEnd": 37 },
+      { "book": "LUK", "chapterStart": 20, "verseStart": 41, "verseEnd": 44 }
+    ]
+  },
+  {
+    "id": "finalweek-10",
+    "section": "Semana Final em Jerusalém",
+    "order": 130,
+    "title": "Último sermão público — Ais contra os fariseus",
+    "references": [
+      { "book": "MAT", "chapterStart": 23, "verseStart": 1, "verseEnd": 39 },
+      { "book": "MRK", "chapterStart": 12, "verseStart": 38, "verseEnd": 40 },
+      { "book": "LUK", "chapterStart": 20, "verseStart": 45, "verseEnd": 47 }
+    ]
+  },
+  {
+    "id": "finalweek-11",
+    "section": "Semana Final em Jerusalém",
+    "order": 131,
+    "title": "A oferta generosa da viúva pobre",
+    "references": [
+      { "book": "MRK", "chapterStart": 12, "verseStart": 41, "verseEnd": 44 },
+      { "book": "LUK", "chapterStart": 21, "verseStart": 1, "verseEnd": 4 }
+    ]
+  },
+  {
+    "id": "finalweek-12",
+    "section": "Semana Final em Jerusalém",
+    "order": 132,
+    "title": "Discurso profético no Monte das Oliveiras — O fim dos tempos",
+    "references": [
+      { "book": "MAT", "chapterStart": 24, "verseStart": 1, "verseEnd": 51 },
+      { "book": "MRK", "chapterStart": 13, "verseStart": 1, "verseEnd": 37 },
+      { "book": "LUK", "chapterStart": 21, "verseStart": 5, "verseEnd": 36 }
+    ]
+  },
+  {
+    "id": "finalweek-13",
+    "section": "Semana Final em Jerusalém",
+    "order": 133,
+    "title": "Parábolas das dez virgens, dos talentos e do dia do julgamento",
+    "references": [
+      { "book": "MAT", "chapterStart": 25, "verseStart": 1, "verseEnd": 46 }
+    ]
+  },
+  {
+    "id": "finalweek-14",
+    "section": "Semana Final em Jerusalém",
+    "order": 134,
+    "title": "Conspiração dos líderes — Judas combina a traição",
+    "references": [
+      { "book": "MAT", "chapterStart": 26, "verseStart": 1, "verseEnd": 16 },
+      { "book": "MRK", "chapterStart": 14, "verseStart": 1, "verseEnd": 11 },
+      { "book": "LUK", "chapterStart": 22, "verseStart": 1, "verseEnd": 6 }
+    ]
+  },
+  {
+    "id": "finalweek-15",
+    "section": "Semana Final em Jerusalém",
+    "order": 135,
+    "title": "Maria unge Jesus com perfume em Betânia",
+    "references": [
+      { "book": "MAT", "chapterStart": 26, "verseStart": 6, "verseEnd": 13 },
+      { "book": "MRK", "chapterStart": 14, "verseStart": 3, "verseEnd": 9 },
+      { "book": "JHN", "chapterStart": 12, "verseStart": 2, "verseEnd": 8 }
+    ]
+  },
+  {
+    "id": "lastsupper-1",
+    "section": "Última Ceia e Getsêmani",
+    "order": 136,
+    "title": "Preparação para a Páscoa",
+    "references": [
+      { "book": "MAT", "chapterStart": 26, "verseStart": 17, "verseEnd": 19 },
+      { "book": "MRK", "chapterStart": 14, "verseStart": 12, "verseEnd": 16 },
+      { "book": "LUK", "chapterStart": 22, "verseStart": 7, "verseEnd": 13 }
+    ]
+  },
+  {
+    "id": "lastsupper-2",
+    "section": "Última Ceia e Getsêmani",
+    "order": 137,
+    "title": "A Ceia Pascal — Jesus lava os pés dos discípulos",
+    "references": [
+      { "book": "MAT", "chapterStart": 26, "verseStart": 20, "verseEnd": 20 },
+      { "book": "MRK", "chapterStart": 14, "verseStart": 17, "verseEnd": 17 },
+      { "book": "LUK", "chapterStart": 22, "verseStart": 14, "verseEnd": 30 },
+      { "book": "JHN", "chapterStart": 13, "verseStart": 1, "verseEnd": 20 }
+    ]
+  },
+  {
+    "id": "lastsupper-3",
+    "section": "Última Ceia e Getsêmani",
+    "order": 138,
+    "title": "Judas identificado como traidor e se retira",
+    "references": [
+      { "book": "MAT", "chapterStart": 26, "verseStart": 21, "verseEnd": 25 },
+      { "book": "MRK", "chapterStart": 14, "verseStart": 18, "verseEnd": 21 },
+      { "book": "LUK", "chapterStart": 22, "verseStart": 21, "verseEnd": 23 },
+      { "book": "JHN", "chapterStart": 13, "verseStart": 21, "verseEnd": 30 }
+    ]
+  },
+  {
+    "id": "lastsupper-4",
+    "section": "Última Ceia e Getsêmani",
+    "order": 139,
+    "title": "Instituição da Ceia do Senhor",
+    "references": [
+      { "book": "MAT", "chapterStart": 26, "verseStart": 26, "verseEnd": 29 },
+      { "book": "MRK", "chapterStart": 14, "verseStart": 22, "verseEnd": 25 },
+      { "book": "LUK", "chapterStart": 22, "verseStart": 17, "verseEnd": 20 }
+    ]
+  },
+  {
+    "id": "lastsupper-5",
+    "section": "Última Ceia e Getsêmani",
+    "order": 140,
+    "title": "Jesus adverte sobre deserção — Pedro será negado",
+    "references": [
+      { "book": "MAT", "chapterStart": 26, "verseStart": 31, "verseEnd": 35 },
+      { "book": "MRK", "chapterStart": 14, "verseStart": 27, "verseEnd": 31 },
+      { "book": "LUK", "chapterStart": 22, "verseStart": 31, "verseEnd": 38 },
+      { "book": "JHN", "chapterStart": 13, "verseStart": 31, "verseEnd": 38 }
+    ]
+  },
+  {
+    "id": "lastsupper-6",
+    "section": "Última Ceia e Getsêmani",
+    "order": 141,
+    "title": "Discurso de despedida e oração sacerdotal de Jesus",
+    "references": [
+      { "book": "JHN", "chapterStart": 14, "verseStart": 1, "verseEnd": null }
+    ]
+  },
+  {
+    "id": "lastsupper-7",
+    "section": "Última Ceia e Getsêmani",
+    "order": 142,
+    "title": "A agonia no Getsêmani",
+    "references": [
+      { "book": "MAT", "chapterStart": 26, "verseStart": 30, "verseEnd": 46 },
+      { "book": "MRK", "chapterStart": 14, "verseStart": 26, "verseEnd": 42 },
+      { "book": "LUK", "chapterStart": 22, "verseStart": 39, "verseEnd": 46 },
+      { "book": "JHN", "chapterStart": 18, "verseStart": 1, "verseEnd": 1 }
+    ]
+  },
+  {
+    "id": "lastsupper-8",
+    "section": "Última Ceia e Getsêmani",
+    "order": 143,
+    "title": "Traição, prisão e abandono dos discípulos",
+    "references": [
+      { "book": "MAT", "chapterStart": 26, "verseStart": 47, "verseEnd": 56 },
+      { "book": "MRK", "chapterStart": 14, "verseStart": 43, "verseEnd": 52 },
+      { "book": "LUK", "chapterStart": 22, "verseStart": 47, "verseEnd": 53 },
+      { "book": "JHN", "chapterStart": 18, "verseStart": 2, "verseEnd": 12 }
+    ]
+  },
+  {
+    "id": "trial-1",
+    "section": "Julgamento e Crucificação",
+    "order": 144,
+    "title": "Primeiro interrogatório por Anás",
+    "references": [
+      { "book": "JHN", "chapterStart": 18, "verseStart": 12, "verseEnd": 23 }
+    ]
+  },
+  {
+    "id": "trial-2",
+    "section": "Julgamento e Crucificação",
+    "order": 145,
+    "title": "Julgamento diante de Caifás e do Conselho",
+    "references": [
+      { "book": "MAT", "chapterStart": 26, "verseStart": 57, "verseEnd": 68 },
+      { "book": "MRK", "chapterStart": 14, "verseStart": 53, "verseEnd": 65 },
+      { "book": "LUK", "chapterStart": 22, "verseStart": 54, "verseEnd": 65 },
+      { "book": "JHN", "chapterStart": 18, "verseStart": 24, "verseEnd": 24 }
+    ]
+  },
+  {
+    "id": "trial-3",
+    "section": "Julgamento e Crucificação",
+    "order": 146,
+    "title": "Pedro nega Jesus três vezes",
+    "references": [
+      { "book": "MAT", "chapterStart": 26, "verseStart": 58, "verseEnd": 75 },
+      { "book": "MRK", "chapterStart": 14, "verseStart": 54, "verseEnd": 72 },
+      { "book": "LUK", "chapterStart": 22, "verseStart": 54, "verseEnd": 62 },
+      { "book": "JHN", "chapterStart": 18, "verseStart": 15, "verseEnd": 27 }
+    ]
+  },
+  {
+    "id": "trial-4",
+    "section": "Julgamento e Crucificação",
+    "order": 147,
+    "title": "Condenação formal pelo Conselho",
+    "references": [
+      { "book": "MAT", "chapterStart": 27, "verseStart": 1, "verseEnd": 1 },
+      { "book": "MRK", "chapterStart": 15, "verseStart": 1, "verseEnd": 1 },
+      { "book": "LUK", "chapterStart": 22, "verseStart": 66, "verseEnd": 71 }
+    ]
+  },
+  {
+    "id": "trial-5",
+    "section": "Julgamento e Crucificação",
+    "order": 148,
+    "title": "Suicídio de Judas Iscariotes",
+    "references": [
+      { "book": "MAT", "chapterStart": 27, "verseStart": 3, "verseEnd": 10 }
+    ]
+  },
+  {
+    "id": "trial-6",
+    "section": "Julgamento e Crucificação",
+    "order": 149,
+    "title": "Primeira comparência diante de Pilatos",
+    "references": [
+      { "book": "MAT", "chapterStart": 27, "verseStart": 2, "verseEnd": 14 },
+      { "book": "MRK", "chapterStart": 15, "verseStart": 1, "verseEnd": 5 },
+      { "book": "LUK", "chapterStart": 23, "verseStart": 1, "verseEnd": 7 },
+      { "book": "JHN", "chapterStart": 18, "verseStart": 28, "verseEnd": 38 }
+    ]
+  },
+  {
+    "id": "trial-7",
+    "section": "Julgamento e Crucificação",
+    "order": 150,
+    "title": "Jesus diante de Herodes Antipas",
+    "references": [
+      { "book": "LUK", "chapterStart": 23, "verseStart": 6, "verseEnd": 12 }
+    ]
+  },
+  {
+    "id": "trial-8",
+    "section": "Julgamento e Crucificação",
+    "order": 151,
+    "title": "Segunda comparência diante de Pilatos — Sentença de morte",
+    "references": [
+      { "book": "MAT", "chapterStart": 27, "verseStart": 15, "verseEnd": 26 },
+      { "book": "MRK", "chapterStart": 15, "verseStart": 6, "verseEnd": 15 },
+      { "book": "LUK", "chapterStart": 23, "verseStart": 13, "verseEnd": 25 },
+      { "book": "JHN", "chapterStart": 18, "verseStart": 39, "verseEnd": null }
+    ]
+  },
+  {
+    "id": "trial-9",
+    "section": "Julgamento e Crucificação",
+    "order": 152,
+    "title": "Escárnio dos soldados romanos",
+    "references": [
+      { "book": "MAT", "chapterStart": 27, "verseStart": 27, "verseEnd": 30 },
+      { "book": "MRK", "chapterStart": 15, "verseStart": 16, "verseEnd": 19 }
+    ]
+  },
+  {
+    "id": "cross-1",
+    "section": "Julgamento e Crucificação",
+    "order": 153,
+    "title": "Caminho ao Calvário",
+    "references": [
+      { "book": "MAT", "chapterStart": 27, "verseStart": 31, "verseEnd": 34 },
+      { "book": "MRK", "chapterStart": 15, "verseStart": 20, "verseEnd": 23 },
+      { "book": "LUK", "chapterStart": 23, "verseStart": 26, "verseEnd": 33 },
+      { "book": "JHN", "chapterStart": 19, "verseStart": 16, "verseEnd": 17 }
+    ]
+  },
+  {
+    "id": "cross-2",
+    "section": "Julgamento e Crucificação",
+    "order": 154,
+    "title": "As primeiras três horas na cruz",
+    "references": [
+      { "book": "MAT", "chapterStart": 27, "verseStart": 35, "verseEnd": 44 },
+      { "book": "MRK", "chapterStart": 15, "verseStart": 24, "verseEnd": 32 },
+      { "book": "LUK", "chapterStart": 23, "verseStart": 33, "verseEnd": 43 },
+      { "book": "JHN", "chapterStart": 19, "verseStart": 18, "verseEnd": 27 }
+    ]
+  },
+  {
+    "id": "cross-3",
+    "section": "Julgamento e Crucificação",
+    "order": 155,
+    "title": "As últimas três horas na cruz — Morte de Jesus",
+    "references": [
+      { "book": "MAT", "chapterStart": 27, "verseStart": 45, "verseEnd": 50 },
+      { "book": "MRK", "chapterStart": 15, "verseStart": 33, "verseEnd": 37 },
+      { "book": "LUK", "chapterStart": 23, "verseStart": 44, "verseEnd": 46 },
+      { "book": "JHN", "chapterStart": 19, "verseStart": 28, "verseEnd": 30 }
+    ]
+  },
+  {
+    "id": "cross-4",
+    "section": "Julgamento e Crucificação",
+    "order": 156,
+    "title": "Eventos que acompanham a morte de Jesus",
+    "references": [
+      { "book": "MAT", "chapterStart": 27, "verseStart": 51, "verseEnd": 56 },
+      { "book": "MRK", "chapterStart": 15, "verseStart": 38, "verseEnd": 41 },
+      { "book": "LUK", "chapterStart": 23, "verseStart": 45, "verseEnd": 49 }
+    ]
+  },
+  {
+    "id": "cross-5",
+    "section": "Julgamento e Crucificação",
+    "order": 157,
+    "title": "Sepultamento de Jesus",
+    "references": [
+      { "book": "MAT", "chapterStart": 27, "verseStart": 57, "verseEnd": 60 },
+      { "book": "MRK", "chapterStart": 15, "verseStart": 42, "verseEnd": 46 },
+      { "book": "LUK", "chapterStart": 23, "verseStart": 50, "verseEnd": 54 },
+      { "book": "JHN", "chapterStart": 19, "verseStart": 31, "verseEnd": 37 }
+    ]
+  },
+  {
+    "id": "cross-6",
+    "section": "Julgamento e Crucificação",
+    "order": 158,
+    "title": "Túmulo selado e guardado",
+    "references": [
+      { "book": "MAT", "chapterStart": 27, "verseStart": 61, "verseEnd": 66 },
+      { "book": "LUK", "chapterStart": 23, "verseStart": 55, "verseEnd": 56 }
+    ]
+  },
+  {
+    "id": "res-1",
+    "section": "Ressurreição e Ascensão",
+    "order": 159,
+    "title": "Mulheres visitam o túmulo vazio",
+    "references": [
+      { "book": "MAT", "chapterStart": 28, "verseStart": 1, "verseEnd": 10 },
+      { "book": "MRK", "chapterStart": 16, "verseStart": 1, "verseEnd": 8 },
+      { "book": "LUK", "chapterStart": 24, "verseStart": 1, "verseEnd": 11 }
+    ]
+  },
+  {
+    "id": "res-2",
+    "section": "Ressurreição e Ascensão",
+    "order": 160,
+    "title": "Pedro e João correm ao túmulo",
+    "references": [
+      { "book": "LUK", "chapterStart": 24, "verseStart": 12, "verseEnd": 12 },
+      { "book": "JHN", "chapterStart": 20, "verseStart": 1, "verseEnd": 10 }
+    ]
+  },
+  {
+    "id": "res-3",
+    "section": "Ressurreição e Ascensão",
+    "order": 161,
+    "title": "Jesus aparece a Maria Madalena",
+    "references": [
+      { "book": "MRK", "chapterStart": 16, "verseStart": 9, "verseEnd": 11 },
+      { "book": "JHN", "chapterStart": 20, "verseStart": 11, "verseEnd": 18 }
+    ]
+  },
+  {
+    "id": "res-4",
+    "section": "Ressurreição e Ascensão",
+    "order": 162,
+    "title": "Jesus aparece às outras mulheres",
+    "references": [
+      { "book": "MAT", "chapterStart": 28, "verseStart": 9, "verseEnd": 10 }
+    ]
+  },
+  {
+    "id": "res-5",
+    "section": "Ressurreição e Ascensão",
+    "order": 163,
+    "title": "Relatório falso dos guardas do túmulo",
+    "references": [
+      { "book": "MAT", "chapterStart": 28, "verseStart": 11, "verseEnd": 15 }
+    ]
+  },
+  {
+    "id": "res-6",
+    "section": "Ressurreição e Ascensão",
+    "order": 164,
+    "title": "Jesus aparece a dois discípulos no caminho de Emaús",
+    "references": [
+      { "book": "MRK", "chapterStart": 16, "verseStart": 12, "verseEnd": 13 },
+      { "book": "LUK", "chapterStart": 24, "verseStart": 13, "verseEnd": 35 }
+    ]
+  },
+  {
+    "id": "res-7",
+    "section": "Ressurreição e Ascensão",
+    "order": 165,
+    "title": "Jesus aparece aos discípulos — Tomé ausente",
+    "references": [
+      { "book": "MRK", "chapterStart": 16, "verseStart": 14, "verseEnd": 14 },
+      { "book": "LUK", "chapterStart": 24, "verseStart": 36, "verseEnd": 43 },
+      { "book": "JHN", "chapterStart": 20, "verseStart": 19, "verseEnd": 25 }
+    ]
+  },
+  {
+    "id": "res-8",
+    "section": "Ressurreição e Ascensão",
+    "order": 166,
+    "title": "Jesus aparece aos discípulos — Tomé presente",
+    "references": [
+      { "book": "JHN", "chapterStart": 20, "verseStart": 26, "verseEnd": 31 }
+    ]
+  },
+  {
+    "id": "res-9",
+    "section": "Ressurreição e Ascensão",
+    "order": 167,
+    "title": "Jesus aparece a sete discípulos no Mar da Galileia",
+    "references": [
+      { "book": "JHN", "chapterStart": 21, "verseStart": 1, "verseEnd": 25 }
+    ]
+  },
+  {
+    "id": "res-10",
+    "section": "Ressurreição e Ascensão",
+    "order": 168,
+    "title": "A Grande Comissão",
+    "references": [
+      { "book": "MAT", "chapterStart": 28, "verseStart": 16, "verseEnd": 20 },
+      { "book": "MRK", "chapterStart": 16, "verseStart": 15, "verseEnd": 18 },
+      { "book": "LUK", "chapterStart": 24, "verseStart": 44, "verseEnd": 49 }
+    ]
+  },
+  {
+    "id": "res-11",
+    "section": "Ressurreição e Ascensão",
+    "order": 169,
+    "title": "A Ascensão de Jesus",
+    "references": [
+      { "book": "MRK", "chapterStart": 16, "verseStart": 19, "verseEnd": 20 },
+      { "book": "LUK", "chapterStart": 24, "verseStart": 50, "verseEnd": 53 }
+    ]
+  }
+]

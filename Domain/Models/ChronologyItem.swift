@@ -2,15 +2,16 @@
 //  ChronologyItem.swift
 //  BibleTimeline
 //
-//  Created by Higor  Lo Castro on 06/02/26.
+//  Created by Higor Lo Castro on 06/02/26.
 //
 
 import Foundation
 
 struct ChronologyItem: Identifiable, Hashable, Codable {
-    let id: String          // vem do JSON e não muda
+    let id: String
+    let section: String
+    let order: Int
     let title: String
-    let order: Int          // para ordenar cronologicamente
     let references: [ReferenceRange]
 }
 
@@ -29,12 +30,11 @@ extension ChronologyItem {
         guard let first = references.first else { return "" }
 
         if let v1 = first.verseStart, let v2 = first.verseEnd {
-            return "\(first.book) \(first.chapterNumber):\(v1)–\(v2)"
+            return "\(BookNameResolver.displayName(for: first.book)) \(first.chapterNumber):\(v1)–\(v2)"
         }
         if let v1 = first.verseStart {
-            return "\(first.book) \(first.chapterNumber):\(v1)"
+            return "\(BookNameResolver.displayName(for: first.book)) \(first.chapterNumber):\(v1)"
         }
-        return "\(first.book) \(first.chapterNumber)"
+        return "\(BookNameResolver.displayName(for: first.book)) \(first.chapterNumber)"
     }
 }
-
