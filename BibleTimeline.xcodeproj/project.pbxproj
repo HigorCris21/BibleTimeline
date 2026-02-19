@@ -89,14 +89,6 @@
 			);
 			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
 		};
-		EBAE54F62F3A84C500738FDD /* Exceptions for "App" folder in "BibleTimelineTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				BibleTimelineApp.swift,
-				RootTabView.swift,
-			);
-			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
-		};
 		EBAE54F72F3A84C500738FDD /* Exceptions for "Explore" folder in "BibleTimeline" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -135,16 +127,6 @@
 			);
 			target = EBB5BA4D2F35544A006185FF /* BibleTimeline */;
 		};
-		EBAE554B2F3A85C100738FDD /* Exceptions for "Home" folder in "BibleTimelineTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				View/Components/HeroHeader.swift,
-				View/Components/StartReadingCard.swift,
-				View/Components/VerseOfDayCard.swift,
-				ViewModel/HomeViewModel.swift,
-			);
-			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
-		};
 		EBD779942F3BEE4A00FE72BD /* Exceptions for "Search" folder in "BibleTimeline" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -158,6 +140,8 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Models/ChronologyItem.swift,
+				Navigation/ReadingRoute.swift,
+				Repositories/ChronologyLoading.swift,
 			);
 			target = EBB5BA5D2F35544C006185FF /* BibleTimelineTests */;
 		};
@@ -187,7 +171,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				EBAE54F52F3A84C500738FDD /* Exceptions for "App" folder in "BibleTimeline" target */,
-				EBAE54F62F3A84C500738FDD /* Exceptions for "App" folder in "BibleTimelineTests" target */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -220,7 +203,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				EBAE554A2F3A85C100738FDD /* Exceptions for "Home" folder in "BibleTimeline" target */,
-				EBAE554B2F3A85C100738FDD /* Exceptions for "Home" folder in "BibleTimelineTests" target */,
 			);
 			path = Home;
 			sourceTree = "<group>";
