@@ -68,26 +68,33 @@ struct ReadingView: View {
     @ViewBuilder
     private var content: some View {
         switch vm.state {
+       
         case .loading:
             ProgressView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-
+            
         case .loaded(let texts):
-            ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
-                    ForEach(texts.indices, id: \.self) { index in
-                        Text(stripVerseNumbers(texts[index]))
-                            .font(.system(size: 18))
-                            .foregroundStyle(Theme.primaryText)
-                            .lineSpacing(6)
-                            .multilineTextAlignment(.leading)
-                            .fixedSize(horizontal: false, vertical: true)
+            GeometryReader { geo in
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 20) {
+                        ForEach(texts.indices, id: \.self) { index in
+                            Text(stripVerseNumbers(texts[index]))
+                                .font(.system(size: 18))
+                                .foregroundStyle(Theme.primaryText)
+                                .lineSpacing(6)
+                                .multilineTextAlignment(.leading)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 22)
+                    .padding(.vertical, 28)
+                    .frame(minHeight: geo.size.height, alignment: .center)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 22)
-                .padding(.vertical, 28)
             }
+            
+            
+            
 
         case .error(let message):
             VStack(spacing: 12) {

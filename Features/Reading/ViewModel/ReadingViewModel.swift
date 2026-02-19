@@ -28,7 +28,7 @@ final class ReadingViewModel: ObservableObject {
     var currentEvent: ChronologyItem { eventsForPage(pageIndex).first ?? harmony[0] }
 
     // MARK: - Constants
-    private let pageSize = 4
+    private let pageSize = 5
 
     // MARK: - Dependencies
     private let harmony: [ChronologyItem]
