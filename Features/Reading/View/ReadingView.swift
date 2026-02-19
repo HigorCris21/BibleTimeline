@@ -2,8 +2,6 @@
 //  ReadingView.swift
 //  BibleTimeline
 //
-//  Created by Higor Lo Castro on 06/02/26.
-//
 
 import SwiftUI
 
@@ -68,17 +66,16 @@ struct ReadingView: View {
     @ViewBuilder
     private var content: some View {
         switch vm.state {
-       
         case .loading:
             ProgressView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
+
         case .loaded(let texts):
             GeometryReader { geo in
                 ScrollView {
                     VStack(alignment: .leading, spacing: 20) {
                         ForEach(texts.indices, id: \.self) { index in
-                            Text(stripVerseNumbers(texts[index]))
+                            Text(texts[index].strippingVerseNumbers())
                                 .font(.system(size: 18))
                                 .foregroundStyle(Theme.primaryText)
                                 .lineSpacing(6)
@@ -92,9 +89,6 @@ struct ReadingView: View {
                     .frame(minHeight: geo.size.height, alignment: .center)
                 }
             }
-            
-            
-            
 
         case .error(let message):
             VStack(spacing: 12) {
@@ -113,13 +107,5 @@ struct ReadingView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
         }
-    }
-
-    private func stripVerseNumbers(_ text: String) -> String {
-        let pattern = #"\[\d+\]\s*"#
-        guard let regex = try? NSRegularExpression(pattern: pattern) else { return text }
-        let range = NSRange(text.startIndex..., in: text)
-        return regex.stringByReplacingMatches(in: text, range: range, withTemplate: "")
-            .trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }

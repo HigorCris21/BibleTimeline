@@ -2,8 +2,6 @@
 //  BibleTextService.swift
 //  BibleTimeline
 //
-//  Created by Higor  Lo Castro on 06/02/26.
-//
 
 import Foundation
 
@@ -14,4 +12,5 @@ struct BibleTextResponse: Equatable {
 
 protocol BibleTextService {
     func fetchText(position: ReadingPosition) async throws -> BibleTextResponse
+    func fetchPassage(passageId: String) async throws -> String
 }

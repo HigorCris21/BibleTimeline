@@ -9,7 +9,7 @@ struct HomeView: View {
 
     let bibleTextService: BibleTextService
 
-    @StateObject private var viewModel = HomeViewModel()
+    @StateObject private var viewModel: HomeViewModel
     @State private var selectedIndex: Int?
 
     @AppStorage(AppStorageKeys.lastReadingEventId)
@@ -18,6 +18,11 @@ struct HomeView: View {
 
     init(bibleTextService: BibleTextService) {
         self.bibleTextService = bibleTextService
+        _viewModel = StateObject(
+            wrappedValue: HomeViewModel(
+                verseService: VerseOfDayService(bibleTextService: bibleTextService)
+            )
+        )
     }
 
     var body: some View {
@@ -75,7 +80,7 @@ private extension HomeView {
     func errorView(message: String) -> some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 12) {
-                Text("Nao foi possivel carregar a tela inicial")
+                Text("Não foi possível carregar a tela inicial")
                     .font(.headline)
                     .foregroundStyle(Theme.primaryText)
 
@@ -104,8 +109,8 @@ private extension HomeView {
             VStack(alignment: .leading, spacing: 18) {
 
                 HeroHeader(
-                    title: "Bom dia, Higor",
-                    subtitle: "Leia a Biblia em ordem cronologica, sem perder o fio da narrativa.",
+                    title: greeting,
+                    subtitle: "Leia a Bíblia em ordem cronológica, sem perder o fio da narrativa.",
                     ctaTitle: hasStarted ? "Continuar Leitura" : "Iniciar Leitura",
                     ctaIcon: hasStarted ? "play.circle.fill" : "book.circle.fill",
                     onTapCTA: {
@@ -115,10 +120,16 @@ private extension HomeView {
 
                 SectionTitle("Hoje")
 
-                VerseOfDayCard(
-                    reference: "Marcos 1:15",
-                    verse: "O tempo esta cumprido, e o reino de Deus esta proximo; arrependei-vos e crede no evangelho."
-                )
+                if let verse = viewModel.verseOfDay {
+                    VerseOfDayCard(
+                        reference: verse.reference,
+                        verse: verse.text
+                    )
+                } else {
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(Theme.surface.opacity(0.6))
+                        .frame(height: 120)
+                }
 
                 if hasStarted {
                     SectionTitle("Leitura")
@@ -153,5 +164,13 @@ private extension HomeView {
         guard hasStarted else { return 0 }
         return harmony.firstIndex { $0.id == lastReadingEventId } ?? 0
     }
+    
+    private var greeting: String {
+        let hour = Calendar.current.component(.hour, from: Date())
+        switch hour {
+        case 0..<12: return "Bom dia, Higor"
+        case 12..<18: return "Boa tarde, Higor"
+        default: return "Boa noite, Higor"
+        }
+    }
 }
-

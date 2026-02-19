@@ -1,13 +1,10 @@
+
 //
 //  VerseOfDayCard.swift
 //  BibleTimeline
 //
-//  Created by Higor  Lo Castro on 06/02/26.
-//
 
 import SwiftUI
-
-// MARK: - Verse of the Day
 
 struct VerseOfDayCard: View {
     let title: String
@@ -51,4 +48,3 @@ struct VerseOfDayCard: View {
         .appCard()
     }
 }
-

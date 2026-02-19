@@ -2,8 +2,7 @@
 //  APIBibleTextService.swift
 //  BibleTimeline
 //
-//  Created by Higor  Lo Castro on 10/02/26.
-//
+
 import Foundation
 
 struct APIBibleTextService: BibleTextService {
@@ -26,16 +25,28 @@ struct APIBibleTextService: BibleTextService {
     }
 
     func fetchText(position: ReadingPosition) async throws -> BibleTextResponse {
-
         #if DEBUG
         debugPrint("📖 API Bible →", position.book, position.chapter)
         #endif
 
-        let request = try endpoints.makePassageRequest(
-            position: position,
-            config: config
-        )
+        let request = try endpoints.makePassageRequest(position: position, config: config)
+        let content = try await perform(request: request)
 
+        return BibleTextResponse(reference: position.title, text: content)
+    }
+
+    func fetchPassage(passageId: String) async throws -> String {
+        #if DEBUG
+        debugPrint("📖 API Bible → passageId:", passageId)
+        #endif
+
+        let request = try endpoints.makePassageRequestById(passageId: passageId, config: config)
+        return try await perform(request: request)
+    }
+
+    // MARK: - Privado
+
+    private func perform(request: URLRequest) async throws -> String {
         do {
             let (data, response) = try await http.data(for: request)
 
@@ -44,12 +55,7 @@ struct APIBibleTextService: BibleTextService {
                 throw APIBibleError.httpStatus(code: response.statusCode, body: body)
             }
 
-            let content = try decoder.decodeContent(from: data)
-
-            return BibleTextResponse(
-                reference: position.title,
-                text: content
-            )
+            return try decoder.decodeContent(from: data)
 
         } catch let error as APIBibleError {
             throw error
